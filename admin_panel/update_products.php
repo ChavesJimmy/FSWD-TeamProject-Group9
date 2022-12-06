@@ -13,7 +13,12 @@ if ($_GET['id']) {
         $description = $data['description'];
         $type = $data['type'];
         $available = $data ['availability'];
-        $discount = $discount ['fk_discount'];
+        if($available == true){
+            $available = "available";
+        }else{
+            $available='not available';
+        };
+        $discount = $data ['fk_discount'];
     } else {
         header("location: error.php");
     }
@@ -34,8 +39,8 @@ if ($_GET['id']) {
 
 <body>
     <fieldset>
-        <legend class='h2'>Add Product</legend>
-        <form action="actions/a_uodate.php" method="post" enctype="multipart/form-data">
+        <legend class='h2'>Update => "<?= $name?>"</legend>
+        <form action="actions/a_update_product.php" method="post" enctype="multipart/form-data">
             <table class='table'>
                 <tr>
                     <th>Name</th>
@@ -43,24 +48,25 @@ if ($_GET['id']) {
                 </tr>
                 <tr>
                     <th>Price</th>
-                    <td><input class='form-control' type="number" name="price" placeholder="Price" step="any" /></td>
+                    <td><input class='form-control' type="number" name="price" placeholder="Price" step="any" value="<?= $price ?>" /></td>
                 </tr>
                 <tr>
                     <th>Picture</th>
-                    <td><input class='form-control' type="text" name="picture" /></td>
+                    <td><input class='form-control' type="text" name="picture" value="<?= $picture ?>"  /></td>
                 </tr>
                 <tr>
                     <th>description</th>
-                    <td><textarea class='form-control' name="description" id="description" cols="30" rows="10"></textarea></td>
+                    <td><textarea class='form-control' name="description" id="description" cols="30" rows="10"><?= $description ?>" </textarea></td>
                 </tr>
 
                 <tr>
                     <th>Type</th>
                     <td>
                         <select class="form-select" name="type" aria-label="Default select example">
-                            <option selected value='Food supplements'>Food Supplements</option>
-                            <option selected value='Materials'>Materials</option>
-                            <option selected value='Others'>Others</option>
+                            <option value="<?= $type ?>" ><?= $type?></option>
+                            <option value='Food supplements'>Food Supplements</option>
+                            <option value='Materials'>Materials</option>
+                            <option value='Others'>Others</option>
                         </select>
                     </td>
                 </tr>
@@ -68,25 +74,26 @@ if ($_GET['id']) {
                     <th>Availability</th>
                     <td>
                         <select class="form-select" name="availability" aria-label="Default select example">
-                            <option selected value='true'>Available</option>
-                            <option selected value='false'>Not available</option>
+                            <option selected value="<?= $available ?>" ><?= $available ?></option>
+                            <option  value='true'>Available</option>
+                            <option  value='false'>Not available</option>
                         </select>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <th>Discount</th>
                     <td>
                         <select class="form-select" name="fk_discount" aria-label="Default select example">
                             <option selected value='none'>No discount</option>
-                            <option selected value='<?= $discount ?>'><?= $discount ?></option>
-                            <option selected value='Others'>Others</option>
+                             discount need to be updated
+                            <option  value='$discount'>to update</option>
                         </select>
                     </td>
-                </tr>
+                </tr> -->
                 <input type= "hidden" name= "id" value= "<?php echo $data['id'] ?>" />
 
                 <tr>
-                    <td><button class='btn btn-success' type="submit">Insert Product</button></td>
+                    <td><button class='btn btn-success' type="submit">Update</button></td>
                     <td><a href="index.php"><button class='btn btn-warning' type="button">Home</button></a></td>
                 </tr>
             </table>

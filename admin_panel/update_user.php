@@ -32,43 +32,22 @@ if ($_GET['id']) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once '../components/boot.php' ?>
-    <title>Add Product</title>
+    <title>Edit User Infos</title>
 </head>
 
 <body>
     <fieldset>
-        <legend class='h2'> Update User</legend>
-        <form action="actions/a_uodate.php" method="post" enctype="multipart/form-data">
+        <legend class='h2'> Update User infos</legend>
+        <form action="actions/a_update_user.php" method="post" enctype="multipart/form-data">
             <table class='table'>
                 <tr>
                     <th>User Name</th>
                     <td><input class='form-control' type="text" name="user_name" placeholder="Product Name" value="<?= $user_name ?>" /></td>
                 </tr>
                 <tr>
-                    <th>First Name</th>
-                    <td><input class='form-control' type="text" name="first_name" placeholder="Product Name" value="<?= $first_name ?>" /></td>
-                </tr>                
-                <tr>
-                    <th>Last Name</th>
-                    <td><input class='form-control' type="text" name="last_name" placeholder="Product Name" value="<?= $last_name ?>" /></td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td><input class='form-control' type="text" name="email" value="<?= $email ?>" /></td>
-                </tr>
-                <tr>
-                    <th>Address</th>
-                    <td><input class='form-control' type="text" name="address" value="<?= $address ?>" /></td>
-                </tr>
-                <tr>
                     <th>Photo</th>
                     <td><input class='form-control' type="text" name="photo" value="<?= $photo ?>" /></td>
                 </tr>
-                <tr>
-                    <th>Birth_date</th>
-                    <td><input type="date" name="birth_date" id="" value="<?= $birth_date ?>"></td>
-                </tr>
-
                 <tr>
                     <th>Status</th>
                     <td>
@@ -92,8 +71,9 @@ if ($_GET['id']) {
                 <input type= "hidden" name= "id" value= "<?php echo $data['id'] ?>" />
 
                 <tr>
-                    <td><button class='btn btn-success' type="submit">Insert Product</button></td>
+                    <td><button class='btn btn-success' type="submit">Update</button></td>
                     <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
+                    <td><a href="">delete user</a></td>
                 </tr>
             </table>
         </form>
