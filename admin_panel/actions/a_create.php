@@ -19,10 +19,11 @@ if ($_POST) {
     $description = $_POST['description'];
     $price = $_POST['price'];
     $type = $_POST['type'];
+    $fk_discount = $_POST['fk_discount'];
     $availability = $_POST['availability'];
     echo $availability;
 
-    $sql = "INSERT INTO products(name, picture, description, price, type, availability) VALUES('$name', '$picture', '$description', '$price', '$type', '$availability')";
+    $sql = "INSERT INTO products(name, picture, description, price, type, availability, fk_discount) VALUES('$name', '$picture', '$description', '$price', '$type', '$availability', $fk_discount)";
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";

@@ -1,6 +1,12 @@
 <?php 
 require_once '../components//db_connect.php';
 
+$discount="";
+$resultdiscount = mysqli_query($connect, "SELECT * FROM discount");
+while ($row = $resultdiscount->fetch_array(MYSQLI_ASSOC)) {
+    $discount .=
+        "<option value='{$row['id']}'>{$row['discount']}</option>";
+  }
 if ($_GET['id']) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM products WHERE id = {$id}";
@@ -13,6 +19,7 @@ if ($_GET['id']) {
         $description = $data['description'];
         $type = $data['type'];
         $available = $data ['availability'];
+        $discount = $data['fk_discount'];
         if($available == true){
             $available = "available";
         }else{
@@ -49,6 +56,15 @@ if ($_GET['id']) {
                 <tr>
                     <th>Price</th>
                     <td><input class='form-control' type="number" name="price" placeholder="Price" step="any" value="<?= $price ?>" /></td>
+                </tr>
+                <tr>
+                    <th>Discount</th>
+                    <td>
+                        <select class="form-select" name="fk_discount" aria-label="Default select example">
+                            <option selected value='<?= $discount?>'>no discount</option>
+                            <?= $discount ?>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <th>Picture</th>
