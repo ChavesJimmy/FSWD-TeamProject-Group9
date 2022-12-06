@@ -1,5 +1,6 @@
 <?php 
 require_once '../components//db_connect.php';
+
 if ($_GET['id']) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM products WHERE id = {$id}";
