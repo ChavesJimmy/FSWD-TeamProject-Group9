@@ -11,7 +11,12 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
     header("Location: ../index.php");
     exit;
 } */
-
+$discount="";
+$result = mysqli_query($connect, "SELECT * FROM discount");
+while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+    $discount .=
+        "<option value='{$row['id']}'>{$row['discount']}</option>";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +45,15 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
                 <tr>
                     <th>Picture</th>
                     <td><input class='form-control' type="text" name="picture" /></td>
+                </tr>
+                <tr>
+                    <th>Discount</th>
+                    <td>
+                        <select class="form-select" name="fk_discount" aria-label="Default select example">
+                            <option selected value='none'>no discount</option>
+                            <?= $discount ?>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <th>description</th>
