@@ -1,23 +1,16 @@
 <?php
-/*session_start(); // start a new session or continues the previous
+/*session_start(); 
 if (isset($_SESSION['user']) != "") {
-  header("Location: home.php"); // redirects to home.php
+  header("Location: login.php");
 }
 if (isset($_SESSION['adm']) != "") {
-  header("Location: dashboard.php"); // redirects to home.php
+  header("Location: dashboard.php"); 
 } */
 require_once 'components/db_connect.php';
-require_once 'components/file_upload.php';
 $error = false;
-$fname = $lname = $email = $date_of_birth = $pass = $picture = '';
-$fnameError = $lnameError = $emailError = $dateError = $passError = $picError = '';
+$user_name = $first_name = $last_name = $address = $email = $birth_date = $password = $photo = '';
+$user_nameError =  $nameError = $addressError = $emailError = $birth_dateError = $passwordError = $photoError = '';
 if (isset($_POST['btn-signup'])) {
-
-
-    `address` varchar(255) NOT NULL,
-    `photo` varchar(255) DEFAULT NULL,
-    `status` enum('USER','ADMIN') NOT NULL,
-    `user_allowed` enum('allowed','banned') DEFAULT NULL
 
     $user_name = trim($_POST['user_name']);
     $user_name = strip_tags($user_name);
@@ -31,6 +24,10 @@ if (isset($_POST['btn-signup'])) {
     $last_name = strip_tags($last_name);
     $last_name = htmlspecialchars($last_name);
 
+    $address = trim($_POST['address']);
+    $address = strip_tags($address);
+    $address = htmlspecialchars($address);
+
     $email = trim($_POST['email']);
     $email = strip_tags($email);
     $email = htmlspecialchars($email);
@@ -39,27 +36,26 @@ if (isset($_POST['btn-signup'])) {
     $birth_date = strip_tags($birth_date);
     $birth_date = htmlspecialchars($birth_date);
 
-    $pass = trim($_POST['pass']);
-    $pass = strip_tags($pass);
-    $pass = htmlspecialchars($pass);
+    $password = trim($_POST['password']);
+    $password = strip_tags($password);
+    $password = htmlspecialchars($password);
 
 
 
 
 
-  $uploadError = '';
-  $picture = file_upload($_FILES['picture']);
+ 
 
   // basic name validation
-  if (empty($fname) || empty($lname)) {
+  if (empty($first_name) || empty($last_name)) {
       $error = true;
-      $fnameError = "Please enter your full name and surname";
-  } else if (strlen($fname) < 3 || strlen($lname) < 3) {
+      $nameError = "Please enter your full name and surname";
+  } else if (strlen($first_name) < 3 || strlen($last_name) < 3) {
       $error = true;
-      $fnameError = "Name and surname must have at least 3 characters.";
-  } else if (!preg_match("/^[a-zA-Z]+$/", $fname) || !preg_match("/^[a-zA-Z]+$/", $lname)) {
+      $nameError = "Name and surname must have at least 3 characters.";
+  } else if (!preg_match("/^[a-zA-Z]+$/", $first_name) || !preg_match("/^[a-zA-Z]+$/", $last_name)) {
       $error = true;
-      $fnameError = "Name and surname must contain only letters and no spaces.";
+      $nameError = "Name and surname must contain only letters and no spaces.";
   }
 
   // basic email validation
@@ -77,38 +73,36 @@ if (isset($_POST['btn-signup'])) {
       }
   }
   // checks if the date input was left empty
-  if (empty($date_of_birth)) {
+  if (empty($birth_date)) {
       $error = true;
-      $dateError = "Please enter your date of birth.";
+      $birth_dateError = "Please enter your date of birth.";
   }
   // password validation
-  if (empty($pass)) {
+  if (empty($password)) {
       $error = true;
-      $passError = "Please enter password.";
-  } else if (strlen($pass) < 6) {
+      $passwordError = "Please enter password.";
+  } else if (strlen($password) < 6) {
       $error = true;
-      $passError = "Password must have at least 6 characters.";
+      $passwordError = "Password must have at least 6 characters.";
   }
 
-  // password hashing for security
-  $password = hash('sha256', $pass);
-  // if there's no error, continue to signup
+  $password = hash('sha256', $password);
   if (!$error) {
 
-      $query = "INSERT INTO users(first_name, last_name, password, date_of_birth, email, picture)
-                VALUES('$fname', '$lname', '$password', '$date_of_birth', '$email', '$picture->fileName')";
-      $res = mysqli_query($connect, $query);
+    $query = "INSERT INTO users(user_name, first_name, last_name, password, email, address, birth_date)
+              VALUES('$user_name', '$first_name', '$last_name', '$password', '$email', '$address', '$birth_date')";
+    $res = mysqli_query($connect, $query);
 
-      if ($res) {
-          $errTyp = "success";
-          $errMSG = "Successfully registered, you may login now";
-          $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
-      } else {
-          $errTyp = "danger";
-          $errMSG = "Something went wrong, try again later...";
-          $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
-      }
-  }
+    if ($res) {
+        $errTyp = "success";
+        $errMSG = "Successfully registered, you may login now";
+    //    $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
+    } else {
+        $errTyp = "danger";
+        $errMSG = "Something went wrong, try again later...";
+     //   $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
+    }
+}
 }
 
 mysqli_close($connect);
@@ -134,34 +128,39 @@ mysqli_close($connect);
           ?>
               <div class="alert alert-<?php echo $errTyp ?>">
                   <p><?php echo $errMSG; ?></p>
-                  <p><?php echo $uploadError; ?></p>
               </div>
 
           <?php
           }
           ?>
 
-          <input type="text" name="fname" class="form-control" placeholder="First name" maxlength="50" value="<?php echo $fname ?>" />
-          <span class="text-danger"> <?php echo $fnameError; ?> </span>
+            <input type="text" name="user_name" class="form-control" placeholder="User name" maxlength="50" value="<?php echo $user_name ?>" />
+            <span class="text-danger"> <?php echo $user_nameError; ?> </span>
 
-          <input type="text" name="lname" class="form-control" placeholder="Surname" maxlength="50" value="<?php echo $lname ?>" />
-          <span class="text-danger"> <?php echo $fnameError; ?> </span>
+          <input type="text" name="first_name" class="form-control" placeholder="First name" maxlength="50" value="<?php echo $first_name ?>" />
+          <span class="text-danger"> <?php echo $nameError; ?> </span>
+
+          <input type="text" name="last_name" class="form-control" placeholder="Surname" maxlength="50" value="<?php echo $last_name ?>" />
+          <span class="text-danger"> <?php echo $nameError; ?> </span>
+
+          
+          <input type="text" name="address" class="form-control" placeholder="Address" maxlength="50" value="<?php echo $address?>" />
+          <span class="text-danger"> <?php echo $addressError; ?> </span>
 
           <input type="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40" value="<?php echo $email ?>" />
           <span class="text-danger"> <?php echo $emailError; ?> </span>
-          <div class="d-flex">
-              <input class='form-control w-50' type="date" name="date_of_birth" value="<?php echo $date_of_birth ?>" />
-              <span class="text-danger"> <?php echo $dateError; ?> </span>
+        
+         <input class='form-control w-50' type="date" name="birth_date" value="<?php echo $birth_date ?>" />
+        <span class="text-danger"> <?php echo $birth_dateError; ?> </span>
 
-              <input class='form-control w-50' type="file" name="picture">
-              <span class="text-danger"> <?php echo $picError; ?> </span>
-          </div>
-          <input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
-          <span class="text-danger"> <?php echo $passError; ?> </span>
+              
+
+          <input type="password" name="password" class="form-control" placeholder="Enter Password" maxlength="15" />
+          <span class="text-danger"> <?php echo $passwordError; ?> </span>
           <hr />
           <button type="submit" class="btn btn-block btn-primary" name="btn-signup">Sign Up</button>
           <hr />
-          <a href="index.php">Sign in Here...</a>
+          <a href="login.php">Sign in Here...</a>
       </form>
   </div>
 </body>
