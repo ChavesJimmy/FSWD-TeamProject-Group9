@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
             <td><img class='img-thumbnail rounded-circle' src='" . $row2['photo'] . "'></td>
             <td>" . $row2['user_name'] . "</td>
             <td><a href='update_user.php?id=" . $row2['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
-            <a href='delete_product.php?id=" . $row2['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a></td>
+            <a href='delete_user.php?id=" . $row2['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a></td>
          </tr>";
     }
 } else {
@@ -41,11 +41,12 @@ if ($result_products->num_rows > 0) {
     while ($row = $result_products->fetch_array(MYSQLI_ASSOC)) {
         $tbody .= "<tr>
             <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
+            <td>" . $row['id'] . "</td>
             <td>" . $row['name'] . "</td>
             <td>" . $row['price'] . "</td>
-            <td><a href='update_product.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
+            <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
             <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
-            <a href='sale_statistic.php?id'>Sales</a>
+            <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
             </td>
          </tr>";
     }
