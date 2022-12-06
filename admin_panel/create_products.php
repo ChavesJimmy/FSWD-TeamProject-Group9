@@ -57,8 +57,17 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
                     </td>
                 </tr>
                 <tr>
+                    <th>Available ?</th>
+                    <td>
+                        <select class="form-select" name="availability" aria-label="Default select example">
+                            <option selected value='true'>YES</option>
+                            <option  value='false'>NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td><button class='btn btn-success' type="submit">Insert Product</button></td>
-                    <td><a href="index.php"><button class='btn btn-warning' type="button">Home</button></a></td>
+                    <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
                 </tr>
             </table>
         </form>

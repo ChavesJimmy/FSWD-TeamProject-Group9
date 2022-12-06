@@ -91,6 +91,8 @@ if ($result_products->num_rows > 0) {
             <p class="text-white">Hi <?php /* echo $row['first_name']; */ ?></p>
         </div>
         <a href="../logout.php?logout">Sign Out</a> <br>
+        <a href="create_products.php">Add new product</a> <br>
+
     </div>
     <h1>products list</h1>
     <table class='table table-striped'>
