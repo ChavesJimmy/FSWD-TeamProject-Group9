@@ -46,7 +46,7 @@ if ($result_products->num_rows > 0) {
             <td>" . $row['price'] . "</td>
             <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
             <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
-            <a href='sale_statistic.php?id'>Sales</a>
+            <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
             </td>
          </tr>";
     }

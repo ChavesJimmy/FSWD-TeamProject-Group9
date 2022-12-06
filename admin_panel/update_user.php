@@ -73,7 +73,7 @@ if ($_GET['id']) {
                 <tr>
                     <td><button class='btn btn-success' type="submit">Update</button></td>
                     <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
-                    <td><a href="">delete user</a></td>
+                    <td><a href="delete_user.php?id=<?=$id?>"> delete user </a></td>
                 </tr>
             </table>
         </form>

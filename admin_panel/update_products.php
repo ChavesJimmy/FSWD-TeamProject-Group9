@@ -94,7 +94,10 @@ if ($_GET['id']) {
 
                 <tr>
                     <td><button class='btn btn-success' type="submit">Update</button></td>
-                    <td><a href="index.php"><button class='btn btn-warning' type="button">Home</button></a></td>
+
+                    <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
+                    <td><a href="delete_product.php?id=<?php echo $data['id'] ?>">Delete</a></td>
+
                 </tr>
             </table>
         </form>
