@@ -1,7 +1,7 @@
 <?php
-session_start();
+/* session_start(); */
 require_once 'components/db_connect.php';
-
+/*
 if (isset($_SESSION['user'])) {
     header("Location: home.php");
     exit;
@@ -10,7 +10,7 @@ if (isset($_SESSION['user'])) {
 if (isset($_SESSION['adm'])) {
     header("Location: dashboard.php");
     exit;
-}
+} */
 
 $error = false;
 $email = $password = $emailError = $passError = '';

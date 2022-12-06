@@ -142,6 +142,7 @@ CREATE TABLE `review_answer` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `user_name` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
