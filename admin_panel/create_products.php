@@ -43,7 +43,7 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
                 </tr>
                 <tr>
                     <th>description</th>
-                    <td><textarea name="description" id="description" cols="30" rows="10"></textarea></td>
+                    <td><textarea class='form-control' name="description" id="description" cols="30" rows="10"></textarea></td>
                 </tr>
 
                 <tr>
