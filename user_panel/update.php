@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../components/db_connect.php';
-require_once '../components/file_upload.php';
+// require_once '../components/file_upload.php';
 
 
 // if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
