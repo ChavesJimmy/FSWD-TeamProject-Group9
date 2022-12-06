@@ -2,23 +2,16 @@
 session_start();
 require_once '../components/db_connect.php';
 
-if (isset($_SESSION['user']) != "") {
+/* if (isset($_SESSION['USER']) != "") {
     header("Location: ../home.php");
     exit;
 }
 
-if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
+if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
     header("Location: ../index.php");
     exit;
-}
+} */
 
-$suppliers = "";
-$result = mysqli_query($connect, "SELECT * FROM suppliers");
-
-while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-    $suppliers .=
-        "<option value='{$row['supplierId']}'>{$row['sup_name']}</option>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -28,14 +21,7 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once '../components/boot.php' ?>
-    <title>PHP CRUD | Add Product</title>
-    <style>
-        fieldset {
-            margin: auto;
-            margin-top: 100px;
-            width: 60%;
-        }
-    </style>
+    <title>Add Product</title>
 </head>
 
 <body>
@@ -57,15 +43,16 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                 </tr>
                 <tr>
                     <th>description</th>
-                    <td><input class='form-control' type="text" name="description" /></td>
+                    <td><textarea name="description" id="description" cols="30" rows="10"></textarea></td>
                 </tr>
 
                 <tr>
                     <th>Type</th>
                     <td>
-                        <select class="form-select" name="supplier" aria-label="Default select example">
-                            <?php echo $type; ?>
-                            <option selected value='none'>Undefined</option>
+                        <select class="form-select" name="type" aria-label="Default select example">
+                            <option selected value='Food supplements'>Food Supplements</option>
+                            <option selected value='Materials'>Materials</option>
+                            <option selected value='Others'>Others</option>
                         </select>
                     </td>
                 </tr>
