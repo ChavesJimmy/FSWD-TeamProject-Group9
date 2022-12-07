@@ -39,19 +39,18 @@ $tbody = "";
 if ($result_products->num_rows > 0) {
     while ($row = $result_products->fetch_array(MYSQLI_ASSOC)) {
                 $sql_discount = "SELECT * FROM discount 
-                JOIN products ON products.id = discount.id
-                WHERE products.fk_discount";
+                JOIN products ON products.fk_discount=discount.id";
                 $result_discount = mysqli_query($connect, $sql_discount);
                 $discount = $result_discount->fetch_array(MYSQLI_ASSOC);
             
-                if($row['fk_discount'] > 0){
+                if($row['Discount'] > 0){
                     //need to work on the discount formula to get the value of discount
                 $tbody .= "<tr>
                     <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
                     <td>" . $row['name'] . "</td>
                     <td>" . $row['price'] . "</td>
-                    <td>" . $row['fk_discount'] ." </td>
-                    <td>" . $row['price']/$row['fk_discount']."</td>
+                    <td>" . $row['Discount'] ." </td>
+                    <td>" . $row['price']-($row['Discount']*$row['price']/100). "</td>
                     <td>".$row['displ']."</td>
                     <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
                     <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
@@ -60,7 +59,8 @@ if ($result_products->num_rows > 0) {
                     <td>
                     <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Reviews</button></a>
                     </td>
-                 </tr>";}
+                 </tr>";} 
+                 
                  else{
                     $tbody .= "<tr>
                     <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
@@ -77,7 +77,7 @@ if ($result_products->num_rows > 0) {
                     <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Reviews</button></a>
                     </td>
                  </tr>";
-                 }
+                 }echo $row['fk_discount'];
             }
         } else {
             $tbody = "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
@@ -135,9 +135,9 @@ if ($result_products->num_rows > 0) {
                         <tr>
                             <th>Picture</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>Discount</th>
-                            <th>Discounted price</th>
+                            <th>Price(EUR)</th>
+                            <th>Discount(%)</th>
+                            <th>Discounted price(EUR)</th>
                             <th>Displayed?</th>
                             <th>Action</th>
                             <th>See reviews</th>

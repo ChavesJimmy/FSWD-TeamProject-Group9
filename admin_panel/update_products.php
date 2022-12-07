@@ -14,19 +14,12 @@ if ($_GET['id']) {
         $description = $data['description'];
         $type = $data['type'];
         $available = $data ['availability'];
-        $discount = $data['fk_discount'];
+        $discount = $data['Discount'];
         if($available == true){
             $available = "available";
         }else{
             $available='not available';
         };
-        //implement discount option
-        $discount="";
-        $resultdiscount = mysqli_query($connect, "SELECT * FROM discount");
-        while ($row = $resultdiscount->fetch_array(MYSQLI_ASSOC)) {
-        $discount .=
-        "<option value='".$row['id']."'>".$row['discount']."</option>";
-}
   
     } else {
         header("location: error.php");
@@ -62,9 +55,17 @@ if ($_GET['id']) {
                 <tr>
                     <th>Discount (%)</th>
                     <td>
-                        <select class="form-select" name="fk_discount">
-                            <option selected value='NULL'>no discount</option>
-                            <?= $discount ?>
+                        <select class="form-select" name="Discount">
+                        <option selected value='<?=$discount?>'><?= $discount?>%</option>
+                            <option value=''>no discount</option>
+                            <option  value='5'>5 %</option>
+                            <option  value='10'>10 %</option>
+                            <option  value='15'>15%</option>
+                            <option  value='20'>20%</option>
+                            <option  value='25'>25%</option>
+                            <option  value='30'>30%</option>
+                            <option  value='40'>40%</option>
+                            <option  value='50'>50%</option>
                         </select>
                     </td>
                 </tr>

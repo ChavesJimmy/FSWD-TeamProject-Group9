@@ -11,12 +11,7 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
     header("Location: ../index.php");
     exit;
 } */
-$discount="";
-$result = mysqli_query($connect, "SELECT * FROM discount");
-while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-    $discount .=
-        "<option value='{$row['id']}'>{$row['discount']}</option>";
-  }
+
 ?>
 
 <!DOCTYPE html>
@@ -49,9 +44,17 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                 <tr>
                     <th>Discount</th>
                     <td>
-                        <select class="form-select" name="fk_discount" aria-label="Default select example">
-                            <option selected value='NULL'>no discount</option>
-                            <?= $discount ?>
+                        <select class="form-select" name="Discount" aria-label="Default select example">
+                            <option selected value=''>no discount</option>
+                            <option  value='5'>5 %</option>
+                            <option  value='10'>10 %</option>
+                            <option  value='15'>15%</option>
+                            <option  value='20'>20%</option>
+                            <option  value='25'>25%</option>
+                            <option  value='30'>30%</option>
+                            <option  value='40'>40%</option>
+                            <option  value='50'>50%</option>
+
                         </select>
                     </td>
                 </tr>
