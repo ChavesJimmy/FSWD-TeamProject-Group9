@@ -1,12 +1,7 @@
 <?php 
 require_once '../components//db_connect.php';
 
-$discount="";
-$resultdiscount = mysqli_query($connect, "SELECT * FROM discount");
-while ($row = $resultdiscount->fetch_array(MYSQLI_ASSOC)) {
-    $discount .=
-        "<option value='{$row['id']}'>{$row['discount']}</option>";
-  }
+
 if ($_GET['id']) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM products WHERE id = {$id}";
@@ -25,7 +20,14 @@ if ($_GET['id']) {
         }else{
             $available='not available';
         };
-        $discount = $data ['fk_discount'];
+        //implement discount option
+        $discount="";
+        $resultdiscount = mysqli_query($connect, "SELECT * FROM discount");
+        while ($row = $resultdiscount->fetch_array(MYSQLI_ASSOC)) {
+        $discount .=
+        "<option value='".$row['id']."'>".$row['discount']."</option>";
+}
+  
     } else {
         header("location: error.php");
     }
@@ -54,14 +56,14 @@ if ($_GET['id']) {
                     <td><input class='form-control' type="text" name="name" placeholder="Product Name" value="<?= $name ?>" /></td>
                 </tr>
                 <tr>
-                    <th>Price</th>
+                    <th>Price (EUR)</th>
                     <td><input class='form-control' type="number" name="price" placeholder="Price" step="any" value="<?= $price ?>" /></td>
                 </tr>
                 <tr>
-                    <th>Discount</th>
+                    <th>Discount (%)</th>
                     <td>
-                        <select class="form-select" name="fk_discount" aria-label="Default select example">
-                            <option selected value='<?= $discount?>'>no discount</option>
+                        <select class="form-select" name="fk_discount">
+                            <option selected value='NULL'>no discount</option>
                             <?= $discount ?>
                         </select>
                     </td>
@@ -96,16 +98,16 @@ if ($_GET['id']) {
                         </select>
                     </td>
                 </tr>
-                <!-- <tr>
-                    <th>Discount</th>
+                <tr>
+                    <th>Sould be displayed on the website?</th>
                     <td>
-                        <select class="form-select" name="fk_discount" aria-label="Default select example">
-                            <option selected value='none'>No discount</option>
-                             discount need to be updated
-                            <option  value='$discount'>to update</option>
+                        <select class="form-select" name="displ" aria-label="Default select example">
+                            <option selected value='yes'>YES</option>
+                            <option  value='no'>NO</option>
                         </select>
                     </td>
-                </tr> -->
+                </tr>
+
                 <input type= "hidden" name= "id" value= "<?php echo $data['id'] ?>" />
 
                 <tr>

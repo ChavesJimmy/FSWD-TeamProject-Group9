@@ -38,8 +38,6 @@ $tbody = "";
 
 if ($result_products->num_rows > 0) {
     while ($row = $result_products->fetch_array(MYSQLI_ASSOC)) {
-        if ($result_products->num_rows > 0) {
-            while ($row = $result_products->fetch_array(MYSQLI_ASSOC)) {
                 $sql_discount = "SELECT * FROM discount 
                 JOIN products ON products.id = discount.id
                 WHERE products.fk_discount";
@@ -47,7 +45,7 @@ if ($result_products->num_rows > 0) {
                 $discount = $result_discount->fetch_array(MYSQLI_ASSOC);
             
                 if($row['fk_discount'] > 0){
-                    //need to work on the discount formula to get the value of 
+                    //need to work on the discount formula to get the value of discount
                 $tbody .= "<tr>
                     <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
                     <td>" . $row['name'] . "</td>
@@ -58,6 +56,9 @@ if ($result_products->num_rows > 0) {
                     <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
                     <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
                     <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
+                    </td>
+                    <td>
+                    <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Reviews</button></a>
                     </td>
                  </tr>";}
                  else{
@@ -72,9 +73,12 @@ if ($result_products->num_rows > 0) {
                     <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
                     <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
                     </td>
+                    <td>
+                    <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Reviews</button></a>
+                    </td>
                  </tr>";
                  }
-            }}}
+            }
         } else {
             $tbody = "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
         }
@@ -117,6 +121,13 @@ if ($result_products->num_rows > 0) {
 
 <body>
     <?php require_once "../components/navbar_admin.php" ?>
+    <div>
+        <h3>Sort by type:</h3>
+        <a href="type.php?type='Others'">Others</a>
+        <a href="type.php?type='Food%20Supplements'">Food supplements</a>
+        <a href="type.php?type='Materials'">Material</a>
+
+    </div>
  
     <h1>products list</h1>
     <table class='table table-striped'>
@@ -129,6 +140,7 @@ if ($result_products->num_rows > 0) {
                             <th>Discounted price</th>
                             <th>Displayed?</th>
                             <th>Action</th>
+                            <th>See reviews</th>
                         </tr>
                     </thead>
                     <tbody>

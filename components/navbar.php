@@ -34,8 +34,8 @@
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Supplements</a></li>
-      <li><a class="dropdown-item" href="#">Equipment</a></li>
+      <li><a class="dropdown-item" href="../products/supplements.php">Supplements</a></li>
+      <li><a class="dropdown-item" href="../products/equipment.php">Equipment</a></li>
     </ul>
     </li>
 </ul>
