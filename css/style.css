@@ -1,4 +1,65 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
-@import url(_partials/_navbar);
-@import url(_partials/_variables);
-@import url(_partials/_general);/*# sourceMappingURL=style.css.map*/
+.sidepanel {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgba(127, 123, 116, 0.8431372549);
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 1s;
+}
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #595959;
+  display: block;
+  transition: 0.3s;
+}
+.sidepanel a:hover {
+  color: black;
+}
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgba(127, 123, 116, 0.8431372549);
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  border: none;
+}
+.openbtn:hover {
+  background-color: #444;
+}
+
+#items {
+  padding: 20px;
+  transition: margin-right 2s;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+}
+
+.main-footer {
+  width: 100%;
+  background: rgba(127, 123, 116, 0.8431372549);
+}
+.main-footer .social-media {
+  width: 30%;
+  margin: 0 auto;
+}
+.main-footer .social-media .social-icon {
+  width: 30px;
+  height: 30px;
+}/*# sourceMappingURL=style.css.map */
