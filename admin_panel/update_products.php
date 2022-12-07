@@ -62,8 +62,8 @@ if ($_GET['id']) {
                 <tr>
                     <th>Discount (%)</th>
                     <td>
-                        <select class="form-select" name="fk_discount" aria-label="Default select example">
-                            <option selected value='none'>no discount</option>
+                        <select class="form-select" name="fk_discount">
+                            <option selected value='NULL'>no discount</option>
                             <?= $discount ?>
                         </select>
                     </td>

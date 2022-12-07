@@ -18,7 +18,7 @@ JOIN products ON products.id=purchase.fk_product
 WHERE fk_product=$id";
 $result = mysqli_query($connect, $sql);
 
-$sql2="SELECT * FROM products WHERE id=2";
+$sql2="SELECT * FROM products WHERE id={$id}";
 $result2 = mysqli_query($connect, $sql2);
 $row2 = $result2->fetch_array(MYSQLI_ASSOC);
 $tbody ="";

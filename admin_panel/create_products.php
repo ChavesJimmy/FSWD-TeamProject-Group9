@@ -50,7 +50,7 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                     <th>Discount</th>
                     <td>
                         <select class="form-select" name="fk_discount" aria-label="Default select example">
-                            <option selected value='none'>no discount</option>
+                            <option selected value='NULL'>no discount</option>
                             <?= $discount ?>
                         </select>
                     </td>
