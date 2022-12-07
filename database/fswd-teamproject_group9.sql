@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Dez 2022 um 15:37
--- Server-Version: 10.4.25-MariaDB
--- PHP-Version: 8.1.10
+-- Erstellungszeit: 07. Dez 2022 um 11:40
+-- Server-Version: 10.4.21-MariaDB
+-- PHP-Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,31 +69,31 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `picture`, `description`, `price`, `type`, `availability`, `fk_discount`, `displ`) VALUES
-(1, 'Protein - Applied Nutrition Iso-XP (2kg)', '', 'ISO-XP is a high protein supplement with sweetener and by far the cleanest and highest quality Whey Protein Isolate available, with only 0.1g Lactose per 25g serving. Basically there is no other protein, anywhere, which exceeds this level of clinical prot', 60, '', '', NULL, 1),
-(2, 'Protein - Scitec Nutrition 100% Whey Isolate 2000g', '', 'Scitec 100% Whey Isolate is an excellent quality protein exclusively from whey. Generally, whey Isolate proteins are produced to have a higher percentage of protein than whey “concentrates”, which also means that “isolates” have lower sugar (including lac', 59, '', '', NULL, 1),
-(3, 'Protein - Applied Nutrition Clear Whey Protein 875g', '', 'Applied Nutrition’s Clear Whey Protein is not your average protein shake. Using ultra-hydrolysed whey protein isolate, Applied Nutrition have created a delicious, light and refreshing protein drink that is more like a fruit juice than a milkshake.\r\nWith a', 35, '', '', NULL, 1),
-(4, 'Protein - BioTech Hydro Whey Zero 1816g', '', 'Hydro Whey Zero is a combined whey protein drink powder with a protein content of 80%. The composition of the protein also contains, besides hydrolysed whey protein and whey isolate sources, added L-glutamine and L-arginine amino acids. The decomposition ', 60, '', '', NULL, 1),
-(5, 'Amino Acid - Applied Nutrition Multi-Vitamin Complex', '', 'Multi-Vitamin Complex contributes to the normal function of the immune system during and after intense physical exercise, the nervous system as well as normal muscle and cognitive function and the normal formation of connective tissue.', 15, '', '', NULL, 1),
-(6, 'Amino Acid - OPTIMUM NUTRITION Amino Energy 270 g', '', 'You can tap into Amino Energy any time of the day. It’s ideal in the morning when you’re planning to attack the day; use it as an alternative to your morning coffee. It’s also great instead of a fizzy drink with your lunch, or as an afternoon booster. Or ', 20, '', '', NULL, 1),
-(7, 'Amino Acid - HIMALAYA LIV.52 DS Double Strength 60 Tablets', '', 'Liv.52 (LiverCare) helps restore the functional efficiency of the liver by protecting the hepatic parenchyma and assists in promoting hepatocellular regeneration. It facilitates rapid elimination of acetaldehyde, the toxic intermediate metabolite of alcoh', 11, '', '', NULL, 1),
-(8, 'Amino Acid - Mutant BCAA 9.7 348g - Fruit Punch', '', 'Mutant BCAA 9.7 delivers 9.7 grams of amino acids in just 1 concentrated scoop.\r\nThis product is in the preferred 2:1:1 ratio and then instantized for superior solubility; with added Micronized Amino Support Stack; and finally magnesium fortified to help ', 19, '', '', NULL, 1),
-(9, 'Creatine - Optimum Nutrition - 93 Servings', '', 'Creatine monohydrate is one of the most well-researched sports nutrition ingredients.\r\nThis unflavored powder mixes easily into water, juice or your post-workout protein shake to help you meet your ambitious power & performance goals.\r\nWhen used in conjun', 27, '', '', NULL, 1),
-(10, 'Creatine - Pro Supps 200 - 200 grams', '', 'ProSupps Creatine 200 is premium grade Creatine Monohydrate. Creatine Monohydrate is one of the most researched supplements in sports nutrition with numerous clinical studies supporting its use, effectiveness and safety. It is naturally found in many food', 20, '', '', NULL, 1),
-(11, 'Creatine - Warrior Nitrate', '', 'Warriors Creatine Nitrate is an innovative new creatine supplement created by mixing the various benefits of creatine and dietary nitrates together.\r\nNitrates come from nitrogen and oxygen molecules that get converted into nitric oxide which are great for', 18, '', '', NULL, 1),
-(12, 'Creatine - 5% Stage Ready Diuretic', '', 'When you’re putting everything you have into getting in the best shape of your life, you don’t need excess water retention hiding the valley-deep cuts you’ve been working for. This is the most potent diuretic you can find, and for good reason - the ingred', 25, '', '', NULL, 1),
-(13, 'Creatine - Grenade Creatine 500g', '', 'Creatine Monohydrate is one of the most extensively studied supplements available and is widely recognised for enhancing strength, recovery, anaerobic capacity and lean mass. With this vast amount of research, creatine is an essential for athletes who wan', 20, '', '', NULL, 1),
-(14, 'USN Tornado Shaker 650-700ml', '', '650ml Tornado Shaker with a detachable compartment to hold a serving of your favourite USN powders!\r\nLeak proof with a rubber seal around the inner mesh\r\nSealed Mouthpiece inside and outside Flip-back and lock mouthpiece cover Screw-on section for powder ', 8, '', '', NULL, 1),
-(15, 'ALPHA BOTTLE V2 750ML', '', 'At Alpha Designs we focus on function over form without compromising on design. So we went back to the drawing board and developed the ultimate shaker bottle. The Alpha Bottle features a silicone seal which ensures the Alpha Bottle is 100% leak-proof, com', 6, '', '', NULL, 1),
-(16, 'ALPHA BOTTLE XXL - 2400ML BPA FREE WATER JUG', '', 'This 2.4Litre jug is brought to you by the guys at Alpha Designs. No corners cut here folks, UK made, UK designed, leak-proof, BPA & DEHP free AND shatter resistant.This jug isnt just your average jug either....8 sides, this octagonal sensation is a cut a', 12, '', '', NULL, 1),
-(17, 'Chaos Crew Graffiti Shaker 700ml', '', '700ml shaker with mixer ball.\r\nSimply add your ingredients, toss in the mixerball, and shake. The mixerball whips around inside the bottle, mixing even the thickest ingredients to a smooth and light consistency.\r\nThe classic screw-on lid and secure flip c', 7, '', '', NULL, 1),
-(18, 'Urban Fitness 2.7m Leather Jump Rope', '', '2.7 metre Leather skipping rope.\r\nFoam covered handles offer superb grip.\r\nBall bearing mechanism improves speed and provides smooth movement.', 10, '', '', NULL, 1),
-(19, 'Urban Fitness High Grip Speed Rope 2.8m', '', 'A lightweight speed rope benefiting from high grip handles which greatly improve slip- resistance. Bearings in the handles ensure a smooth running rope for even faster skipping.\r\nA lightweight speed rope benefiting from high grip handles which greatly imp', 8, '', '', NULL, 1),
-(20, 'Urban Fitness 4mm Yoga Mat - Green', '', 'The Urban Fitness Exercise Fitness Yoga Mat is a PVC yoga mat, offering excellent grip and cushioning. Comes complete with shoulder strap, making it easy to carry. It also keeps the mat rolled up when not in use.', 10, '', '', NULL, 1),
-(21, 'Urban Fitness 4mm Yoga Mat - Pink', '', 'The Urban Fitness Exercise Fitness Yoga Mat is a PVC yoga mat, offering excellent grip and cushioning. Comes complete with shoulder strap, making it easy to carry. It also keeps the mat rolled up when not in use.', 10, '', '', NULL, 1),
-(22, 'Urban Fitness 4mm Yoga Mat - Blue', '', 'The Urban Fitness Exercise Fitness Yoga Mat is a PVC yoga mat, offering excellent grip and cushioning. Comes complete with shoulder strap, making it easy to carry. It also keeps the mat rolled up when not in use.', 10, '', '', NULL, 1),
-(23, 'Urban Fitness 2 in 1 Massage Roller Set', '', 'The Urban Fitness 2 In 1 massage roller set includes two different styles of foam rollers to achieve best results. Improves circulation and helps loosen tight and stiff muscles.', 16, '', '', NULL, 1),
-(24, 'Urban Fitness 500kg Burst Resistance Swiss Ball 75cm', '', 'Factory tested 500kg burst resistance. Helps relax muscles, remove tension and increase tone. Increasing flexibility in abdominal, thighs and lower back. Improves posture & balance.', 18, '', '', NULL, 1),
-(25, 'Urban Fitness 500kg Burst Resistance Swiss Ball 65cm', '', 'Factory tested 500kg burst resistance. Helps relax muscles, remove tension and increase tone. Increasing flexibility in abdominal, thighs and lower back. Improves posture & balance.', 17, '', '', NULL, 1),
+(1, 'Protein - Applied Nutrition Iso-XP (2kg)', '', 'ISO-XP is a high protein supplement with sweetener and by far the cleanest and highest quality Whey Protein Isolate available, with only 0.1g Lactose per 25g serving. Basically there is no other protein, anywhere, which exceeds this level of clinical prot', 60, 'Food Supplements', '', NULL, 1),
+(2, 'Protein - Scitec Nutrition 100% Whey Isolate 2000g', '', 'Scitec 100% Whey Isolate is an excellent quality protein exclusively from whey. Generally, whey Isolate proteins are produced to have a higher percentage of protein than whey “concentrates”, which also means that “isolates” have lower sugar (including lac', 59, 'Food Supplements', '', NULL, 1),
+(3, 'Protein - Applied Nutrition Clear Whey Protein 875g', '', 'Applied Nutrition’s Clear Whey Protein is not your average protein shake. Using ultra-hydrolysed whey protein isolate, Applied Nutrition have created a delicious, light and refreshing protein drink that is more like a fruit juice than a milkshake.\r\nWith a', 35, 'Food Supplements', '', NULL, 1),
+(4, 'Protein - BioTech Hydro Whey Zero 1816g', '', 'Hydro Whey Zero is a combined whey protein drink powder with a protein content of 80%. The composition of the protein also contains, besides hydrolysed whey protein and whey isolate sources, added L-glutamine and L-arginine amino acids. The decomposition ', 60, 'Food Supplements', '', NULL, 1),
+(5, 'Amino Acid - Applied Nutrition Multi-Vitamin Complex', '', 'Multi-Vitamin Complex contributes to the normal function of the immune system during and after intense physical exercise, the nervous system as well as normal muscle and cognitive function and the normal formation of connective tissue.', 15, 'Food Supplements', '', NULL, 1),
+(6, 'Amino Acid - OPTIMUM NUTRITION Amino Energy 270 g', '', 'You can tap into Amino Energy any time of the day. It’s ideal in the morning when you’re planning to attack the day; use it as an alternative to your morning coffee. It’s also great instead of a fizzy drink with your lunch, or as an afternoon booster. Or ', 20, 'Food Supplements', '', NULL, 1),
+(7, 'Amino Acid - HIMALAYA LIV.52 DS Double Strength 60 Tablets', '', 'Liv.52 (LiverCare) helps restore the functional efficiency of the liver by protecting the hepatic parenchyma and assists in promoting hepatocellular regeneration. It facilitates rapid elimination of acetaldehyde, the toxic intermediate metabolite of alcoh', 11, 'Food Supplements', '', NULL, 1),
+(8, 'Amino Acid - Mutant BCAA 9.7 348g - Fruit Punch', '', 'Mutant BCAA 9.7 delivers 9.7 grams of amino acids in just 1 concentrated scoop.\r\nThis product is in the preferred 2:1:1 ratio and then instantized for superior solubility; with added Micronized Amino Support Stack; and finally magnesium fortified to help ', 19, 'Food Supplements', '', NULL, 1),
+(9, 'Creatine - Optimum Nutrition - 93 Servings', '', 'Creatine monohydrate is one of the most well-researched sports nutrition ingredients.\r\nThis unflavored powder mixes easily into water, juice or your post-workout protein shake to help you meet your ambitious power & performance goals.\r\nWhen used in conjun', 27, 'Food Supplements', '', NULL, 1),
+(10, 'Creatine - Pro Supps 200 - 200 grams', '', 'ProSupps Creatine 200 is premium grade Creatine Monohydrate. Creatine Monohydrate is one of the most researched supplements in sports nutrition with numerous clinical studies supporting its use, effectiveness and safety. It is naturally found in many food', 20, 'Food Supplements', '', NULL, 1),
+(11, 'Creatine - Warrior Nitrate', '', 'Warriors Creatine Nitrate is an innovative new creatine supplement created by mixing the various benefits of creatine and dietary nitrates together.\r\nNitrates come from nitrogen and oxygen molecules that get converted into nitric oxide which are great for', 18, 'Food Supplements', '', NULL, 1),
+(12, 'Creatine - 5% Stage Ready Diuretic', '', 'When you’re putting everything you have into getting in the best shape of your life, you don’t need excess water retention hiding the valley-deep cuts you’ve been working for. This is the most potent diuretic you can find, and for good reason - the ingred', 25, 'Food Supplements', '', NULL, 1),
+(13, 'Creatine - Grenade Creatine 500g', '', 'Creatine Monohydrate is one of the most extensively studied supplements available and is widely recognised for enhancing strength, recovery, anaerobic capacity and lean mass. With this vast amount of research, creatine is an essential for athletes who wan', 20, 'Food Supplements', '', NULL, 1),
+(14, 'USN Tornado Shaker 650-700ml', '', '650ml Tornado Shaker with a detachable compartment to hold a serving of your favourite USN powders!\r\nLeak proof with a rubber seal around the inner mesh\r\nSealed Mouthpiece inside and outside Flip-back and lock mouthpiece cover Screw-on section for powder ', 8, 'Materials', '', NULL, 1),
+(15, 'ALPHA BOTTLE V2 750ML', '', 'At Alpha Designs we focus on function over form without compromising on design. So we went back to the drawing board and developed the ultimate shaker bottle. The Alpha Bottle features a silicone seal which ensures the Alpha Bottle is 100% leak-proof, com', 6, 'Materials', '', NULL, 1),
+(16, 'ALPHA BOTTLE XXL - 2400ML BPA FREE WATER JUG', '', 'This 2.4Litre jug is brought to you by the guys at Alpha Designs. No corners cut here folks, UK made, UK designed, leak-proof, BPA & DEHP free AND shatter resistant.This jug isnt just your average jug either....8 sides, this octagonal sensation is a cut a', 12, 'Materials', '', NULL, 1),
+(17, 'Chaos Crew Graffiti Shaker 700ml', '', '700ml shaker with mixer ball.\r\nSimply add your ingredients, toss in the mixerball, and shake. The mixerball whips around inside the bottle, mixing even the thickest ingredients to a smooth and light consistency.\r\nThe classic screw-on lid and secure flip c', 7, 'Materials', '', NULL, 1),
+(18, 'Urban Fitness 2.7m Leather Jump Rope', '', '2.7 metre Leather skipping rope.\r\nFoam covered handles offer superb grip.\r\nBall bearing mechanism improves speed and provides smooth movement.', 10, 'Materials', '', NULL, 1),
+(19, 'Urban Fitness High Grip Speed Rope 2.8m', '', 'A lightweight speed rope benefiting from high grip handles which greatly improve slip- resistance. Bearings in the handles ensure a smooth running rope for even faster skipping.\r\nA lightweight speed rope benefiting from high grip handles which greatly imp', 8, 'Materials', '', NULL, 1),
+(20, 'Urban Fitness 4mm Yoga Mat - Green', '', 'The Urban Fitness Exercise Fitness Yoga Mat is a PVC yoga mat, offering excellent grip and cushioning. Comes complete with shoulder strap, making it easy to carry. It also keeps the mat rolled up when not in use.', 10, 'Materials', '', NULL, 1),
+(21, 'Urban Fitness 4mm Yoga Mat - Pink', '', 'The Urban Fitness Exercise Fitness Yoga Mat is a PVC yoga mat, offering excellent grip and cushioning. Comes complete with shoulder strap, making it easy to carry. It also keeps the mat rolled up when not in use.', 10, 'Materials', '', NULL, 1),
+(22, 'Urban Fitness 4mm Yoga Mat - Blue', '', 'The Urban Fitness Exercise Fitness Yoga Mat is a PVC yoga mat, offering excellent grip and cushioning. Comes complete with shoulder strap, making it easy to carry. It also keeps the mat rolled up when not in use.', 10, 'Materials', '', NULL, 1),
+(23, 'Urban Fitness 2 in 1 Massage Roller Set', '', 'The Urban Fitness 2 In 1 massage roller set includes two different styles of foam rollers to achieve best results. Improves circulation and helps loosen tight and stiff muscles.', 16, 'Materials', '', NULL, 1),
+(24, 'Urban Fitness 500kg Burst Resistance Swiss Ball 75cm', '', 'Factory tested 500kg burst resistance. Helps relax muscles, remove tension and increase tone. Increasing flexibility in abdominal, thighs and lower back. Improves posture & balance.', 18, 'Materials', '', NULL, 1),
+(25, 'Urban Fitness 500kg Burst Resistance Swiss Ball 65cm', '', 'Factory tested 500kg burst resistance. Helps relax muscles, remove tension and increase tone. Increasing flexibility in abdominal, thighs and lower back. Improves posture & balance.', 17, 'Materials', '', NULL, 1),
 (26, 'Urban Fitness 500kg Burst Resistance Swiss Ball 55cm', '', 'Factory tested 500kg burst resistance. Helps relax muscles, remove tension and increase tone. Increasing flexibility in abdominal, thighs and lower back. Improves posture & balance.', 16, '', '', NULL, 1),
 (27, 'Urban Fitness Resistance Band Loop 12 Blue X-Strong', '', 'UFE 12 fitness loop is made from 100% natural latex and is ideal for advanced fitness regimes. Stretch, flex and workout with this extra strong resistance exercise band.', 3, '', '', NULL, 1),
 (28, 'Urban Fitness Resistance Band Loop 12 Green Strong', '', 'UFE 12 fitness loop is made from 100% natural latex and is ideal for advanced fitness regimes. Stretch, flex and workout with this extra strong resistance exercise band.', 3, '', '', NULL, 1),
@@ -167,6 +167,13 @@ CREATE TABLE `users` (
   `status` enum('USER','ADMIN') NOT NULL DEFAULT 'USER',
   `user_allowed` enum('allowed','banned') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `password`, `first_name`, `last_name`, `email`, `address`, `birth_date`, `photo`, `status`, `user_allowed`) VALUES
+(9, 'julia123', '96bb1378cffda822b7a982b499c3461ea1b842ee6ed3b94078de9a91c7b5e838', 'Julia', 'Wegmayr', 'julia.wegmayr@gmail.com', 'Straße', '1992-09-18', NULL, 'USER', NULL);
 
 --
 -- Indizes der exportierten Tabellen
@@ -254,7 +261,7 @@ ALTER TABLE `review_answer`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints der exportierten Tabellen
