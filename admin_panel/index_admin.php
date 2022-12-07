@@ -61,6 +61,10 @@ if ($result_products->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php require_once "../components/boot.php"?>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
     <title>Welcome - <?php /* echo $row['first_name']; */ ?></title>
     <style type="text/css">
         .img-thumbnail {
@@ -85,15 +89,8 @@ if ($result_products->num_rows > 0) {
 </head>
 
 <body>
-    <div class="container">
-        <div class="hero">
-            <img class="userImage" src="pictures/<?php /*  echo $row['picture'];  */?>" alt="<?php /*  echo $row['first_name']; */ ?>">
-            <p class="text-white">Hi <?php /* echo $row['first_name']; */ ?></p>
-        </div>
-        <a href="../logout.php?logout">Sign Out</a> <br>
-        <a href="create_products.php">Add new product</a> <br>
-
-    </div>
+    <?php require_once "../components/navbar_admin.php" ?>
+ 
     <h1>products list</h1>
     <table class='table table-striped'>
                     <thead class='table-success'>
@@ -121,6 +118,6 @@ if ($result_products->num_rows > 0) {
                         <?= $tbody2 ?>
                     </tbody>
                 </table>
-
+                <?php require_once "../components/footer.php" ?>
 </body>
 </html>

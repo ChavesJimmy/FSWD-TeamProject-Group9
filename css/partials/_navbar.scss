@@ -5,7 +5,8 @@
 	z-index: 1;
 	top: 0;
 	right: 0;
-	background-color: #7f7b74d7;
+	background-color: #837f79;
+	opacity: 1;
 	overflow-x: hidden;
 	padding-top: 60px;
 	transition: 1s;
@@ -31,7 +32,7 @@
 .openbtn {
 	font-size: 20px;
 	cursor: pointer;
-	background-color: #7f7b74d7;
+	background-color: $main-background;
 	color: rgb(0, 0, 0);
 	padding: 10px 15px;
 	border: none;
@@ -42,4 +43,8 @@
 #items {
 	padding: 20px;
 	transition: margin-right 2s;
+}
+
+.nav-link {
+	color:black
 }

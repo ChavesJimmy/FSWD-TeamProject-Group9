@@ -47,6 +47,10 @@
   transition: margin-right 2s;
 }
 
+.nav-link {
+  color: black;
+}
+
 body {
   font-family: "Jost", sans-serif;
 }
@@ -62,4 +66,5 @@ body {
 .main-footer .social-media .social-icon {
   width: 30px;
   height: 30px;
+  color: black;
 }/*# sourceMappingURL=style.css.map */

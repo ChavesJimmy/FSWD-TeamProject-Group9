@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand w-25" href="index.html">
-                <div class="logo d-flex flex-column align-items-start">
-                    <img class="logo-img flex-fill w-75 " src="img/logo.png">
-                </div>
+        <div class="hero">
+            <img class="userImage" src="pictures/<?php /*  echo $row['picture'];  */?>" alt="<?php /*  echo $row['first_name']; */ ?>">
+        </div>
+        <div><p class="text-dark ms-2"><strong>Welcome, <?php /* echo $row['first_name']; */ ?></strong></p></div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,25 +20,27 @@
                         <a class="nav-link"  href="./login.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
                     <li class="nav-item">
-                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-user"></i></a>
+                        <a class="nav-link"  href="./logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                     </li> 
                 </ul>
         </div>
         <div id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a aria-current="page" href="#">Home</a>
-  <a href="./login.php">About</a>
-  <a href="#">Lorem</a>
-  <a href="#">Lorem</a>
   <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Supplements</a></li>
       <li><a class="dropdown-item" href="#">Equipment</a></li>
     </ul>
     </li>
-</ul>
+    </ul> 
+ 
+    <a href="../admin_panel/create_products.php">Create Products</a>
+    <a href="../admin_panel/sale_statistic.php">Sale Statistic</a>
+    <a href="../admin_panel/update_user.php">User Control Surface</a>
+    <a href="./logout.php">Logout</a>
   
  
 </div>
