@@ -14,7 +14,6 @@
 
 <body>
 <?php require_once "components/navbar.php" ?>    
-
         <!-- Hero -->
         <div class="hero">
         <div class="hero-img-container">
@@ -40,7 +39,7 @@
 
     <!-- Start Footer -->
     <?php require_once "components/footer.php" ?> 
-
+    <?php require_once "googleMaps/location.html" ?>
     <!-- Scripts -->
     <!-- Swiper Script -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
