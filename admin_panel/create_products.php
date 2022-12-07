@@ -80,6 +80,16 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                     </td>
                 </tr>
                 <tr>
+                <tr>
+                    <th>Sould be displayed on the website?</th>
+                    <td>
+                        <select class="form-select" name="displ" aria-label="Default select example">
+                            <option selected value='yes'>YES</option>
+                            <option  value='no'>NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td><button class='btn btn-success' type="submit">Insert Product</button></td>
                     <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
                 </tr>

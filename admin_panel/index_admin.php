@@ -47,7 +47,7 @@ if ($result_products->num_rows > 0) {
                 $discount = $result_discount->fetch_array(MYSQLI_ASSOC);
             
                 if($row['fk_discount'] > 0){
-                    //need to work on the discount formula to get the value of 
+                    //need to work on the discount formula to get the value of discount
                 $tbody .= "<tr>
                     <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
                     <td>" . $row['name'] . "</td>

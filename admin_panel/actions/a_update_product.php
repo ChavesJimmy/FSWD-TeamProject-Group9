@@ -8,12 +8,14 @@ if ($_POST) {
     $price = $_POST['price'];
     $type = $_POST['type'];
     $availability = $_POST['availability'];
+    $fk_discount = $_POST['fk_discount'];
+    $displ=$_POST['displ'];
     //$fk_discount = $_POST['fk_discount'];
 
     $id = $_POST['id'];
 
 
-       $sql = "UPDATE products SET name = '$name', price = $price, description = '$description', type = '$type', availability='$availability' WHERE id = {$id}";  
+       $sql = "UPDATE products SET name = '$name', price = $price, description = '$description', type = '$type', availability='$availability', displ='$displ', fk_discount='$fk_discount' WHERE id = {$id}";  
    if (mysqli_query($connect, $sql) === TRUE) {
        $class = "success";
        $message = "The record was successfully updated";
