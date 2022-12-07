@@ -12,7 +12,7 @@ if (! isset($_SESSION['adm']) && !isset($_SESSION['user' ])) {
   exit;
 } */
 
-$sql = "SELECT * FROM products WHERE type='Food Supplements'";
+$sql = "SELECT * FROM products WHERE type='Food Supplements' AND displ=1";
 $result = mysqli_query($connect, $sql);
 $tbody = ''; 
 if (mysqli_num_rows($result)  > 0) {
