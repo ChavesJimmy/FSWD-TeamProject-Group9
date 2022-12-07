@@ -34,26 +34,53 @@ if ($result->num_rows > 0) {
 //print products
 $sql_products = "SELECT * FROM products";
 $result_products = mysqli_query($connect,$sql_products);
-mysqli_close($connect); 
 $tbody = "";
 
 if ($result_products->num_rows > 0) {
     while ($row = $result_products->fetch_array(MYSQLI_ASSOC)) {
-        $tbody .= "<tr>
-            <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
-            <td>" . $row['id'] . "</td>
-            <td>" . $row['name'] . "</td>
-            <td>" . $row['price'] . "</td>
-            <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
-            <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
-            <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
-            </td>
-         </tr>";
-    }
-} else {
-    $tbody = "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
-}
-?>
+        if ($result_products->num_rows > 0) {
+            while ($row = $result_products->fetch_array(MYSQLI_ASSOC)) {
+                $sql_discount = "SELECT * FROM discount 
+                JOIN products ON products.id = discount.id
+                WHERE products.fk_discount";
+                $result_discount = mysqli_query($connect, $sql_discount);
+                $discount = $result_discount->fetch_array(MYSQLI_ASSOC);
+            
+                if($row['fk_discount'] > 0){
+                    //need to work on the discount formula to get the value of 
+                $tbody .= "<tr>
+                    <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
+                    <td>" . $row['name'] . "</td>
+                    <td>" . $row['price'] . "</td>
+                    <td>" . $row['fk_discount'] ." </td>
+                    <td>" . $row['price']/$row['fk_discount']."</td>
+                    <td>".$row['displ']."</td>
+                    <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
+                    <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
+                    <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
+                    </td>
+                 </tr>";}
+                 else{
+                    $tbody .= "<tr>
+                    <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
+                    <td>" . $row['name'] . "</td>
+                    <td>" . $row['price'] . "</td>
+                    <td>no discount</td>
+                    <td> no discounted price</td>
+                    <td>".$row['displ']."</td>
+                    <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
+                    <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
+                    <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
+                    </td>
+                 </tr>";
+                 }
+            }}}
+        } else {
+            $tbody = "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
+        }
+        mysqli_close($connect); 
+        
+        ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,6 +125,9 @@ if ($result_products->num_rows > 0) {
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Price</th>
+                            <th>Discount</th>
+                            <th>Discounted price</th>
+                            <th>Displayed?</th>
                             <th>Action</th>
                         </tr>
                     </thead>
