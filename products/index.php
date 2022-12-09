@@ -7,6 +7,23 @@ $result = mysqli_query($connect, $sql);
 $tbody = ''; 
 if (mysqli_num_rows($result)  > 0) {
   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    if($row['Discount']>0){
+      $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
+      <img src='".$row['picture'] ."' class='card-img-top' alt='".$row['name']."'>
+      <div class='card-body'>
+        <h5 class='card-title'>".$row['name']."</h5>
+      </div>
+      <ul class='list-group list-group-flush'>
+        <li class='list-group-item'><a href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
+        <li class='list-group-item'>". $row['price']-($row['price']*$row['Discount']/100)." EUR
+        <br>(".$row['price']." EUR - discount ".$row['Discount']."%)</li>
+        <li class='list-group-item'>A third item</li>
+      </ul>
+      <div class='card-body'>
+        <a href='details.php?id=".$row['id']."' class='card-link'>Details</a>
+      </div>
+    </div>" ;}
+    else{
       $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
       <img src='".$row['picture'] ."' class='card-img-top' alt='".$row['name']."'>
       <div class='card-body'>
@@ -21,6 +38,7 @@ if (mysqli_num_rows($result)  > 0) {
         <a href='details.php?id=".$row['id']."' class='card-link'>Details</a>
       </div>
     </div>" ;
+    };
   };
 } else {
   $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>" ;
