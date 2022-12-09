@@ -1,28 +1,26 @@
 <?php
-//session_start();
 require_once '../components/db_connect.php' ;
-
-/* if (isset($_SESSION['user']) != "" ) {
-  header("Location: ../home.php");
-  exit;
-}
-
-if (! isset($_SESSION['adm']) && !isset($_SESSION['user' ])) {
-  header("Location: ../index.php");
-  exit;
-} */
+require_once '../components/boot.php';
 
 $sql = "SELECT * FROM products WHERE displ=1";
 $result = mysqli_query($connect, $sql);
 $tbody = ''; 
 if (mysqli_num_rows($result)  > 0) {
   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-      $tbody .= "<tr>
-          <td><img class='img-thumbnail' src='pictures/" . $row['picture'] . "'</td>
-          <td>" . $row['name'] . "</td>
-          <td>"  . $row['price'] . ' €' ."</td>
-          <td><a href='details.php?id="  . $row['id'] . "'>Details</a></td>
-          </tr>" ;
+      $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
+      <img src='".$row['picture'] ."' class='card-img-top' alt='".$row['name']."'>
+      <div class='card-body'>
+        <h5 class='card-title'>".$row['name']."</h5>
+      </div>
+      <ul class='list-group list-group-flush'>
+        <li class='list-group-item'><a href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
+        <li class='list-group-item'>".$row['price']." EUR</li>
+        <li class='list-group-item'>A third item</li>
+      </ul>
+      <div class='card-body'>
+        <a href='details.php?id=".$row['id']."' class='card-link'>Details</a>
+      </div>
+    </div>" ;
   };
 } else {
   $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>" ;
@@ -45,19 +43,9 @@ mysqli_close($connect);
 <body>
   <div class= "manageProduct w-75 mt-3">
       <p class='h2'> Products </p>
-      <table class='table table-striped'>
-          <thead class='table-success'>
-              <tr>
-                  <th> Picture </th>
-                  <th> Name </th>
-                  <th> Price </th>
-                  <th> Details </th>
-              </tr>
-          </thead>
-          <tbody>
+      <div class="row m-auto">
               <?=$tbody;?>
-          </tbody>
-      </table>
+       </div>
   </div>
 </body>
 </html> 
