@@ -40,6 +40,7 @@ $rowuser = mysqli_fetch_assoc($resultuser);
 $sqlreview = "SELECT * FROM products_reviews WHERE fk_product={$id}";
 $resultreview = mysqli_query($connect, $sqlreview);
 $tbody = ''; 
+$tresponse="";
 if (mysqli_num_rows($resultreview)  > 0) {
   while ($rowreview = mysqli_fetch_array($resultreview, MYSQLI_ASSOC)) {
     //add answer to review
@@ -64,7 +65,12 @@ if (mysqli_num_rows($resultreview)  > 0) {
 
                 <button class='btn btn-success' type='submit'>Send answer</button>
 
-              </form>" ;
+              </form>
+              <div id='response'>
+              <h6>Answer</h6>
+                ".$tresponse."
+              </div>
+              " ;
   };
 } else {
   $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>" ;
@@ -127,9 +133,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
       <p class='h1'> Reviews </p>
       
               <?=$tbody;?>
-              <div id="response">
-                <?= $tresponse?>
-              </div>
+              
       </div>
     </div>
   </section>
