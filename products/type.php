@@ -18,7 +18,7 @@ $tbody = '';
 if (mysqli_num_rows($result)  > 0) {
   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
-      <img src='" . $row['picture'] . "' class='card-img-top' alt='" . $row['name'] . "'>
+      <img src='../pictures/" . $row['picture'] . "' class='card-img-top' alt='" . $row['name'] . "'>
       <div class='card-body'>
         <h5 class='card-title'>" . $row['name'] . "</h5>
       </div>

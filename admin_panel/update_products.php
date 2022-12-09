@@ -1,6 +1,6 @@
 <?php 
-require_once '../components//db_connect.php';
-
+require_once '../components/db_connect.php';
+require_once '../components/file_upload.php';
 
 if ($_GET['id']) {
     $id = $_GET['id'];
@@ -71,7 +71,7 @@ if ($_GET['id']) {
                 </tr>
                 <tr>
                     <th>Picture</th>
-                    <td><input class='form-control' type="text" name="picture" value="<?= $picture ?>"  /></td>
+                    <td><input class='form-control' type="file" name="picture" value="<?= $picture ?>"  /></td>
                 </tr>
                 <tr>
                     <th>description</th>
@@ -100,7 +100,7 @@ if ($_GET['id']) {
                     </td>
                 </tr>
                 <tr>
-                    <th>Sould be displayed on the website?</th>
+                    <th>Should be displayed on the website?</th>
                     <td>
                         <select class="form-select" name="displ" aria-label="Default select example">
                             <option selected value='yes'>YES</option>
@@ -113,7 +113,7 @@ if ($_GET['id']) {
 
                 <tr>
                     <td><button class='btn btn-success' type="submit">Update</button></td>
-
+                    <input type="hidden" name="picture" value="<?php echo $data['picture'] ?>" />
                     <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
                     <td><a href="delete_product.php?id=<?php echo $data['id'] ?>">Delete</a></td>
 

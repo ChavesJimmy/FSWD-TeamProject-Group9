@@ -25,7 +25,7 @@ if ($result_products->num_rows > 0) {
     while ($row = $result_products->fetch_array(MYSQLI_ASSOC)) {
        
                 $tbody .= "<tr>
-                    <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
+                    <td><img class='img-thumbnail rounded-circle' src='../pictures/" . $row['picture'] . "'></td>
                     <td>" . $row['name'] . "</td>
                     <td>" . $row['price'] . "</td>
                     <td>" . $row['fk_discount'] ." </td>

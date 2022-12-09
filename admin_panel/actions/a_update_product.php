@@ -1,9 +1,21 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
+    header("Location: ../../index_admin.php");
+    exit;
+}
+if (isset($_SESSION['user'])) {
+    header("Location: ../../user.php");
+    exit;
+}
+
 require_once '../../components/db_connect.php';
+require_once '../../components/file_upload.php';
 
 if ($_POST) {
+
     $name = $_POST['name'];
-    $picture = $_POST['picture'];
     $description = $_POST['description'];
     $price = $_POST['price'];
     $type = $_POST['type'];
@@ -11,15 +23,24 @@ if ($_POST) {
     $discount = $_POST['Discount'];
     $displ=$_POST['displ'];
     $id = $_POST['id'];
+    
+    $uploadError = '';
 
-
-       $sql = "UPDATE products SET name = '$name', price = $price, description = '$description', type = '$type', availability='$availability', displ='$displ', Discount='$discount' WHERE id = {$id}";  
+    $picture = file_upload($_FILES['picture'], 'noimage'); 
+    if ($picture->error === 0) {
+        ($_POST["picture"] = "noimage.jpg") ?: unlink("../pictures/$_POST[picture]");
+        $sql = "UPDATE products SET name = '$name', picture = '$picture->fileName' WHERE id = {$id}";
+    } else {
+        $sql = "UPDATE products SET name = '$name', price = $price, description = '$description', type = '$type', availability='$availability', displ='$displ', Discount='$discount' WHERE id = {$id}";  
+    }
    if (mysqli_query($connect, $sql) === TRUE) {
        $class = "success";
        $message = "The record was successfully updated";
+       $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
    } else {
        $class = "danger";
        $message = "Error while updating record : <br>" . mysqli_connect_error();
+       $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
    }
    mysqli_close($connect);  
 } else {
