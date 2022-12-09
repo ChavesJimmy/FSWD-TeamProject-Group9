@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
     // $photoArray = file_upload($_FILES['photo']); 
     $photo = $photoArray->fileName;
     if ($photoArray->error === 0) {
-        ($_POST["photo"] == "avatar.png") ?: unlink("pictures/{$_POST["photo"]}");
+        ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/{$_POST["photo"]}");
         $sql = "UPDATE users SET 'user_name' = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', photo = '$pictureArray->fileName' WHERE id = {$id}";
     } else {
         $sql = "UPDATE users SET 'user_name' = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date' WHERE id = {$id}";
