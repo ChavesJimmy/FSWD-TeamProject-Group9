@@ -70,10 +70,12 @@ mysqli_close($connect);
 </head>
 
 <body>
+<!--START HTML FOR THE RESEARCH PRODUCTS-->
   <h5>Search products:</h5>
-  <input type="text" name="email" placeholder="product name" id="searchProd">
+  <input type="text" name="search" placeholder="product name" id="searchProd">
   <h6 style="background-color: yellow;">Search results</h6>
   <div id="container" style="background-color: yellow;" class="row"></div>
+<!--END RESEARCH-->
 
   <div class= "manageProduct w-75 mt-3">
       <p class='h2'> Products </p>
@@ -81,11 +83,12 @@ mysqli_close($connect);
               <?=$tbody;?>
        </div>
   </div>
+   <!--SCRIPT THAT GET WITH PRODUCTLISTS:PHP FOR THE RESEARCH FUNCTION-->
   <script>
     function SearchProducts(){
             let xhttp = new XMLHttpRequest();
             let productVal = document.getElementById("searchProd").value;
-            //console.log(productVal);
+            console.log(productVal);
             xhttp.open("GET", "productslist.php?search=" + productVal);
             xhttp.onload = function(){
             if(this.status == 200){
