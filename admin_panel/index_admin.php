@@ -22,7 +22,7 @@ $tbody2 = "";
 if ($result->num_rows > 0) {
     while ($row2 = $result->fetch_array(MYSQLI_ASSOC)) {
         $tbody2 .= "<tr>
-            <td><img class='img-thumbnail rounded-circle' src='" . $row2['photo'] . "'></td>
+            <td><img class='img-thumbnail rounded-circle' src='../pictures/" . $row2['photo'] . "'></td>
             <td>" . $row2['user_name'] . "</td>
             <td><a href='update_user.php?id=" . $row2['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
             <a href='delete_user.php?id=" . $row2['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a></td>
@@ -46,7 +46,7 @@ if ($result_products->num_rows > 0) {
                 if($row['Discount'] > 0){
                     //need to work on the discount formula to get the value of discount
                 $tbody .= "<tr>
-                    <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
+                    <td><img class='img-thumbnail rounded-circle' src='../pictures/" . $row['picture'] . "'></td>
                     <td>" . $row['name'] . "</td>
                     <td>" . $row['price'] . "</td>
                     <td>" . $row['Discount'] ." </td>
@@ -63,7 +63,7 @@ if ($result_products->num_rows > 0) {
                  
                  else{
                     $tbody .= "<tr>
-                    <td><img class='img-thumbnail rounded-circle' src='" . $row['picture'] . "'></td>
+                    <td><img class='img-thumbnail rounded-circle' src='../pictures/" . $row['picture'] . "'></td>
                     <td>" . $row['name'] . "</td>
                     <td>" . $row['price'] . "</td>
                     <td>no discount</td>
