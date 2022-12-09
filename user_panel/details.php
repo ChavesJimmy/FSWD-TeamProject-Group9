@@ -42,6 +42,17 @@ $resultreview = mysqli_query($connect, $sqlreview);
 $tbody = ''; 
 if (mysqli_num_rows($resultreview)  > 0) {
   while ($rowreview = mysqli_fetch_array($resultreview, MYSQLI_ASSOC)) {
+    //add answer to review
+    $sqlresponse = "SELECT * FROM review_answer WHERE fk_review = {$rowreview['id']}";
+    $resultresponse = mysqli_query($connect, $sqlresponse);
+    $tresponse = ''; 
+
+    if (mysqli_num_rows($resultresponse)  > 0) {
+  while ($rowresponse = mysqli_fetch_array($resultresponse, MYSQLI_ASSOC)) {
+      $tresponse .= "<div class='response'>
+      <p>".$rowresponse['answer']."</p>
+      </div>" ;
+  };}
       $tbody .= "<div id='review'>
       <h6>Rating ".$rowreview['star']."⭐</h6>
       <p>".$rowreview['message']."</p>
@@ -49,27 +60,16 @@ if (mysqli_num_rows($resultreview)  > 0) {
       <form action='actions/a_answer.php' method='post'>
               <label for='review'>your answer</label>
                 <textarea  class='form-select' name='answer' id='' cols='10' rows='3'></textarea>
-                <input type='hidden' name='fk_review' value=".$id.">
+                <input type='hidden' name='fk_review' value=".$rowreview['id'].">
 
                 <button class='btn btn-success' type='submit'>Send answer</button>
 
               </form>" ;
-              echo $rowreview['id'];
   };
 } else {
   $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>" ;
 }
-//add answer to review
-$sqlresponse = "SELECT * FROM review_answer WHERE fk_review=$id";
-$resultresponse = mysqli_query($connect, $sqlresponse);
-$tresponse = ''; 
-if (mysqli_num_rows($resultresponse)  > 0) {
-  while ($rowresponse = mysqli_fetch_array($resultresponse, MYSQLI_ASSOC)) {
-      $tresponse .= "<div class='response'>
-      <p>".$rowresponse['message']."</p>
-      </div>" ;
-      echo $tresponse; 
-  };}
+
 
   
 ?>
