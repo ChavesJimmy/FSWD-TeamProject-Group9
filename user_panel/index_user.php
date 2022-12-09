@@ -82,8 +82,7 @@ mysqli_close($connect);
        </div>
   </div>
   <script>
-    function SearchProducts(e){
-            e.preventDefault();
+    function SearchProducts(){
             let xhttp = new XMLHttpRequest();
             let productVal = document.getElementById("searchProd").value;
             //console.log(productVal);
