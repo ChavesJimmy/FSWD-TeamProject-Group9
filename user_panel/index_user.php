@@ -70,11 +70,31 @@ mysqli_close($connect);
 </head>
 
 <body>
+  <h5>Search products:</h5>
+  <input type="text" name="email" placeholder="product name" id="searchProd">
+  <h6 style="background-color: yellow;">Search results</h6>
+  <div id="container" style="background-color: yellow;" class="row"></div>
+
   <div class= "manageProduct w-75 mt-3">
       <p class='h2'> Products </p>
       <div class="row m-auto">
               <?=$tbody;?>
        </div>
   </div>
+  <script>
+    function SearchProducts(e){
+            e.preventDefault();
+            let xhttp = new XMLHttpRequest();
+            let productVal = document.getElementById("searchProd").value;
+            //console.log(productVal);
+            xhttp.open("GET", "productslist.php?search=" + productVal);
+            xhttp.onload = function(){
+            if(this.status == 200){
+                document.getElementById('container').innerHTML=this.responseText;
+            }}
+            xhttp.send();
+        }
+        document.getElementById('searchProd').addEventListener("input", SearchProducts);
+  </script>
 </body>
 </html> 
