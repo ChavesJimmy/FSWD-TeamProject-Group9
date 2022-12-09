@@ -29,6 +29,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
     $type = $data['type'];
     $availability = $data['availability'];
     $discount=$data['Discount'];
+    
   }
 } else {
   header("location: error.php");
@@ -53,7 +54,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
     <div>
       <h2>Details</h2>
       <div class="card mb-3">
-        <img src="<?=$picture ?>" class="card-img-top" alt="...">
+        <img src="../pictures/<?=$picture ?>" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><?=$name ?></h5>
           <p class="card-text"><?=$description?></p>
