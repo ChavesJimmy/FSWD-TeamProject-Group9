@@ -14,12 +14,11 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
 require_once '../../components/db_connect.php';
 
 if ($_POST) {
-    $review=$_POST['message'];
-    $rating=$_POST['star'];
-    $product=$_POST['product'];
+    $answer=$_POST['answer'];
+    $fk_review=$_POST['fk_review'];
     $user=$_POST['user'];
     $message="";
-    $sql = "INSERT INTO products_reviews(message, fk_product, star) VALUES('$review', $product,'$rating')";
+    $sql = "INSERT INTO review_answer(answer, fk_review) VALUES('$answer', $fk_review)";
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
