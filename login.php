@@ -71,9 +71,9 @@ mysqli_close($connect);
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
-  <form class="cont1 container border rounded border-dark p-4 w-50" style="margin-top:10%;" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
-    <h1 class="mb-4" style="margin-left:35%;">Login</h1>
+<body class=" bg-light">
+  <form class="cont1 container border rounded rounded-3 p-4 w-50" style="margin-top:10%; background-color: rgba(127, 123, 116, 0.8431372549);" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
+    <h1 class="mb-5" style="margin-left:35%;">Login</h1>
     <?php
     if (isset($errMSG)) {
       echo $errMSG;
