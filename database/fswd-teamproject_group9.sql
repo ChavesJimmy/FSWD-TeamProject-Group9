@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Dez 2022 um 12:03
--- Server-Version: 10.4.25-MariaDB
--- PHP-Version: 8.1.10
+-- Erstellungszeit: 12. Dez 2022 um 20:23
+-- Server-Version: 10.4.21-MariaDB
+-- PHP-Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -202,6 +202,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Daten für Tabelle `users`
+--
+
+INSERT INTO `users` (`id`, `user_name`, `password`, `first_name`, `last_name`, `email`, `address`, `birth_date`, `photo`, `status`, `user_allowed`) VALUES
+(3, 'admin', '597f5441e7d174b607873874ed54b974674986ad543e7458e28a038671c9f64c', 'Test', 'Admin', 'admin@admin.test', 'Street', '1992-04-18', NULL, 'USER', NULL),
+(4, 'user', 'ae5deb822e0d71992900471a7199d0d95b8e7c9d05c40a8245a281fd2c1d6684', 'Test', 'Admin', 'user@user.test', 'Street', '1992-04-18', NULL, 'USER', NULL);
+
+--
 -- Indizes der exportierten Tabellen
 --
 
@@ -301,7 +309,7 @@ ALTER TABLE `shopping_cart`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints der exportierten Tabellen
