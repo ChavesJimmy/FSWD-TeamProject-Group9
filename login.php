@@ -35,12 +35,12 @@ if (isset($_POST['login'])) {
     $row = mysqli_fetch_assoc($result);
     $count = mysqli_num_rows($result);
     if ($count == 1 && $row['password'] == $password) {
-      if ($row['status'] == 'admin') {
-        $_SESSION['admin'] = $row['status'];
-        header("Location: dashboard.php");
+      if ($row['status'] == 'ADMIN') {
+        $_SESSION['ADMIN'] = $row['status'];
+        header("Location: admin_panel/index_adminpanel.php");
       } else {
-        $_SESSION['user'] = $row['status'];
-        header("Location: logout.php");
+        $_SESSION['USER'] = $row['status'];
+        header("Location: user_panel/index_user.php");
       }
     } else {
       $errMSG = "Incorrect Credentials, Try again...";
@@ -48,13 +48,6 @@ if (isset($_POST['login'])) {
   }
 }
 
-if (isset($_SESSION['user']) != "") {
-  header("Location: user_panel/user.php");
-  exit;
-}
-if (isset($_SESSION['admin']) != "") {
-  header("Location: admin_panel/index_admin.php");
-}
 
 mysqli_close($connect);
 ?>
