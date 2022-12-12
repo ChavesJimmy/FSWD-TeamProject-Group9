@@ -8,10 +8,10 @@ if (isset($_SESSION['ADMIN'])) {
     exit;
 } */
 // if session is not set this will redirect to login page
-if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
+/* if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
     header("Location: ../user_panel/user.php");
     exit;
-} 
+} */
 // take infos from all users except the admin
 // $id = $_SESSION['ADMIN'];
 $status = 'ADMIN';
