@@ -29,7 +29,7 @@
   <a aria-current="page" href="#">Home</a>
   <a href="./login.php">About</a>
   <a href="#">Lorem</a>
-  <a href="#">Lorem</a>
+  <a href="../contact/contact.php">Contact</a>
   <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
