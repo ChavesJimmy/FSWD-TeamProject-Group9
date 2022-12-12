@@ -2,7 +2,7 @@
 //session_start();
 require_once '../components/db_connect.php' ;
 
-/* if (isset($_SESSION['user']) != "" ) {
+ if (isset($_SESSION['user']) != "" ) {
   header("Location: ../home.php");
   exit;
 }
@@ -10,7 +10,7 @@ require_once '../components/db_connect.php' ;
 if (! isset($_SESSION['adm']) && !isset($_SESSION['user' ])) {
   header("Location: ../index.php");
   exit;
-} */
+} 
 //$id=$_GET['id'];
 //mmmust change 3 by get id
 $sql = "SELECT * FROM products_reviews WHERE fk_product=3";
