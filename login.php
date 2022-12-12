@@ -36,11 +36,13 @@ if (isset($_POST['login'])) {
     $count = mysqli_num_rows($result);
     if ($count == 1 && $row['password'] == $password) {
       if ($row['status'] == 'ADMIN') {
-          $_SESSION['ADMIN'] = $row['id'];
-          header("Location: admin_panel/index_admin.php");
+          $_SESSION['ADMIN'] = $row['status'];
+          echo $_SESSION['ADMIN'];
+          header("Location: test.php");
       } else {
-          $_SESSION['USER'] = $row['id'];
-          header("Location: user_panel/user.php");
+          $_SESSION['USER'] = $row['status'];
+          echo $_SESSION['USER'];
+          header("Location: test.php");
       }
   } else {
       $errMSG = "Incorrect Credentials, Try again...";
