@@ -17,10 +17,10 @@
                         <a class="nav-link"  href="crud/login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a class="nav-link"  href="../login.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
                     <li class="nav-item">
-                        <a class="nav-link"  href="./logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                        <a class="nav-link"  href="../logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                     </li> 
                 </ul>
         </div>
@@ -40,7 +40,7 @@
     <a href="../admin_panel/create_products.php">Create Products</a>
     <a href="../admin_panel/sale_statistic.php">Sale Statistic</a>
     <a href="../admin_panel/update_user.php">User Control Surface</a>
-    <a href="./logout.php">Logout</a>
+    <a href="../logout.php">Logout</a>
   
  
 </div>
