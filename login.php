@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'components/db_connect.php';
 require_once 'components/boot.php';
 
@@ -30,26 +31,27 @@ if (isset($_POST['login'])) {
 
     $password = hash('sha256', $password);
 
-    $sql = "SELECT id, status, password FROM users WHERE user_name = '$user_name'";
+   $sql = "SELECT id, status, password FROM users WHERE user_name = '$user_name'";
     $result = mysqli_query($connect, $sql);
     $row = mysqli_fetch_assoc($result);
     $count = mysqli_num_rows($result);
     if ($count == 1 && $row['password'] == $password) {
       if ($row['status'] == 'ADMIN') {
-          $_SESSION['ADMIN'] = $row['status'];
+          $_SESSION['ADMIN'] = $row['id'];
           echo $_SESSION['ADMIN'];
-          header("Location: test.php");
-      } else {
-          $_SESSION['USER'] = $row['status'];
+          header("Location: admin_panel/index_admin.php");
+      } if ($row['status'] == 'USER'){
+          $_SESSION['USER'] = $row['id'];
           echo $_SESSION['USER'];
-          header("Location: test.php");
-      }
+          header("Location: user_panel/index_user.php");
+      } 
   } else {
       $errMSG = "Incorrect Credentials, Try again...";
   }
 }
 }
 
+  
 mysqli_close($connect);
 ?>
 <!DOCTYPE html>
