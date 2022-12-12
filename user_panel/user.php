@@ -2,14 +2,14 @@
 session_start();
 
 
-// if (isset($_SESSION['admin'])) {
-//     header('Location: ../index_admin.php');
-//     exit;
-// }
-// if (!isset($_SESSION['user'])) {
-//     header("Location: ../login.php");
-//     exit;
-// }
+ if (isset($_SESSION['admin'])) {
+     header('Location: ../index_admin.php');
+     exit;
+}
+ if (!isset($_SESSION['user'])) {
+     header("Location: ../login.php");
+     exit;
+ }
 
 require_once '../components/db_connect.php';
 
