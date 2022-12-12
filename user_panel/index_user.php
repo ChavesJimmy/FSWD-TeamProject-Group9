@@ -80,6 +80,7 @@ mysqli_close($connect);
 <body>
 
 <a href="../logout.php?logout">Logout</a>
+
 <!--START HTML FOR THE RESEARCH PRODUCTS-->
   <h5>Search products:</h5>
   <input type="text" name="search" placeholder="product name" id="searchProd">

@@ -1,19 +1,9 @@
 <?php
 session_start();
 
-
- /*if (isset($_SESSION['admin'])) {
-     header('Location: ../index_admin.php');
-     exit;
-}
- if (!isset($_SESSION['user'])) {
-     header("Location: ../login.php");
-     exit;
- } */
-
 require_once '../components/db_connect.php';
 
-$query = "SELECT * FROM users";// WHERE id={$_SESSION['user']}
+$query = "SELECT * FROM users WHERE id={$_SESSION['USER']}";
 $result = mysqli_query($connect, $query);
 $row = mysqli_fetch_assoc($result);
 
@@ -71,7 +61,7 @@ mysqli_close($connect);
                         <img src="../pictures/?= $picture ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                         <h5 class="my-4">Hello, <?= $user_name ?>!</h5>
                         <div class="d-flex justify-content-center mb-2">
-                            <a class=" btn btn-primary ms-1" href="update.php?id=<?= $_SESSION['user'] ?>">Update your account</a>
+                            <a class=" btn btn-primary ms-1" href="update.php?id=<?= $_SESSION['USER'] ?>">Update your account</a>
                             <a class="btn btn-outline-danger ms-1" href="logout.php?logout">Log Out</a>
 
                         </div>
