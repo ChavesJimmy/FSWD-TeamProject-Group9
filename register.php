@@ -1,11 +1,11 @@
 <?php
-/*session_start(); 
-if (isset($_SESSION['user']) != "") {
-  header("Location: login.php");
+session_start(); 
+if (isset($_SESSION['USER']) != "") {
+  header("Location: user_panel/index_user.php");
 }
-if (isset($_SESSION['adm']) != "") {
-  header("Location: dashboard.php"); 
-} */
+if (isset($_SESSION['ADMIN']) != "") {
+  header("Location: admin_panel/index_admin.php"); 
+} 
 require_once 'components/db_connect.php';
 $error = false;
 $user_name = $first_name = $last_name = $address = $email = $birth_date = $password = $photo = '';

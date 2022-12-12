@@ -38,11 +38,9 @@ if (isset($_POST['login'])) {
     if ($count == 1 && $row['password'] == $password) {
       if ($row['status'] == 'ADMIN') {
           $_SESSION['ADMIN'] = $row['id'];
-          echo $_SESSION['ADMIN'];
           header("Location: admin_panel/index_admin.php");
       } if ($row['status'] == 'USER'){
           $_SESSION['USER'] = $row['id'];
-          echo $_SESSION['USER'];
           header("Location: user_panel/index_user.php");
       } 
   } else {

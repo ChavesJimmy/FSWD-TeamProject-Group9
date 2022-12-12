@@ -72,11 +72,12 @@ mysqli_close($connect);
   <meta  charset="UTF-8">
   <meta name="viewport"  content="width=device-width, initial-scale=1.0">
   <title>Product Page</title>
-   <?php  require_once '../components/boot.php' ?>
-  
+  <link rel="stylesheet" href="../css/style.css">  
 </head>
 
 <body>
+<?php require_once "../components/navbar.php" ?>
+
 <div> Welcome :<?= $user['user_name']?></div> <br>
 <a href="../logout.php?logout">Logout</a>
 
@@ -108,5 +109,7 @@ mysqli_close($connect);
         }
         document.getElementById('searchProd').addEventListener("input", SearchProducts);
   </script>
+      <?php require_once "../components/footer.php" ?>
+
 </body>
 </html> 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Dez 2022 um 20:23
+-- Erstellungszeit: 12. Dez 2022 um 22:04
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.12
 
@@ -130,7 +130,9 @@ INSERT INTO `products_reviews` (`id`, `message`, `fk_product`, `star`, `fk_user`
 (2, 'test 2', 1, 4, NULL),
 (3, 'test 3', 3, 3, NULL),
 (4, 'test 2', 1, 4, NULL),
-(5, 'test 3', 3, 3, NULL);
+(5, 'test 3', 3, 3, NULL),
+(6, '', 1, 0, NULL),
+(7, 'blabla', 1, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,6 +183,16 @@ CREATE TABLE `shopping_cart` (
   `fk_produkt` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Daten für Tabelle `shopping_cart`
+--
+
+INSERT INTO `shopping_cart` (`id`, `fk_user`, `fk_produkt`) VALUES
+(1, 3, 1),
+(2, 3, 1),
+(3, 3, 24),
+(4, 3, 35);
+
 -- --------------------------------------------------------
 
 --
@@ -206,8 +218,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `first_name`, `last_name`, `email`, `address`, `birth_date`, `photo`, `status`, `user_allowed`) VALUES
-(3, 'admin', '597f5441e7d174b607873874ed54b974674986ad543e7458e28a038671c9f64c', 'Test', 'Admin', 'admin@admin.test', 'Street', '1992-04-18', NULL, 'USER', NULL),
-(4, 'user', 'ae5deb822e0d71992900471a7199d0d95b8e7c9d05c40a8245a281fd2c1d6684', 'Test', 'Admin', 'user@user.test', 'Street', '1992-04-18', NULL, 'USER', NULL);
+(3, 'admin', '597f5441e7d174b607873874ed54b974674986ad543e7458e28a038671c9f64c', 'Test', 'Admin', 'admin@admin.test', 'Street', '1992-04-18', NULL, 'ADMIN', 'allowed'),
+(4, 'user', 'ae5deb822e0d71992900471a7199d0d95b8e7c9d05c40a8245a281fd2c1d6684', 'Test', 'User', 'user@user.test', 'Street', '1992-04-18', NULL, 'USER', 'allowed');
 
 --
 -- Indizes der exportierten Tabellen
@@ -285,7 +297,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT für Tabelle `products_reviews`
 --
 ALTER TABLE `products_reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT für Tabelle `purchase`
@@ -303,7 +315,7 @@ ALTER TABLE `review_answer`
 -- AUTO_INCREMENT für Tabelle `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
