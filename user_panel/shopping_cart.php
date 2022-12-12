@@ -8,7 +8,9 @@ JOIN users ON users.id=shopping_cart.fk_user
 JOIN products ON products.id=shopping_cart.fk_produkt
 where shopping_cart.fk_user=3";
 $result = mysqli_query($connect, $sql);
-/* $tbodySum=0;
+$tbodySum='';
+$totalprice=0;
+/* ;
 
 calculate total price(doesn't work)
 function Amount($price)
@@ -22,10 +24,14 @@ if (mysqli_num_rows($result)  > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         if($row['Discount']>0){
             $price=$row['price']-($row['price']*$row['Discount']/100);
+            $totalprice+=$row['price']-($row['price']*$row['Discount']/100);
         }else{
             $price=$row['price'];
+            $totalprice+=$row['price'];
+
         }
-        $tbody.=$row['name'] ." ".$price ."EUR <br>";
+        $tbody.=$row['name'] ." ".$price."EUR <br>";
+        $tbodySum=$totalprice;
     }/* Amount($price) */;
 }
 
@@ -54,7 +60,7 @@ if (mysqli_num_rows($resultUser)  > 0) {
 <body>
     <h1>My shopping cart</h1>
     <?= $tbody?>
-    Total : <?= ''?>
+    Total : <?= $tbodySum?>
     <h1>My infos</h1>
     <?= $tbodyUser?>
     <h1>Payment Method</h1>
@@ -63,8 +69,8 @@ if (mysqli_num_rows($resultUser)  > 0) {
             <option value="Paypal">Paypal</option>
             <option value="Click and collect">Click and Collect</option>
             <option value="Credit Card">Credit Card</option>
-    <input type="hidden" name="user" value="<?= ''?>">
-    <input type="hidden" name="products" value="<?= ''?>">
+    <input type="hidden" name="fk_user" value="<?= 3?>">
+    <input type="hidden" name="fk_products" value="<?= $row['product.id']?>">
     <input type="hidden" name="date" value="<?= date('YYY-MM-dd')?>">
 
 

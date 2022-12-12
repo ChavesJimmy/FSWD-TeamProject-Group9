@@ -2,7 +2,7 @@
 //PHP FILE FOR THE RESEARCH PRODUCTS
 require_once '../components/db_connect.php';
 $search =$_GET['search'];
-$qlProducts ="SELECT * FROM products WHERE name LIKE '$search%'";
+$qlProducts ="SELECT * FROM products WHERE name LIKE '%$search%'";
 $result = mysqli_query($connect, $qlProducts);
 $searchresult = "";
 if(mysqli_num_rows($result)==0) {
