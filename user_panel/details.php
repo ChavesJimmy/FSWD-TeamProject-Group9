@@ -8,10 +8,7 @@ if (isset($_SESSION['admin'])) {
      header('Location: ../index_admin.php');
      exit;
  }
- if (!isset($_SESSION['user'])) {
-     header("Location: ..login.php");
-     exit;
- }
+ 
 
 if ($_GET['id']) {
   $id = $_GET['id'];
@@ -58,6 +55,10 @@ if (mysqli_num_rows($resultreview)  > 0) {
       <h6>Rating ".$rowreview['star']."⭐</h6>
       <p>".$rowreview['message']."</p>
       </div><br>
+      <div id='response'>
+              <h6>Answer</h6>
+                ".$tresponse."
+              </div><br>
       <form action='actions/a_answer.php' method='post'>
               <label for='review'>your answer</label>
                 <textarea  class='form-select' name='answer' id='' cols='10' rows='3'></textarea>
@@ -66,10 +67,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
                 <button class='btn btn-success' type='submit'>Send answer</button>
 
               </form>
-              <div id='response'>
-              <h6>Answer</h6>
-                ".$tresponse."
-              </div>
+              
               " ;
   };
 } else {
@@ -98,7 +96,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
     <div>
       <h2>Details</h2>
       <div class="card mb-3">
-        <img src="<?=$picture ?>" class="card-img-top" alt="...">
+        <img src="../pictures/<?=$picture ?>" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><?=$name ?></h5>
           <p class="card-text"><?=$description?></p>
