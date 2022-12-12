@@ -2,18 +2,15 @@
 session_start();
 require_once '../components/db_connect.php';
 
-/* // if adm will redirect to dashboard
-if (isset($_SESSION['ADMIN'])) {
-    header("Location: dashboard.php");
+if (isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../user_panel/index_user.php");
+    exit;
+} 
+
+if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../login.php");
     exit;
 }
-// if session is not set this will redirect to login page
-if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
-    header("Location: index.php");
-    exit;
-} */
-// take infos from all users except the admin
-// $id = $_SESSION['ADMIN'];
 
 //print products
 $type=$_GET['type'];

@@ -1,15 +1,16 @@
 <?php
-/* session_start();
-// if session is not set this will redirect to login page
-if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
-    header("Location: index.php");
+session_start();
+require_once '../components/db_connect.php';
+
+if (isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../user_panel/index_user.php");
+    exit;
+} 
+
+if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../login.php");
     exit;
 }
-if (isset($_SESSION["user"])) {
-    header("Location: home.php");
-    exit;
-} */
-require_once '../components/db_connect.php';
 
 $class = 'd-none';
 if ($_GET['id']) {

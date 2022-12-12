@@ -6,7 +6,7 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
 } else if (isset($_SESSION['USER']) != "") {
     header("Location: index.php");
 } else if (isset($_SESSION['ADMIN']) != "") {
-    header("Location: dashboard.php");
+    header("Location: index.php");
 } 
 
 if (isset($_GET['logout'])) {
