@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 09:28 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Erstellungszeit: 12. Dez 2022 um 12:03
+-- Server-Version: 10.4.25-MariaDB
+-- PHP-Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fswd-teamproject_group9`
+-- Datenbank: `fswd-teamproject_group9`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `discount`
+-- Tabellenstruktur für Tabelle `discount`
 --
 
 CREATE TABLE `discount` (
@@ -33,7 +33,7 @@ CREATE TABLE `discount` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `discount`
+-- Daten für Tabelle `discount`
 --
 
 INSERT INTO `discount` (`id`, `discount`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `discount` (`id`, `discount`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Tabellenstruktur für Tabelle `products`
 --
 
 CREATE TABLE `products` (
@@ -66,7 +66,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products`
+-- Daten für Tabelle `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `picture`, `description`, `price`, `type`, `availability`, `fk_discount`, `displ`, `Discount`) VALUES
@@ -111,7 +111,7 @@ INSERT INTO `products` (`id`, `name`, `picture`, `description`, `price`, `type`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products_reviews`
+-- Tabellenstruktur für Tabelle `products_reviews`
 --
 
 CREATE TABLE `products_reviews` (
@@ -123,7 +123,7 @@ CREATE TABLE `products_reviews` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `products_reviews`
+-- Daten für Tabelle `products_reviews`
 --
 
 INSERT INTO `products_reviews` (`id`, `message`, `fk_product`, `star`, `fk_user`) VALUES
@@ -135,7 +135,7 @@ INSERT INTO `products_reviews` (`id`, `message`, `fk_product`, `star`, `fk_user`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `purchase`
+-- Tabellenstruktur für Tabelle `purchase`
 --
 
 CREATE TABLE `purchase` (
@@ -147,7 +147,7 @@ CREATE TABLE `purchase` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `purchase`
+-- Daten für Tabelle `purchase`
 --
 
 INSERT INTO `purchase` (`id`, `fk_product`, `fk_user`, `purchase_date`, `payment_method`) VALUES
@@ -159,7 +159,7 @@ INSERT INTO `purchase` (`id`, `fk_product`, `fk_user`, `purchase_date`, `payment
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review_answer`
+-- Tabellenstruktur für Tabelle `review_answer`
 --
 
 CREATE TABLE `review_answer` (
@@ -172,7 +172,19 @@ CREATE TABLE `review_answer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabellenstruktur für Tabelle `shopping_cart`
+--
+
+CREATE TABLE `shopping_cart` (
+  `id` int(11) NOT NULL,
+  `fk_user` int(11) NOT NULL,
+  `fk_produkt` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `users`
 --
 
 CREATE TABLE `users` (
@@ -190,24 +202,24 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `discount`
+-- Indizes für die Tabelle `discount`
 --
 ALTER TABLE `discount`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Indizes für die Tabelle `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD KEY `products_ibfk_1` (`fk_discount`);
 
 --
--- Indexes for table `products_reviews`
+-- Indizes für die Tabelle `products_reviews`
 --
 ALTER TABLE `products_reviews`
   ADD PRIMARY KEY (`id`),
@@ -215,7 +227,7 @@ ALTER TABLE `products_reviews`
   ADD KEY `fk_user` (`fk_user`);
 
 --
--- Indexes for table `purchase`
+-- Indizes für die Tabelle `purchase`
 --
 ALTER TABLE `purchase`
   ADD PRIMARY KEY (`id`),
@@ -223,7 +235,7 @@ ALTER TABLE `purchase`
   ADD KEY `fk_user` (`fk_user`);
 
 --
--- Indexes for table `review_answer`
+-- Indizes für die Tabelle `review_answer`
 --
 ALTER TABLE `review_answer`
   ADD PRIMARY KEY (`id`),
@@ -231,82 +243,103 @@ ALTER TABLE `review_answer`
   ADD KEY `fk_user` (`fk_user`);
 
 --
--- Indexes for table `users`
+-- Indizes für die Tabelle `shopping_cart`
+--
+ALTER TABLE `shopping_cart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user` (`fk_user`),
+  ADD KEY `fk_produkt` (`fk_produkt`);
+
+--
+-- Indizes für die Tabelle `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `discount`
+-- AUTO_INCREMENT für Tabelle `discount`
 --
 ALTER TABLE `discount`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT für Tabelle `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT for table `products_reviews`
+-- AUTO_INCREMENT für Tabelle `products_reviews`
 --
 ALTER TABLE `products_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `purchase`
+-- AUTO_INCREMENT für Tabelle `purchase`
 --
 ALTER TABLE `purchase`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `review_answer`
+-- AUTO_INCREMENT für Tabelle `review_answer`
 --
 ALTER TABLE `review_answer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT für Tabelle `shopping_cart`
+--
+ALTER TABLE `shopping_cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints for table `products`
+-- Constraints der Tabelle `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`fk_discount`) REFERENCES `discount` (`id`);
 
 --
--- Constraints for table `products_reviews`
+-- Constraints der Tabelle `products_reviews`
 --
 ALTER TABLE `products_reviews`
   ADD CONSTRAINT `products_reviews_ibfk_1` FOREIGN KEY (`fk_product`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `products_reviews_ibfk_2` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `purchase`
+-- Constraints der Tabelle `purchase`
 --
 ALTER TABLE `purchase`
   ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`fk_product`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `review_answer`
+-- Constraints der Tabelle `review_answer`
 --
 ALTER TABLE `review_answer`
   ADD CONSTRAINT `review_answer_ibfk_1` FOREIGN KEY (`fk_review`) REFERENCES `products_reviews` (`id`),
   ADD CONSTRAINT `review_answer_ibfk_2` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id`);
+
+--
+-- Constraints der Tabelle `shopping_cart`
+--
+ALTER TABLE `shopping_cart`
+  ADD CONSTRAINT `shopping_cart_ibfk_1` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `shopping_cart_ibfk_2` FOREIGN KEY (`fk_produkt`) REFERENCES `products` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
