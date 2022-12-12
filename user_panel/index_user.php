@@ -33,6 +33,10 @@ if (mysqli_num_rows($result)  > 0) {
       <div class='card-body'>
         <a href='details.php?id=".$row['id']."' class='card-link'>Details</a>
       </div>
+      <form action='./actions/a_addToCart.php' method='post'>
+          <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
+          <input type='hidden' name='fk_user' value=3>
+          <button type='submit'>Add to cart</button></form>
     </div>" ;}
     else{
       $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
@@ -48,6 +52,10 @@ if (mysqli_num_rows($result)  > 0) {
       <div class='card-body'>
         <a href='details.php?id=".$row['id']."' class='card-link'>Details</a>
       </div>
+      <form action='./actions/a_addToCart.php' method='post'>
+          <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
+          <input type='hidden' name='fk_user' value=3>
+          <button type='submit'>Add to cart</button></form>
     </div>" ;
     };
   };

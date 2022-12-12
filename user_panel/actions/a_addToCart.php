@@ -1,18 +1,14 @@
 <?php
 session_start();
 
-
 require_once '../../components/db_connect.php';
 
 if ($_POST) {
+    $fk_produkt=$_POST['fk_produkt'];
     $fk_user=$_POST['fk_user'];
-    $fk_product=$_POST['fk_product'];
-    $payment_method=$_POST['payment_method'];
-    $date=date('Y-m-d');
-    echo $date;
     $message="";
-    $sql = "INSERT INTO purchase(purchase_date,fk_user,fk_product,payment_method) VALUES('$date', $fk_user, $fk_product,'$payment_method')";
-    
+    $sql = "INSERT INTO shopping_cart(fk_produkt, fk_user) VALUES ($fk_produkt, $fk_user)";
+
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
         $message = "The review below was successfully created <br>

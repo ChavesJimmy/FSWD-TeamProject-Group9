@@ -10,15 +10,7 @@ where shopping_cart.fk_user=3";
 $result = mysqli_query($connect, $sql);
 $tbodySum='';
 $totalprice=0;
-/* ;
 
-calculate total price(doesn't work)
-function Amount($price)
-        {
-            // calculate total price here
-            global $tbodySum;
-            $tbodySum = $price;    
-    } */
 $tbody = ''; 
 if (mysqli_num_rows($result)  > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -32,7 +24,7 @@ if (mysqli_num_rows($result)  > 0) {
         }
         $tbody.=$row['name'] ." ".$price."EUR <br>";
         $tbodySum=$totalprice;
-    }/* Amount($price) */;
+    };
 }
 
         
@@ -69,9 +61,8 @@ if (mysqli_num_rows($resultUser)  > 0) {
             <option value="Paypal">Paypal</option>
             <option value="Click and collect">Click and Collect</option>
             <option value="Credit Card">Credit Card</option>
-    <input type="hidden" name="fk_user" value="<?= 3?>">
-    <input type="hidden" name="fk_products" value="<?= $row['product.id']?>">
-    <input type="hidden" name="date" value="<?= date('YYY-MM-dd')?>">
+    <input type="hidden" name="fk_user" value="<?= 3 ?>">
+    <input type="hidden" name="fk_product" value="<?= 3 ?>">
 
 
         </select><br>

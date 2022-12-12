@@ -106,6 +106,13 @@ if (mysqli_num_rows($resultreview)  > 0) {
           ?> EUR</p>
           <p class="card-text"><?=$type?></p>
           <p class="card-text"><?=$availability?></p>
+          <form action="./actions/a_addToCart.php" method="post">
+          <input type="hidden" name="fk_produkt" value="<?= $id?>">  
+          <input type="hidden" name="fk_user" value=3>
+          <button type="submit">Add to cart</button>
+
+
+          </form>
 
         </div>
       </div>
