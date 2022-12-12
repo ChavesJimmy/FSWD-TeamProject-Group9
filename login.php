@@ -48,6 +48,13 @@ if (isset($_POST['login'])) {
   }
 }
 
+if (isset($_SESSION['USER']) != "") {
+  header("Location: admin_panel/index_admin.php");
+  exit;
+}
+if (isset($_SESSION['ADMIN']) != "") {
+  header("Location: admin_panel/index_admin.php");
+}
 
 mysqli_close($connect);
 ?>

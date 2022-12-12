@@ -6,12 +6,12 @@ require_once '../components/db_connect.php';
 if (isset($_SESSION['ADMIN'])) {
     header("Location: dashboard.php");
     exit;
-}
+} */
 // if session is not set this will redirect to login page
 if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
-    header("Location: index.php");
+    header("Location: ../user_panel/user.php");
     exit;
-} */
+} 
 // take infos from all users except the admin
 // $id = $_SESSION['ADMIN'];
 $status = 'ADMIN';
