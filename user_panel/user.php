@@ -62,14 +62,14 @@ mysqli_close($connect);
         }
     </style>
 </head>
-<body>
+<body class="bg-light">
     <div class="container py-4 h100">
         <div class="row">
             <div class="col-lg-4">
                 <div class="card mb-4">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center rounded-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
                         <img src="../pictures/?= $picture ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="my-4">Hello <?= $user_name ?></h5>
+                        <h5 class="my-4">Hello, <?= $user_name ?>!</h5>
                         <div class="d-flex justify-content-center mb-2">
                             <a class=" btn btn-primary ms-1" href="update.php?id=<?= $_SESSION['user'] ?>">Update your account</a>
                             <a class="btn btn-outline-danger ms-1" href="logout.php?logout">Log Out</a>
@@ -78,8 +78,8 @@ mysqli_close($connect);
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
-                <div class="card card-body ">
+            <div class="col-lg-8 p-4">
+                <div class="card-body rounded-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
                 <div class="row">
                         <div class="col-sm-3">
                             <p class="mb-0">User name</p>
