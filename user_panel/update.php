@@ -4,27 +4,27 @@ require_once '../components/db_connect.php';
 // require_once '../components/file_upload.php';
 
 
-// if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
-//     header("Location: index.php");
-//     exit;
-// }
+if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
+     header("Location: index.php");
+     exit;
+ }
 
 
 
-// if (isset($_SESSION["user"])) {
-//     $backBtn = "user.php";
-// }
+ if (isset($_SESSION["USER"])) {
+     $backBtn = "user_panel/user.php";
+ }
 
-// if (isset($_SESSION["adm"])) {
-//     $backBtn = "../index_admin.php";
-// }
+ if (isset($_SESSION["ADMIN"])) {
+     $backBtn = "../index_admin.php";
+ }
 
 
-if (isset($_GET['id'])) {
+if ($_GET['id']) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM users WHERE id = {$id}";
     $result = mysqli_query($connect, $sql);
-    if (mysqli_num_rows($result) == 0) {
+    if (mysqli_num_rows($result) == 1) {
         $data = mysqli_fetch_assoc($result);
         $user_name = $data['user_name'];
         $first_name = $data['first_name'];
@@ -35,10 +35,15 @@ if (isset($_GET['id'])) {
         $photo = $data['photo'];  
         $status = $data['status'];  
         $user_allowed = $data['user_allowed'];  
-        
-    }
+    } else {
+            header("location: error.php");
+        }
+        mysqli_close($connect);
+} else {
+    header("location: error.php");
 }
 
+/*
 $class = 'd-none';
 if (isset($_POST["submit"])) {
     $user_name = $_POST['user_name'];
@@ -50,7 +55,7 @@ if (isset($_POST["submit"])) {
     $photo = $_POST['photo'];  
     $status = $_POST['status'];  
     $user_allowed = $_POST['user_allowed'];  
-    $uploadError = '';
+    $uploadError = ''; 
     // $photoArray = file_upload($_FILES['photo']); 
     $photo = $photoArray->fileName;
     if ($photoArray->error === 0) {
@@ -72,7 +77,8 @@ if (isset($_POST["submit"])) {
     }
 }
 $backBtn = '';
-mysqli_close($connect);
+ mysqli_close($connect); */
+
 ?>
 
 <!DOCTYPE html>
@@ -99,13 +105,9 @@ mysqli_close($connect);
 
 <body>
     <div class="container">
-        <div class="<?= $class; ?>" role="alert">
-            <p><?= ($message) ?? ''; ?></p>
-            <p><?= ($uploadError) ?? ''; ?></p>
-        </div>
         <h2>Update your account</h2>
         <img class='img-thumbnail rounded-circle' src='pictures/<?= $data['photo'] ?>' alt="<?= $first_name ?>">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" action="actions/a_update.php">
             <table class="table">
                 <tr>
                     <th>User Name</th>
