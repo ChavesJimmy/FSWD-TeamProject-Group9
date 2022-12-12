@@ -4,14 +4,14 @@ require_once '../components/boot.php';
 session_start();
 
 
-// if (isset($_SESSION['admin'])) {
-//     header('Location: ../index_admin.php');
-//     exit;
-// }
-// if (!isset($_SESSION['user'])) {
-//     header("Location: ..login.php");
-//     exit;
-// }
+if (isset($_SESSION['admin'])) {
+     header('Location: ../index_admin.php');
+     exit;
+ }
+ if (!isset($_SESSION['user'])) {
+     header("Location: ..login.php");
+     exit;
+ }
 
 if ($_GET['id']) {
   $id = $_GET['id'];
