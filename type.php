@@ -1,16 +1,6 @@
 <?php
-//session_start();
-require_once '../components/db_connect.php';
+require_once './components/db_connect.php';
 
-/* if (isset($_SESSION['user']) != "" ) {
-  header("Location: ../home.php");
-  exit;
-}
-
-if (! isset($_SESSION['adm']) && !isset($_SESSION['user' ])) {
-  header("Location: ../index.php");
-  exit;
-} */
 $type = $_GET['type'];
 $sql = "SELECT * FROM products WHERE type='{$type}' AND displ=1";
 $result = mysqli_query($connect, $sql);
@@ -18,7 +8,7 @@ $tbody = '';
 if (mysqli_num_rows($result)  > 0) {
   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
-      <img src='../pictures/" . $row['picture'] . "' class='card-img-top' alt='" . $row['name'] . "'>
+      <img src='./pictures/" . $row['picture'] . "' class='card-img-top' alt='" . $row['name'] . "'>
       <div class='card-body'>
         <h5 class='card-title'>" . $row['name'] . "</h5>
       </div>
@@ -46,7 +36,7 @@ mysqli_close($connect);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Page</title>
-  <?php require_once '../components/boot.php' ?>
+  <?php require_once './components/boot.php' ?>
 
 </head>
 
