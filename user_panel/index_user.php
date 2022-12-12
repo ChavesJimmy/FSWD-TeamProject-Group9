@@ -7,12 +7,11 @@ session_start();
  /*if (isset($_SESSION['admin'])) {
      header('Location: ../index_admin.php');
     exit;
- }
- if (!isset($_SESSION['user'])) {
-     header("Location: ..login.php");
-     exit;
- } */
-
+ }*/
+ $infoUser="SELECT * FROM users WHERE id={$_SESSION['USER']}";
+ $infoResult = mysqli_query($connect, $infoUser);
+ if (mysqli_num_rows($infoResult)  > 0) {
+  $user = mysqli_fetch_array($infoResult, MYSQLI_ASSOC);}
 $sql = "SELECT * FROM products WHERE displ=1";
 $result = mysqli_query($connect, $sql);
 $tbody = ''; 
@@ -78,7 +77,7 @@ mysqli_close($connect);
 </head>
 
 <body>
-
+<div> Welcome :<?= $user['user_name']?></div> <br>
 <a href="../logout.php?logout">Logout</a>
 <!--START HTML FOR THE RESEARCH PRODUCTS-->
   <h5>Search products:</h5>

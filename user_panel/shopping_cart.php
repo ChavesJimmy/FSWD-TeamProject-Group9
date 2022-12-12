@@ -1,12 +1,11 @@
 <?php 
+session_start();
 require_once '../components/db_connect.php';
 
-//take infos from shopping cart
-//$user=$_GET['id'];
 $sql = "SELECT * from shopping_cart 
 JOIN users ON users.id=shopping_cart.fk_user
 JOIN products ON products.id=shopping_cart.fk_produkt
-where shopping_cart.fk_user=3";
+where shopping_cart.fk_user={$_SESSION['USER']}";
 $result = mysqli_query($connect, $sql);
 $tbodySum='';
 $totalprice=0;
@@ -61,7 +60,7 @@ if (mysqli_num_rows($resultUser)  > 0) {
             <option value="Paypal">Paypal</option>
             <option value="Click and collect">Click and Collect</option>
             <option value="Credit Card">Credit Card</option>
-    <input type="hidden" name="fk_user" value="<?= 3 ?>">
+    <input type="hidden" name="fk_user" value="<?= $_SESSION['USER'] ?>">
     <input type="hidden" name="fk_product" value="<?= 3 ?>">
 
 

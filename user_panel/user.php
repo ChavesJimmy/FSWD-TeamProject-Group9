@@ -13,7 +13,7 @@ session_start();
 
 require_once '../components/db_connect.php';
 
-$query = "SELECT * FROM users";// WHERE id={$_SESSION['user']}
+$query = "SELECT * FROM users WHERE id={$_SESSION['USER']}";
 $result = mysqli_query($connect, $query);
 $row = mysqli_fetch_assoc($result);
 
