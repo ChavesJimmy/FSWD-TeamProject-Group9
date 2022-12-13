@@ -3,7 +3,10 @@ session_start();
 
 
 require_once '../../components/db_connect.php';
-
+$user="SELECT * FROM users WHERE id={$_SESSION['USER']}";
+$resultuser=mysqli_query($connect, $user);
+$rowcart = mysqli_fetch_assoc($resultuser);
+$email=$rowcart['email'];
 if ($_POST) {
     $fk_user=$_POST['fk_user'];
     $product='';
@@ -16,6 +19,8 @@ if ($_POST) {
     $sql = "INSERT INTO purchase(purchase_date,fk_user,fk_product,payment_method) VALUES('$date', $fk_user,{$rowcart['fk_produkt']},'$payment_method')";
     
     if (mysqli_query($connect, $sql) === true) {
+        //send email if purchase successful
+        // mail($email,"your purchase","message");
         $class = "success";
         $message = "The review below was successfully created <br>
             <table class='table w-50'><tr>
