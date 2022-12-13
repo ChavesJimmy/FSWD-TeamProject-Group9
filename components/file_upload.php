@@ -1,19 +1,19 @@
 <?php
-function file_upload($picture, $source = "USER")
+function file_upload($photo, $source = "USER")
 {
     $result = new stdClass(); 
     
     if (isset($_SESSION['ADMIN'])) {
-        $result->fileName = 'noimage.jpg';
+        $result->fileName = 'noimage.png';
     } else {
         $result->fileName = 'avatar.png';
     }
     $result->error = 1; 
-    $fileName = $picture["name"];
-    $fileType = $picture["type"];
-    $fileTmpName = $picture["tmp_name"];
-    $fileError = $picture["error"];
-    $fileSize = $picture["size"];
+    $fileName = $photo["name"];
+    $fileType = $photo["type"];
+    $fileTmpName = $photo["tmp_name"];
+    $fileError = $photo["error"];
+    $fileSize = $photo["size"];
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
     $filesAllowed = ["png", "jpg", "jpeg"];
     if ($fileError == 4) {

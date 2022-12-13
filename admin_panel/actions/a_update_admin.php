@@ -1,9 +1,7 @@
 <?php 
-
 require_once '../../components/db_connect.php';
 require_once '../../components/file_upload.php';
 require_once '../../components/boot.php';
-
 
 
 if ($_POST) {
@@ -18,7 +16,7 @@ if ($_POST) {
 
 
     $uploadError = ''; 
-     $photo = file_upload($_FILES['photo']); 
+     $photo = file_upload($_FILES['photo'], "avatar"); 
     if ($photo->error === 0) {
         ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/$_POST[photo]");
         $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address', photo = '$photo->fileName' WHERE id = '$id'";
@@ -60,7 +58,7 @@ $backBtn = '';
         <div class="alert alert-<?php echo $class; ?>" role="alert">
             <p><?php echo $message; ?></p>
             <p><?php echo ($uploadError) ?? ''; ?></p>
-            <a href='../update.php?id=<?= $id ?>'><button class="btn btn-warning" type='button'>Back</button></a>
+            <a href='../admin.php?id=<?= $id ?>'><button class="btn btn-warning" type='button'>Back</button></a>
             <a href='../../index.php'><button class="btn btn-success" type='button'>Home</button></a>
         </div>
     </div>

@@ -5,18 +5,18 @@ require_once '../components/file_upload.php';
 
 
 if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
-     header("Location: index.php");
+     header("Location: ../index.php");
      exit;
  }
 
 
-
- if (isset($_SESSION["USER"])) {
-     $backBtn = "user_panel/user.php";
+ if (isset($_SESSION["ADMIN"])) {
+    $backBtn = "admin_panel/index_admin.php";
+ 
  }
 
- if (isset($_SESSION["ADMIN"])) {
-     $backBtn = "admin_panel/index_admin.php";
+ if (isset($_SESSION["USER"])) {
+    $backBtn = "user_panel/user.php";
  }
 
 
@@ -107,7 +107,7 @@ $backBtn = '';
     <div class="container">
         <h2>Update your account</h2>
         <img class='img-thumbnail rounded-circle' src='../pictures/<?= $data['photo'] ?>' alt="<?= $first_name ?>">
-        <form method="post" enctype="multipart/form-data" action="actions/a_update.php">
+        <form method="post" enctype="multipart/form-data" action="a_update_admin.php">
             <table class="table">
                 <tr>
                     <th>User Name</th>
@@ -142,7 +142,7 @@ $backBtn = '';
                     <input type="hidden" name="id" value="<?= $data['id'] ?>" />
                     <input type="hidden" name="photo" value="<?= $data['photo'] ?>" />
                     <td><button name="submit" class="btn btn-success" type="submit">Save Changes</button></td>
-                    <td><a href="user.php<?php $backBtn ?>"><button class="btn btn-warning" type="button">Back</button></a></td>
+                    <td><a href="admin.php<?php $backBtn ?>"><button class="btn btn-warning" type="button">Back</button></a></td>
                 </tr>
             </table>
         </form>
