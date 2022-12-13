@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand w-25" href="index.php">
+            <a class="navbar-brand w-25" href="../index.php">
                 <div class="logo d-flex flex-column align-items-start">
-                    <img class="logo-img flex-fill w-75 " src="img/logo.png">
+                    <img class="logo-img flex-fill w-75 " src="../img/logo.png">
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
