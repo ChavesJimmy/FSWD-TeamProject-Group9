@@ -11,7 +11,7 @@ if ($_POST) {
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
-        $message = "The review below was successfully created <br>
+        $message = "The item was added to the cart. <br>
             <table class='table w-50'><tr>
             <td> $message </td>
             </tr></table><hr>";
@@ -43,7 +43,9 @@ if ($_POST) {
         <div class="alert alert-<?= $class; ?>" role="alert">
             <p><?php echo ($message) ?? ''; ?></p>
             <p><?php echo ($uploadError) ?? ''; ?></p>
-            <a href='../index_user.php'><button class="btn btn-primary" type='button'>Home</button></a>
+            <a href='../index_user.php'><button class="btn btn-primary" type='button'>Continue shopping</button></a>
+            <a href='../shopping_cart.php'><button class="btn btn-primary" type='button'>Shopping Cart</button></a>
+
         </div>
     </div>
 </body>

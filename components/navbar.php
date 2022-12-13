@@ -20,7 +20,7 @@
                         <a class="nav-link"  href="../user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
                     <li class="nav-item">
-                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-user"></i></a>
+                        <a class="nav-link"  href="../login.php"><i class="fa-solid fa-user"></i></a>
                     </li> 
                 </ul>
         </div>
