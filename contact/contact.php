@@ -77,7 +77,8 @@ if (isset($_POST['submit'])) {
     
         <input  type="submit" name="submit" value="Submit" />
        </form>
-      
+       <?php require_once "../components/footer.php" ?>
+
    </body>
 </html>
 
