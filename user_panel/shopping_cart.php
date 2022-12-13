@@ -29,7 +29,10 @@ if (mysqli_num_rows($result)  > 0) {
             $totalprice+=$row['price'];
 
         }
-        $tbody.=$row['name'] ." ".$price."EUR <br>";
+        $tbody.=$row['name'] ." ".$price."EUR 
+        <form action='actions/a_deleteItem.php?id=".$row['id']."' method='post'>
+        <button type='submit'>delete</button></form> <br>
+        ";
         $tbodySum=$totalprice;
     };
 }
@@ -63,7 +66,6 @@ if (mysqli_num_rows($resultUser)  > 0) {
     <h1>My infos</h1>
     <?= $tbodyUser?>
     <h1>Payment Method</h1>            
-    <div><?= $product?></div>
 
     <form action="actions/pay.php" method="post">
         <select name="payment_method">
