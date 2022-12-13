@@ -1,6 +1,6 @@
 <?php
 require_once '../../components/db_connect.php';
-
+require_once '../../components/file_upload.php';
 if ($_POST) {
     $user_name = $_POST['user_name'];
     $photo = $_POST['photo'];

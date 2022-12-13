@@ -1,9 +1,9 @@
 <?php
-function file_upload($picture, $source = "user")
+function file_upload($picture, $source = "USER")
 {
     $result = new stdClass(); 
     
-    if (isset($_SESSION['admin'])) {
+    if (isset($_SESSION['ADMIN'])) {
         $result->fileName = 'noimage.jpg';
     } else {
         $result->fileName = 'avatar.png';
@@ -17,7 +17,7 @@ function file_upload($picture, $source = "user")
     $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
     $filesAllowed = ["png", "jpg", "jpeg"];
     if ($fileError == 4) {
-        $result->ErrorMessage = "No picture was chosen. It can always be updated later.";
+        $result->ErrorMessage = "No picture was chosen. You can update it later.";
         return $result;
     } else {
         if (in_array($fileExtension, $filesAllowed)) {
