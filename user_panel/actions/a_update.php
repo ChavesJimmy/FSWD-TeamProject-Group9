@@ -20,9 +20,9 @@ if ($_POST) {
      $photo = file_upload($_FILES['photo']); 
     if ($photo->error === 0) {
         ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/$_POST[photo]");
-        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', photo = '$photo->fileName' WHERE id = '$id'";
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address', photo = '$photo->fileName' WHERE id = '$id'";
     } else {
-        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date' WHERE id = '$id'";
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address' WHERE id = '$id'";
     } 
     if (mysqli_query($connect, $sql)) {
         $class = "success";
