@@ -62,7 +62,7 @@ mysqli_close($connect);
                         <h5 class="my-4">Hello, <?= $user_name ?>!</h5>
                         <div class="d-flex justify-content-center mb-2">
                             <a class=" btn btn-primary ms-1" href="update.php?id=<?= $_SESSION['USER'] ?>">Update your account</a>
-                            <a class="btn btn-outline-danger ms-1" href="logout.php?logout">Log Out</a>
+                            <a class="btn btn-outline-danger ms-1" href="../logout.php?logout">Log Out</a>
 
                         </div>
                     </div>
