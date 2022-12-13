@@ -1,5 +1,12 @@
 <?php 
 session_start();
+
+
+if (!isset($_SESSION['USER']) ) {
+    header("Location: ../login.php");
+    exit;
+}
+
 require_once '../components/db_connect.php';
 
 $sql = "SELECT * from shopping_cart 
