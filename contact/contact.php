@@ -60,22 +60,22 @@ if (isset($_POST['submit'])) {
    <body>
    <?php require_once "../components/navbar.php" ?>
 
-        <p>Contact Us</p>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <h1 style="text-align:center; margin-top:2%; margin-bottom:2%;">Contact Us</h1>
+    <form class="container border rounded rounded-3 p-4 w-50 mb-5" style="background-color: rgba(127, 123, 116, 0.8431372549)" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-       <input type="text" autocomplete="off" name="name" placeholder="Name" value="<?php echo $name; ?>" />
+       <input class="form-control mb-3" type="text" autocomplete="off" name="name" placeholder="Name" value="<?php echo $name; ?>" />
         <?php echo $nameError; ?>
 
-        <input type="text" autocomplete="off" name="email" placeholder="Email" value="<?php echo $email; ?>"/>
+        <input class="form-control mb-3" type="text" autocomplete="off" name="email" placeholder="Email" value="<?php echo $email; ?>"/>
         <?php echo $emailError; ?>
 
-        <input type="text" autocomplete="off" name="subject" placeholder="Subject" value="<?php echo $subject; ?>"/>
+        <input class="form-control mb-3" type="text" autocomplete="off" name="subject" placeholder="Subject" value="<?php echo $subject; ?>"/>
         <?php echo $subjectError; ?>
 
-        <input type="text" autocomplete="off" name="message" placeholder="Message" value="<?php echo $message; ?>"  />
+        <input class="form-control mb-4" type="text" autocomplete="off" name="message" placeholder="Message" value="<?php echo $message; ?>"  />
         <?php echo $messageError; ?>
     
-        <input  type="submit" name="submit" value="Submit" />
+        <input class="form-control mb-2 btn btn-dark p-3"  type="submit" name="submit" value="Submit" />
        </form>
        <?php require_once "../components/footer.php" ?>
 
