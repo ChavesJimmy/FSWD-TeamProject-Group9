@@ -34,7 +34,6 @@ $resultuser = mysqli_query($connect, $sqluser);
 $rowuser = mysqli_fetch_assoc($resultuser);
 //display reviews
 $sqlreview = "SELECT * FROM products_reviews 
-RIGHT JOIN users ON products_reviews.fk_user=users.id
 WHERE fk_product={$id}";
 $resultreview = mysqli_query($connect, $sqlreview);
 $tbody = ''; 
@@ -58,8 +57,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
   };}
       $tbody .= "<div id='review'>
       <h6>Rating ".$rowreview['star']."⭐</h6>
-      <p>".$rowreview['message']."<br>
-      from ".$rowreview['user_name']."</p>
+      <p>".$rowreview['message']."<br> </p>
       </div><br>
       <div id='response'>
               <h6>Answer</h6>
