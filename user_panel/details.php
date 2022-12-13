@@ -33,7 +33,9 @@ $sqluser = "SELECT * FROM users WHERE id={$_SESSION['USER']}";
 $resultuser = mysqli_query($connect, $sqluser);
 $rowuser = mysqli_fetch_assoc($resultuser);
 //display reviews
-$sqlreview = "SELECT * FROM products_reviews WHERE fk_product={$id}";
+$sqlreview = "SELECT * FROM products_reviews 
+RIGHT JOIN users ON products_reviews.fk_user=users.id
+WHERE fk_product={$id}";
 $resultreview = mysqli_query($connect, $sqlreview);
 $tbody = ''; 
 $tresponse='';
@@ -57,7 +59,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
       $tbody .= "<div id='review'>
       <h6>Rating ".$rowreview['star']."⭐</h6>
       <p>".$rowreview['message']."<br>
-      from NEED TO ADD HERE THE USER NAME</p>
+      from ".$rowreview['user_name']."</p>
       </div><br>
       <div id='response'>
               <h6>Answer</h6>
