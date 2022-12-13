@@ -16,26 +16,26 @@ if ($_POST) {
     $id = $_POST['id'];
 
 
-    //$uploadError = ''; 
-    // $photoArray = file_upload($_FILES['photo']); 
-    /*if ($photo->error === 0) {
-        ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/{$_POST["photo"]}");
-        $sql = "UPDATE users SET 'user_name' = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', photo = '$photo->fileName' WHERE id = '$id'";
-    } else {*/
+    $uploadError = ''; 
+     $photo = file_upload($_FILES['photo']); 
+    if ($photo->error === 0) {
+        ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/$_POST[photo]");
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', photo = '$photo->fileName' WHERE id = '$id'";
+    } else {
         $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date' WHERE id = '$id'";
     } 
     if (mysqli_query($connect, $sql)) {
         $class = "success";
         $message = "The record was successfully updated";
-       // $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
+        $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
     } else {
         $class = "danger";
         $message = "Error while updating record : <br>" . mysqli_connect_error();
-      //  $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
+        $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
     }
 
 
-//}
+}
 $backBtn = '';
  mysqli_close($connect);
 
@@ -58,9 +58,9 @@ $backBtn = '';
         </div>
         <div class="alert alert-<?php echo $class; ?>" role="alert">
             <p><?php echo $message; ?></p>
-            <p></p>
+            <p><?php echo ($uploadError) ?? ''; ?></p>
             <a href='../update.php?id=<?= $id ?>'><button class="btn btn-warning" type='button'>Back</button></a>
-            <a href='../index.php'><button class="btn btn-success" type='button'>Home</button></a>
+            <a href='../../index.php'><button class="btn btn-success" type='button'>Home</button></a>
         </div>
     </div>
 

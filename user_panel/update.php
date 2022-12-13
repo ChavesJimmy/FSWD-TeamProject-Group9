@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../components/db_connect.php';
-// require_once '../components/file_upload.php';
+require_once '../components/file_upload.php';
 
 
 if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
@@ -16,11 +16,11 @@ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
  }
 
  if (isset($_SESSION["ADMIN"])) {
-     $backBtn = "../index_admin.php";
+     $backBtn = "admin_panel/index_admin.php";
  }
 
 
-if ($_GET['id']) {
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM users WHERE id = {$id}";
     $result = mysqli_query($connect, $sql);
@@ -38,12 +38,12 @@ if ($_GET['id']) {
     } else {
             header("location: error.php");
         }
-        mysqli_close($connect);
+       
 } else {
     header("location: error.php");
 }
 
-/*
+
 $class = 'd-none';
 if (isset($_POST["submit"])) {
     $user_name = $_POST['user_name'];
@@ -56,28 +56,28 @@ if (isset($_POST["submit"])) {
     $status = $_POST['status'];  
     $user_allowed = $_POST['user_allowed'];  
     $uploadError = ''; 
-    // $photoArray = file_upload($_FILES['photo']); 
+    $photoArray = file_upload($_FILES['photo']); 
     $photo = $photoArray->fileName;
     if ($photoArray->error === 0) {
         ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/{$_POST["photo"]}");
-        $sql = "UPDATE users SET 'user_name' = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', photo = '$pictureArray->fileName' WHERE id = {$id}";
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', photo = '$photoArray->fileName' WHERE id = {$id}";
     } else {
-        $sql = "UPDATE users SET 'user_name' = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date' WHERE id = {$id}";
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date' WHERE id = {$id}";
     }
     if (mysqli_query($connect, $sql) === true) {
         $class = "alert alert-success";
         $message = "Successfully updated";
-        $uploadError = ($pictureArray->error != 0) ? $pictureArray->ErrorMessage : '';
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
         header("refresh:3;url=update.php?id={$id}");
     } else {
         $class = "alert alert-danger";
         $message = "Error while updating : <br>" . $connect->error;
-        $uploadError = ($pictureArray->error != 0) ? $pictureArray->ErrorMessage : '';
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
         header("refresh:3;url=update.php?id={$id}");
     }
 }
 $backBtn = '';
- mysqli_close($connect); */
+ mysqli_close($connect); 
 
 ?>
 
@@ -106,7 +106,7 @@ $backBtn = '';
 <body>
     <div class="container">
         <h2>Update your account</h2>
-        <img class='img-thumbnail rounded-circle' src='pictures/<?= $data['photo'] ?>' alt="<?= $first_name ?>">
+        <img class='img-thumbnail rounded-circle' src='../pictures/<?= $data['photo'] ?>' alt="<?= $first_name ?>">
         <form method="post" enctype="multipart/form-data" action="actions/a_update.php">
             <table class="table">
                 <tr>
@@ -143,7 +143,7 @@ $backBtn = '';
                 </tr>
                 <tr>
                     <input type="hidden" name="id" value="<?= $data['id'] ?>" />
-                    <input type="hidden" name="photo" value="<?= $photo ?>" />
+                    <input type="hidden" name="photo" value="<?= $data['photo'] ?>" />
                     <td><button name="submit" class="btn btn-success" type="submit">Save Changes</button></td>
                     <td><a href="user.php<?php $backBtn ?>"><button class="btn btn-warning" type="button">Back</button></a></td>
                 </tr>
