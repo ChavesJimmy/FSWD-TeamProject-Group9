@@ -53,7 +53,7 @@ if (mysqli_num_rows($result)  > 0) {
       </div>
       <form action='./actions/a_addToCart.php' method='post'>
           <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
-          <input type='hidden' name='fk_user' value=3>
+          <input type='hidden' name='fk_user' value=". $_SESSION['USER'] .">
           <button type='submit'>Add to cart</button></form>
     </div>" ;
     };

@@ -4,7 +4,7 @@ require_once '../components/boot.php';
 session_start();
 
 
-if (isset($_SESSION['admin'])) {
+if (isset($_SESSION['ADMIN'])) {
      header('Location: ../index_admin.php');
      exit;
  }
@@ -108,7 +108,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
           <p class="card-text"><?=$availability?></p>
           <form action="./actions/a_addToCart.php" method="post">
           <input type="hidden" name="fk_produkt" value="<?= $id?>">  
-          <input type="hidden" name="fk_user" value=3>
+          <input type="hidden" name="fk_user" value=<?= $_SESSION['USER'] ?>>
           <button type="submit">Add to cart</button>
 
 
@@ -131,7 +131,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
         <option value="5">⭐⭐⭐⭐⭐</option>
     </select>
     <input type="hidden" name="product" value="<?=$id?>">
-    <input type="hidden" name="user" value="$user_name"><!--need to change value to php user id-->
+    <input type="hidden" name="user" value=<?= $_SESSION['USER'] ?>>
     <button class='btn btn-success' type="submit">Send review</button>
   </form><br><br>
       <div class= "manageProduct w-75 mt-3 border border-5">
