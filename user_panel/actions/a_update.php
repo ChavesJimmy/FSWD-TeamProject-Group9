@@ -18,21 +18,21 @@ if ($_POST) {
 
 
     $uploadError = ''; 
-     $photo = file_upload($_FILES['photo']); 
-    if ($photo->error === 0) {
+     $photoArray = file_upload($_FILES['photo']); 
+    if ($photoArray->error === 0) {
         ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/$_POST[photo]");
-        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address', photo = '$photo->fileName' WHERE id = '$id'";
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address', photo = '$photoArray->fileName' WHERE id = '$id'";
     } else {
         $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address' WHERE id = '$id'";
     } 
     if (mysqli_query($connect, $sql)) {
         $class = "success";
         $message = "The record was successfully updated";
-        $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
     } else {
         $class = "danger";
         $message = "Error while updating record : <br>" . mysqli_connect_error();
-        $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
     }
 
 
@@ -58,7 +58,7 @@ $backBtn = '';
             <h1>Update request response</h1>
         </div>
         <div class="alert alert-<?php echo $class; ?>" role="alert">
-            <p><?php echo $message; ?></p>
+            <p><?php echo ($message) ?? ''; ?></p>
             <p><?php echo ($uploadError) ?? ''; ?></p>
             <a href='../update.php?id=<?= $id ?>'><button class="btn btn-warning" type='button'>Back</button></a>
             <a href='../../index.php'><button class="btn btn-success" type='button'>Home</button></a>

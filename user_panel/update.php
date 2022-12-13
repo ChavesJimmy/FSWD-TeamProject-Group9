@@ -53,7 +53,7 @@ if (isset($_POST["submit"])) {
     $address = $_POST['address'];
     $birth_date = $_POST['birth_date'];
     $photo = $_POST['photo'];  
-      
+    $id = $_POST['id'];
     $user_allowed = $_POST['user_allowed'];  
     $uploadError = ''; 
     $photoArray = file_upload($_FILES['photo']); 
@@ -140,7 +140,7 @@ $backBtn = '';
                 <tr>
                     
                     <input type="hidden" name="id" value="<?= $data['id'] ?>" />
-                    <input type="hidden" name="photo" value="<?= $data['photo'] ?>" />
+                    <input type="hidden" name="photo" value="<?= $photo ?>" />
                     <td><button name="submit" class="btn btn-success" type="submit">Save Changes</button></td>
                     <td><a href="user.php<?php $backBtn ?>"><button class="btn btn-warning" type="button">Back</button></a></td>
                 </tr>

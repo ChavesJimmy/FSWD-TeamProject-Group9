@@ -12,6 +12,8 @@ if ($_POST) {
     $address = $_POST['address'];
     $birth_date = $_POST['birth_date'];
     $photo = $_POST['photo'];  
+    $status = $data['status'];
+    $user_allowed = $data['user_allowed'];
     $id = $_POST['id'];
 
 
@@ -56,10 +58,10 @@ $backBtn = '';
             <h1>Update request response</h1>
         </div>
         <div class="alert alert-<?php echo $class; ?>" role="alert">
-            <p><?php echo $message; ?></p>
+            <p><?php echo ($message) ?? ''; ?></p>
             <p><?php echo ($uploadError) ?? ''; ?></p>
-            <a href='../admin.php?id=<?= $id ?>'><button class="btn btn-warning" type='button'>Back</button></a>
-            <a href='../../index.php'><button class="btn btn-success" type='button'>Home</button></a>
+            <a href='../update_admin.php?id=<?= $id ?>'><button class="btn btn-warning" type='button'>Back</button></a>
+            <a href='../index_admin.php'><button class="btn btn-success" type='button'>Home</button></a>
         </div>
     </div>
 
