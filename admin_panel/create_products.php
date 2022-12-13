@@ -26,8 +26,8 @@ if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
 
 <body>
     <fieldset>
-        <legend class='h2'>Add Product</legend>
-        <form action="actions/a_create.php" method="post" enctype="multipart/form-data">
+        <p class='fs-1 mt-5' style="text-align:center;">Add Product</p>
+        <form class="cont1 container border rounded rounded-3 p-4 w-50" style="margin-top:2%; background-color: rgba(127, 123, 116, 0.8431372549);" action="actions/a_create.php" method="post" enctype="multipart/form-data">
             <table class='table'>
                 <tr>
                     <th>Name</th>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
                 </tr>
                 <tr>
                     <td><button class='btn btn-success' type="submit">Insert Product</button></td>
-                    <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
+                    <td><a href="index_admin.php"><button class='btn btn-dark' type="button">Home</button></a></td>
                 </tr>
             </table>
         </form>
