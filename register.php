@@ -112,13 +112,17 @@ mysqli_close($connect);
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Registration System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
     <?php require_once 'components/boot.php' ?>
 </head>
 
 <body class=" bg-light">
+<?php require_once "components/navbar.php" ?>
+
     <div class="container mt-4">
         <form class="cont1 container border rounded-3 p-4 w-50" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" enctype="multipart/form-data" style="  background-color: rgba(127, 123, 116, 0.8431372549);
 ">
@@ -164,6 +168,8 @@ mysqli_close($connect);
             <a href="login.php" class="btn btn-outline-primary">Sign in here</a>
         </form>
     </div>
+    <?php require_once "components/footer.php" ?>
+
 </body>
 
 </html>

@@ -80,6 +80,7 @@ mysqli_close($connect);
 
 <div> Welcome :<?= $user['user_name']?></div> <br>
 <a href="../logout.php?logout">Logout</a>
+<a href="shopping_cart.php">cart</a>
 
 <!--START HTML FOR THE RESEARCH PRODUCTS-->
   <h5>Search products:</h5>

@@ -106,7 +106,7 @@ mysqli_close($connect);
             let xhttp = new XMLHttpRequest();
             let productVal = document.getElementById("searchProd").value;
             console.log(productVal);
-            xhttp.open("GET", "user_panel/productslist.php?search=" + productVal);
+            xhttp.open("GET", "searchlist.php?search=" + productVal);
             xhttp.onload = function(){
             if(this.status == 200){
                 document.getElementById('container').innerHTML=this.responseText;
