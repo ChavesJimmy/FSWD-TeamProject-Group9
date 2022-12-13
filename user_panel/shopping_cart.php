@@ -14,12 +14,13 @@ JOIN users ON users.id=shopping_cart.fk_user
 JOIN products ON products.id=shopping_cart.fk_produkt
 where shopping_cart.fk_user={$_SESSION['USER']}";
 $result = mysqli_query($connect, $sql);
+$product="";
 $tbodySum='';
 $totalprice=0;
-
 $tbody = ''; 
 if (mysqli_num_rows($result)  > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $product.=$row['id'];
         if($row['Discount']>0){
             $price=$row['price']-($row['price']*$row['Discount']/100);
             $totalprice+=$row['price']-($row['price']*$row['Discount']/100);
@@ -35,7 +36,7 @@ if (mysqli_num_rows($result)  > 0) {
 
         
 //take personal infos
-$sqlUser="SELECT * FROM users where id=3";
+$sqlUser="SELECT * FROM users where id={$_SESSION['USER']}";
 $resultUser = mysqli_query($connect, $sqlUser);
 $tbodyUser = ''; 
 if (mysqli_num_rows($resultUser)  > 0) {
@@ -61,14 +62,16 @@ if (mysqli_num_rows($resultUser)  > 0) {
     Total : <?= $tbodySum?>
     <h1>My infos</h1>
     <?= $tbodyUser?>
-    <h1>Payment Method</h1>
+    <h1>Payment Method</h1>            
+    <div><?= $product?></div>
+
     <form action="actions/pay.php" method="post">
         <select name="payment_method">
             <option value="Paypal">Paypal</option>
             <option value="Click and collect">Click and Collect</option>
             <option value="Credit Card">Credit Card</option>
     <input type="hidden" name="fk_user" value="<?= $_SESSION['USER'] ?>">
-    <input type="hidden" name="fk_product" value="<?= 3 ?>">
+
 
 
         </select><br>

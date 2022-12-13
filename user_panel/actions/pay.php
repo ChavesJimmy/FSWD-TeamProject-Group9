@@ -6,12 +6,14 @@ require_once '../../components/db_connect.php';
 
 if ($_POST) {
     $fk_user=$_POST['fk_user'];
-    $fk_product=$_POST['fk_product'];
+    $product='';
     $payment_method=$_POST['payment_method'];
     $date=date('Y-m-d');
-    echo $date;
     $message="";
-    $sql = "INSERT INTO purchase(purchase_date,fk_user,fk_product,payment_method) VALUES('$date', $fk_user, $fk_product,'$payment_method')";
+    $cart="SELECT * FROM shopping_cart WHERE fk_user={$_SESSION['USER']}";
+    $result=mysqli_query($connect, $cart);
+    while($rowcart = mysqli_fetch_assoc($result)){
+    $sql = "INSERT INTO purchase(purchase_date,fk_user,fk_product,payment_method) VALUES('$date', $fk_user,{$rowcart['fk_produkt']},'$payment_method')";
     
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
@@ -22,7 +24,7 @@ if ($_POST) {
     } else {
         $class = "danger";
         $message = "Error while creating record. Try again: <br>" . $connect->error;
-    }
+    }}
     mysqli_close($connect);
 } else {
     header("location: ../error.php");
