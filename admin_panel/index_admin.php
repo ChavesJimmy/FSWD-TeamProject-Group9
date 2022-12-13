@@ -128,7 +128,7 @@ if ($result_products->num_rows > 0) {
 
     </div>
  
-    <h1>products list</h1>
+    <h1>Products list</h1>
     <table class='table table-striped'>
                     <thead class='table-success'>
                         <tr>

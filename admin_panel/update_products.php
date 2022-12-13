@@ -5,7 +5,7 @@ require_once '../components/db_connect.php';
 if (isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
     header("Location: ../user_panel/index_user.php");
     exit;
-} 
+}
 
 if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
     header("Location: ../login.php");
@@ -24,21 +24,20 @@ if ($_GET['id']) {
         $picture = $data['picture'];
         $description = $data['description'];
         $type = $data['type'];
-        $available = $data ['availability'];
+        $available = $data['availability'];
         $discount = $data['Discount'];
-        if($available == true){
+        if ($available == true) {
             $available = "available";
-        }else{
-            $available='not available';
+        } else {
+            $available = 'not available';
         };
-  
     } else {
         header("location: error.php");
     }
     mysqli_close($connect);
- } else {
+} else {
     header("location: error.php");
- }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +49,10 @@ if ($_GET['id']) {
     <title>Add Product</title>
 </head>
 
-<body>
+<body class="bg-light">
     <fieldset>
-        <legend class='h2'>Update => "<?= $name?>"</legend>
-        <form action="actions/a_update_product.php" method="post" enctype="multipart/form-data">
+        <p class='fs-1 fw-bold' style="text-align:center; margin-top:3%;">Update: <?= $name ?></p>
+        <form class="cont1 container border rounded rounded-3 p-4 w-50" style="margin-top:5%; background-color: rgba(127, 123, 116, 0.8431372549);" action="actions/a_update_product.php" method="post" enctype="multipart/form-data">
             <table class='table'>
                 <tr>
                     <th>Name</th>
@@ -67,22 +66,22 @@ if ($_GET['id']) {
                     <th>Discount (%)</th>
                     <td>
                         <select class="form-select" name="Discount">
-                        <option selected value='<?=$discount?>'><?= $discount?>%</option>
+                            <option selected value='<?= $discount ?>'><?= $discount ?>%</option>
                             <option value=''>no discount</option>
-                            <option  value='5'>5 %</option>
-                            <option  value='10'>10 %</option>
-                            <option  value='15'>15%</option>
-                            <option  value='20'>20%</option>
-                            <option  value='25'>25%</option>
-                            <option  value='30'>30%</option>
-                            <option  value='40'>40%</option>
-                            <option  value='50'>50%</option>
+                            <option value='5'>5 %</option>
+                            <option value='10'>10 %</option>
+                            <option value='15'>15%</option>
+                            <option value='20'>20%</option>
+                            <option value='25'>25%</option>
+                            <option value='30'>30%</option>
+                            <option value='40'>40%</option>
+                            <option value='50'>50%</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <th>Picture</th>
-                    <td><input class='form-control' type="file" name="picture" value="<?= $picture ?>"  /></td>
+                    <td><input class='form-control' type="file" name="picture" value="<?= $picture ?>" /></td>
                 </tr>
                 <tr>
                     <th>description</th>
@@ -93,7 +92,7 @@ if ($_GET['id']) {
                     <th>Type</th>
                     <td>
                         <select class="form-select" name="type" aria-label="Default select example">
-                            <option value="<?= $type ?>" ><?= $type?></option>
+                            <option value="<?= $type ?>"><?= $type ?></option>
                             <option value='Food supplements'>Food Supplements</option>
                             <option value='Materials'>Materials</option>
                             <option value='Others'>Others</option>
@@ -104,9 +103,9 @@ if ($_GET['id']) {
                     <th>Availability</th>
                     <td>
                         <select class="form-select" name="availability" aria-label="Default select example">
-                            <option selected value="<?= $available ?>" ><?= $available ?></option>
-                            <option  value='true'>Available</option>
-                            <option  value='false'>Not available</option>
+                            <option selected value="<?= $available ?>"><?= $available ?></option>
+                            <option value='true'>Available</option>
+                            <option value='false'>Not available</option>
                         </select>
                     </td>
                 </tr>
@@ -115,24 +114,23 @@ if ($_GET['id']) {
                     <td>
                         <select class="form-select" name="displ" aria-label="Default select example">
                             <option selected value='yes'>YES</option>
-                            <option  value='no'>NO</option>
+                            <option value='no'>NO</option>
                         </select>
                     </td>
                 </tr>
 
-                <input type= "hidden" name= "id" value= "<?php echo $data['id'] ?>" />
+                <input type="hidden" name="id" value="<?php echo $data['id'] ?>" />
 
-                <tr>
+                <tr class="p-3">
                     <td><button class='btn btn-success' type="submit">Update</button></td>
                     <input type="hidden" name="picture" value="<?php echo $data['picture'] ?>" />
-                    <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
-                    <td><a href="delete_product.php?id=<?php echo $data['id'] ?>">Delete</a></td>
+                    <td><a href="index_admin.php"><button class='btn btn-dark' type="button">Home</button></a></td>
+                    <td><a class="btn btn-danger" href="delete_product.php?id=<?php echo $data['id'] ?>">Delete</a></td>
 
                 </tr>
             </table>
         </form>
     </fieldset>
 </body>
+
 </html>
-
-

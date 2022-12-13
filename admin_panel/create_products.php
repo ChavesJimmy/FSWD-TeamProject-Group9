@@ -24,7 +24,7 @@ if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
     <title>Add Product</title>
 </head>
 
-<body>
+<body class="bg-light">
     <fieldset>
         <p class='fs-1 mt-5' style="text-align:center;">Add Product</p>
         <form class="cont1 container border rounded rounded-3 p-4 w-50" style="margin-top:2%; background-color: rgba(127, 123, 116, 0.8431372549);" action="actions/a_create.php" method="post" enctype="multipart/form-data">

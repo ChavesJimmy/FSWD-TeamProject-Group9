@@ -45,10 +45,10 @@ if ($_GET['id']) {
     <title>Edit User Infos</title>
 </head>
 
-<body>
+<body class="bg-light">
     <fieldset>
-        <legend class='h2'> Update User infos</legend>
-        <form action="actions/a_update_user.php" method="post" enctype="multipart/form-data">
+        <p class='fs-1 fw-bold mt-4 mb-5' style="text-align:center;"> Update User infos</p>
+        <form class="cont1 container border rounded rounded-3 p-5 w-50" style="margin-top:2%; background-color: rgba(127, 123, 116, 0.8431372549);" action="actions/a_update_user.php" method="post" enctype="multipart/form-data">
             <table class='table'>
                 <tr>
                     <th>User Name</th>
@@ -82,8 +82,8 @@ if ($_GET['id']) {
 
                 <tr>
                     <td><button class='btn btn-success' type="submit">Update</button></td>
-                    <td><a href="index_admin.php"><button class='btn btn-warning' type="button">Home</button></a></td>
-                    <td><a href="delete_user.php?id=<?=$id?>"> delete user </a></td>
+                    <td><a href="index_admin.php"><button class='btn btn-dark' type="button">Home</button></a></td>
+                    <td><a class="btn btn-danger" href="delete_user.php?id=<?=$id?>"> Delete User </a></td>
                 </tr>
             </table>
         </form>
