@@ -16,9 +16,9 @@ require_once '../../components/db_connect.php';
 if ($_POST) {
     $answer=$_POST['answer'];
     $fk_review=$_POST['fk_review'];
-    $user=$_POST['user'];
+    $user=$_POST['fk_user'];
     $message="";
-    $sql = "INSERT INTO review_answer(answer, fk_review) VALUES('$answer', $fk_review)";
+    $sql = "INSERT INTO review_answer(answer, fk_review, fk_user) VALUES('$answer', $fk_review, $user)";
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";

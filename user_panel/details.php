@@ -5,7 +5,7 @@ session_start();
 
 
 if (isset($_SESSION['ADMIN'])) {
-     header('Location: ../index_admin.php');
+     header('Location: ../admin_panel/index_admin.php');
      exit;
  }
  
@@ -29,31 +29,35 @@ $sql = "SELECT * FROM products WHERE id = $id";
   header("location: error.php");
 }  
 //take infos from logged user
-$sqluser = "SELECT * FROM users";// WHERE id={$_SESSION['user']}
+$sqluser = "SELECT * FROM users WHERE id={$_SESSION['USER']}";
 $resultuser = mysqli_query($connect, $sqluser);
 $rowuser = mysqli_fetch_assoc($resultuser);
-//$user_name = $rowuser['user_name'];
 //display reviews
 $sqlreview = "SELECT * FROM products_reviews WHERE fk_product={$id}";
 $resultreview = mysqli_query($connect, $sqlreview);
 $tbody = ''; 
-$tresponse="";
+$tresponse='';
 if (mysqli_num_rows($resultreview)  > 0) {
   while ($rowreview = mysqli_fetch_array($resultreview, MYSQLI_ASSOC)) {
     //add answer to review
-    $sqlresponse = "SELECT * FROM review_answer WHERE fk_review = {$rowreview['id']}";
+    $sqlresponse = "SELECT * FROM review_answer 
+    RIGHT JOIN users ON review_answer.fk_user=users.id
+    WHERE fk_review = {$rowreview['id']}";
     $resultresponse = mysqli_query($connect, $sqlresponse);
     $tresponse = ''; 
 
     if (mysqli_num_rows($resultresponse)  > 0) {
   while ($rowresponse = mysqli_fetch_array($resultresponse, MYSQLI_ASSOC)) {
-      $tresponse .= "<div class='response'>
+      $tresponse .= "<div class='response border border-1'>
       <p>".$rowresponse['answer']."</p>
+      <p>answer from ".$rowresponse['user_name']."</p>
+
       </div>" ;
   };}
       $tbody .= "<div id='review'>
       <h6>Rating ".$rowreview['star']."⭐</h6>
-      <p>".$rowreview['message']."</p>
+      <p>".$rowreview['message']."<br>
+      from NEED TO ADD HERE THE USER NAME</p>
       </div><br>
       <div id='response'>
               <h6>Answer</h6>
@@ -63,7 +67,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
               <label for='review'>your answer</label>
                 <textarea  class='form-select' name='answer' id='' cols='10' rows='3'></textarea>
                 <input type='hidden' name='fk_review' value=".$rowreview['id'].">
-
+                <input type='hidden' name='fk_user' value=".$_SESSION['USER'].">
                 <button class='btn btn-success' type='submit'>Send answer</button>
 
               </form>

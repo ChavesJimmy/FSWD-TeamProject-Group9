@@ -19,7 +19,7 @@ if ($_POST) {
     $product=$_POST['product'];
     $user=$_POST['user'];
     $message="";
-    $sql = "INSERT INTO products_reviews(message, fk_product, star) VALUES('$review', $product,'$rating')";
+    $sql = "INSERT INTO products_reviews(message, fk_product, star, fk_user) VALUES('$review', $product,'$rating', $user)";
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
