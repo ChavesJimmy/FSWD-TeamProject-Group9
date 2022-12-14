@@ -147,7 +147,7 @@ if ($result_products->num_rows > 0) {
     <?php require_once "../components/navbar_admin.php" ?>
     Welcome - <?= $rowadmin['user_name'] ?>  
  <br><br>
-    <h1>Products list</h1>
+    <h1>Product List</h1>
     <div id="buttons">
         <span>Sort by type:</span>
         <button class="btn btn-info p-3"><a href="type.php?type='Others'" >Others</a></button>

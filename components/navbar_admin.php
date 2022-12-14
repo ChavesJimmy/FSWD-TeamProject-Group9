@@ -3,7 +3,7 @@
         <div class="hero">
             <img class="userImage" src="pictures/<?php /*  echo $row['picture'];  */?>" alt="<?php /*  echo $row['first_name']; */ ?>">
         </div>
-        <div><p class="text-dark ms-2"><strong>Welcome, <?php /* echo $row['first_name']; */ ?></strong></p></div>
+        <div><p class="text-dark ms-2 fs-3"><strong>Welcome, <?= $rowadmin['first_name'] ?>!</strong></p></div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,12 +13,6 @@
             </div>
         
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 d-flex justify-content-end" id="items">
-                    <li class="nav-item">
-                        <a class="nav-link"  href="crud/login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link"  href="../login.php"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </li>  
                     <li class="nav-item">
                         <a class="nav-link"  href="../logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                     </li> 

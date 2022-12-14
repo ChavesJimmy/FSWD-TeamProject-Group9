@@ -50,6 +50,7 @@ if ($_GET['id']) {
 </head>
 
 <body>
+  <?php require_once './components/details.navbar.php' ?>
   <div class="mt-5" style="margin-left:20%;">
     <div class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549);">
       <div class="row g-0">

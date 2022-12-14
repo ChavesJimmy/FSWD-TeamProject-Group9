@@ -29,7 +29,7 @@
     </div>
     <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a aria-current="page" href="../index.php">Shop</a>
+        <a aria-current="page" href="../user_panel/index_user.php">Shop</a>
         <a href="../login.php">Login</a>
     </div>
 

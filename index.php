@@ -150,17 +150,18 @@ mysqli_close($connect);
   </div>
 
   <!--START HTML FOR THE RESEARCH PRODUCTS-->
-  <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-2">Search products:</h5>
-  <input class="form-control w-25 mt-4 mb-4 p-2" type="text" name="search" placeholder="product name" id="searchProd" style="margin-left:1%;">
-  <p class="fs-5 p-2" style="  background-color: rgba(127, 123, 116, 0.8431372549);">Search results</p>
+  <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-3"></h5>
+  <div class="d-flex flex-column align-items-center">
+          <h1 class=" fs-1 fw-bold text-center mb-3" style="color:rgba(127, 123, 116, 0.8431372549);">Welcome to our shop</h1>
+          <input class="form-control w-25 mb-4" type="text" name="search" placeholder="Search Product" id="searchProd" style="margin-left:1%;">
+
+        </div>
+  <p class="fs-5 p-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);"></p>
   <div id="container" style="background-color: yellow;" class="row"></div>
   <!--END RESEARCH-->
   <!-- Start Main Section -->
   <main>
     <div class="manageProduct w-100 mt-3">
-      <div class="d-flex flex-column align-items-center">
-        <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
-      </div>
       <div class="row w-100">
         <div class="container-product d-flex flex-wrap justify-content-between mb-5 w-75 m-auto">
           <?= $tbody; ?>
