@@ -21,11 +21,7 @@ if ($_POST) {
     if (mysqli_query($connect, $sql) === true) {
         //send email if purchase successful
         // mail($email,"your purchase","message");
-        $class = "success";
-        $message = "The review below was successfully created <br>
-            <table class='table w-50'><tr>
-            </tr></table><hr>";
-            $delete = "DELETE FROM shopping_cart WHERE fk_user = {$_SESSION['USER']}";
+        $delete = "DELETE FROM shopping_cart WHERE fk_user = {$_SESSION['USER']}";
             if ($connect->query($delete) === TRUE) {
                 $class = "alert alert-success";
                 $message = "Shopping Cart empty";
@@ -33,9 +29,13 @@ if ($_POST) {
                 $class = "alert alert-danger";
                 $message = "The entry was not deleted due to: <br>" . $connect->error;
             }
+            $class = "success";
+        $message = "Your order payment was successful. <br>
+        You will receive an email with all the details at ".$email." in the following minutes.";
+            
     } else {
         $class = "danger";
-        $message = "Error while creating record. Try again: <br>" . $connect->error;
+        $message = "Error while paying. Try again: <br>" . $connect->error;
     }}
     mysqli_close($connect);
 } else {

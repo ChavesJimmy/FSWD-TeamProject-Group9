@@ -23,13 +23,11 @@ if ($_POST) {
 
     if (mysqli_query($connect, $sql) === true) {
         $class = "success";
-        $message = "The review below was successfully created <br>
-            <table class='table w-50'><tr>
-            <td> $message </td>
-            </tr></table><hr>";
+        $message = "The review below was successfully created <br>";
+          
     } else {
         $class = "danger";
-        $message = "Error while creating record. Try again: <br>" . $connect->error;
+        $message = "Error while adding review. Try again: <br>" . $connect->error;
     }
     mysqli_close($connect);
 } else {

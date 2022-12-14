@@ -45,6 +45,8 @@ if (mysqli_num_rows($result)  > 0) {
         ";
         $tbodySum=$totalprice;
     };
+}else{
+    $tbody="Cart empty <br>";
 }
 
         
@@ -68,6 +70,7 @@ if (mysqli_num_rows($resultUser)  > 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
     <h1>My shopping cart</h1>
@@ -87,7 +90,9 @@ if (mysqli_num_rows($resultUser)  > 0) {
 
 
         </select><br>
-        <button type="submit">Pay</button>
+        <button type="submit">Pay</button><br><br>
+        <a href="index_user.php">BACK</a>
+
     </form>
     <script>
         
