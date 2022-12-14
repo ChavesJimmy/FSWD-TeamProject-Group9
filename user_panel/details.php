@@ -108,36 +108,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
 <body>
   <section>
     <div>
-      <h2>Details</h2>
-      <div class="card mb-3">
-        <img src="../pictures/<?= $picture ?>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><?= $name ?></h5>
-          <p class="card-text"><?= $description ?></p>
-          <p class="card-text"><?php
-                                if ($discount > 0) {
-                                  echo $price - ($price * $discount / 100);
-                                } else {
-                                  echo $price;
-                                }
-                                ?> EUR</p>
-          <p class="card-text"><?= $type ?></p>
-          <p class="card-text"><?= $availability ?></p>
-          <form action="./actions/a_addToCart.php" method="post">
-            <input type="hidden" name="fk_produkt" value="<?= $id ?>">
-            <input type="hidden" name="fk_user" value=<?= $_SESSION['USER'] ?>>
-            <button type="submit">Add to cart</button>
-
-
-          </form>
-
-        </div>
-
-
-        ---------------------
-
-
-
+      <p class="fs-1 fw-bold mt-4" style="text-align:center;">Details</p>
         <div class="mt-5" style="margin-left:20%;">
           <div class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549);">
             <div class="row g-0">
@@ -146,45 +117,34 @@ if (mysqli_num_rows($resultreview)  > 0) {
               </div>
               <div class="col-md-8">
                 <div class="card-body" style="margin-left:15%;">
-                <h5 class="card-title"><?= $name ?></h5>
-          <p class="card-text"><?= $description ?></p>
-          <p class="card-text"><?php
-                                if ($discount > 0) {
-                                  echo $price - ($price * $discount / 100);
-                                } else {
-                                  echo $price;
-                                }
-                                ?> EUR</p>
-          <p class="card-text"><?= $type ?></p>
-          <p class="card-text"><?= $availability ?></p>
-          <form action="./actions/a_addToCart.php" method="post">
-            <input type="hidden" name="fk_produkt" value="<?= $id ?>">
-            <input type="hidden" name="fk_user" value=<?= $_SESSION['USER'] ?>>
-            <button class="btn btn-dark" type="submit">Add to cart</button>
-
-
-          </form>
+                  <h5 class="card-title"><?= $name ?></h5>
+                  <p class="card-text"><?= $description ?></p>
+                  <p class="card-text"><?php
+                                        if ($discount > 0) {
+                                          echo $price - ($price * $discount / 100);
+                                        } else {
+                                          echo $price;
+                                        }
+                                        ?> EUR</p>
+                  <p class="card-text"><?= $type ?></p>
+                  <p class="card-text"><?= $availability ?></p>
+                  <form action="./actions/a_addToCart.php" method="post">
+                    <input type="hidden" name="fk_produkt" value="<?= $id ?>">
+                    <input type="hidden" name="fk_user" value=<?= $_SESSION['USER'] ?>>
+                    <button class="btn btn-dark" type="submit">Add to cart</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-
-        ----------------------
-
-
-
-
-
-
       </div>
       <br><br>
-      <form action="actions/a_review.php" method="post">
-        <h1>Add review for <?= $name ?></h1>
-        <label for="review">your review</label>
-        <textarea class="form-select" name="message" id="" cols="30" rows="10"></textarea>
+
+      <div style="margin-left:20%;">
+      <form class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549);" action="actions/a_review.php" method="post">
+        <h1 style="text-align:center;">Add review for product</h1>
+        <textarea class="form-select mt-3" name="message" id="" cols="30" rows="10"></textarea>
         <label for="rating">Rating</label>
         <select class="form-select" name="star" id="">
           <option value="0">0</option>
@@ -196,12 +156,14 @@ if (mysqli_num_rows($resultreview)  > 0) {
         </select>
         <input type="hidden" name="product" value="<?= $id ?>">
         <input type="hidden" name="user" value=<?= $_SESSION['USER'] ?>>
-        <button class='btn btn-success' type="submit">Send review</button>
+        <button class='btn btn-success mt-3' type="submit">Send review</button>
       </form><br><br>
-      <div class="manageProduct w-75 mt-3 border border-5">
-        <p class='h1'> Reviews </p>
-
+      </div>
+      <div class="manageProduct w-50  mt-3 mb-4 border border-5 rounded-1" style="margin-left:25%;">
+        <p class='fs-1 fw-bold p-3' style="text-align:center;"> Reviews </p>
+         <br/>
         <?= $tbody; ?>
+        <br/>
 
       </div>
     </div>
