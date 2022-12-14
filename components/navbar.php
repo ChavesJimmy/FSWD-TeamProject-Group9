@@ -1,6 +1,3 @@
-<?php
-?>
-
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand w-25" href="index.php">
