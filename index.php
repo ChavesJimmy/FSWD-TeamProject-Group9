@@ -2,9 +2,9 @@
 require_once 'components/db_connect.php';
 require_once 'components/boot.php';
 
-session_start();
+/*session_start();
 
-/*if (isset($_SESSION['USER'])) {
+if (isset($_SESSION['USER'])) {
   header('Location: ../user_panel/index_user.php');
  exit;
 }*/
@@ -145,7 +145,9 @@ mysqli_close($connect);
   <!-- Hero -->
   <div class="hero">
     <div class="hero-img-container">
-      <img class="hero-img" src=".">
+      <img class="hero-img" src="img/heroimg.jpg">
+      <div class="centered"><img class="text-img" src="img/logo.png"></div>
+      </div>
     </div>
   </div>
 

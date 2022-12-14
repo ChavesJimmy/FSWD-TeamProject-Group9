@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
+<nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top" style="background-color: #837f79 !important;">
         <div class="container-fluid">
         <div class="hero">
             <img class="userImage" src="pictures/<?php /*  echo $row['picture'];  */?>" alt="<?php /*  echo $row['first_name']; */ ?>">

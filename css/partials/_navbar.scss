@@ -5,20 +5,22 @@
 	z-index: 1;
 	top: 0;
 	right: 0;
-	background-color: #837f79;
+	background-color: #595959ce;
 	opacity: 1;
 	overflow-x: hidden;
 	padding-top: 60px;
 	transition: 1s;
+	box-shadow: -10px 20px 15px -10px rgba(155, 152, 152, 0.61);
 	a {
 		padding: 8px 8px 8px 32px;
 		text-decoration: none;
 		font-size: 25px;
-		color: #595959;
+		color: #000000;
 		display: block;
 		transition: 0.3s;
 		&:hover {
-			color: black;
+			color: #fff;
+			text-shadow: -10px 20px 15px -10px rgba(155, 152, 152, 0.61);
 		}
 	}
 	.closebtn {
