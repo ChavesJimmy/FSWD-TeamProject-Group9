@@ -10,6 +10,7 @@ if ($_GET['id']) {
   if (mysqli_num_rows($resultreview)  > 0) {
     while ($rowreview = mysqli_fetch_array($resultreview, MYSQLI_ASSOC)) {
       $tbody .= "<div id='review'>
+<<<<<<< HEAD
       <h6>Rating " . $rowreview['star'] . "⭐</h6>
       <p>" . $rowreview['message'] . "</p>
       </div>";
@@ -17,6 +18,15 @@ if ($_GET['id']) {
   } else {
     $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
   }
+=======
+      <h6>Rating ".$rowreview['star']."⭐</h6>
+      <p>".$rowreview['message']."</p>
+      </div>" ;
+  };
+} else {
+  $tbody =  "<tr><td colspan='5'><center>No reviews </center></td></tr>" ;
+}
+>>>>>>> d77a3eb37a489e6d064f34705cfc7f13a5b21e21
 
   $sql = "SELECT * FROM products WHERE id = $id";
   $result = mysqli_query($connect, $sql);
