@@ -10,7 +10,6 @@ if ($_GET['id']) {
   if (mysqli_num_rows($resultreview)  > 0) {
     while ($rowreview = mysqli_fetch_array($resultreview, MYSQLI_ASSOC)) {
       $tbody .= "<div id='review'>
-<<<<<<< HEAD
       <h6>Rating " . $rowreview['star'] . "⭐</h6>
       <p>" . $rowreview['message'] . "</p>
       </div>";
@@ -18,15 +17,6 @@ if ($_GET['id']) {
   } else {
     $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
   }
-=======
-      <h6>Rating ".$rowreview['star']."⭐</h6>
-      <p>".$rowreview['message']."</p>
-      </div>" ;
-  };
-} else {
-  $tbody =  "<tr><td colspan='5'><center>No reviews </center></td></tr>" ;
-}
->>>>>>> d77a3eb37a489e6d064f34705cfc7f13a5b21e21
 
   $sql = "SELECT * FROM products WHERE id = $id";
   $result = mysqli_query($connect, $sql);
@@ -59,7 +49,7 @@ if ($_GET['id']) {
   <?php require_once 'components/boot.php' ?>
 </head>
 
-<body class="bg-light">
+<body>
   <div class="mt-5" style="margin-left:20%;">
     <div class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549);">
       <div class="row g-0">
@@ -76,7 +66,7 @@ if ($_GET['id']) {
                                   } else {
                                     echo $price;
                                   }
-                                  ?> €</p>
+                                  ?> EUR</p>
             <p class="card-text p-3"><?= $type ?></p>
             <p class="card-text p-3"><?= $availability ?></p>
             </p>
