@@ -14,6 +14,11 @@ if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
 
 if ($_GET['id']) {
 $id=$_GET['id'];
+//get product name
+$sqlproduct="SELECT *  FROM products 
+WHERE id={$id}";
+$resultproduct = mysqli_query($connect, $sqlproduct);
+$rowproduct = $resultproduct->fetch_array(MYSQLI_ASSOC);
 //total sale
 $sql="SELECT COUNT(*) as count FROM purchase 
 JOIN products ON products.id=purchase.fk_product 
@@ -67,10 +72,10 @@ if($result)
 {
  while($row=mysqli_fetch_assoc($result))
   {
-        $tbody= "<br>Sales :<br>" . $row2['name'] . " was sold ".$row['count'] ." times <br> ";
+        $tbody= "<br><h3>Sales statistics :</h3><br>" . $row2['name'] . " was sold ".$row['count'] ." times <br> ";
         $tbody3 = $row2['name'] . " was sold ".$row3['count'] ." times in 2022 <br>";
         $tbody4 = $row2['name'] . " was sold ".$row4['count'] ." times in 2023 <br>";
-        $tbody5 ="Payment Method: <br>"
+        $tbody5 ="<h3>Payment Method statistics: </h3><br>"
         . $row2['name'] . " was payed ".$row5['count'] ." with Paypal <br>";
         $tbody6 =
          $row2['name'] . " was payed ".$row6['count'] ." with Click and collect<br>";
@@ -89,15 +94,51 @@ if($result)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once '../components/boot.php' ?>
     <title>Add Product</title>
+    <style>
+        #statbox{
+            border: solid 2px;
+            padding: 2rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 150%;
+            margin: 3rem;
+            background-color: lightgoldenrodyellow;
+
+        }
+        .stat{
+            margin-top: 2rem;
+        }
+        h3{
+            border-bottom: 2px solid;
+            width: 50%;
+            display: block;
+            margin: auto;
+            font-size: 150%;
+        }
+        h1{
+            margin: auto;
+            display: block;
+            text-align: center;
+            padding: 3rem;
+            border: solid 2px;
+            margin-top: 1rem;
+            width: 75%;
+            border-radius: 35px;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
 </head>
 <body>
-    <?= $tbody?>
+<h1>Sales statistic of product : <?= $rowproduct['name']?></h1>
+    <div id="statbox">
+    <div class="stat" id="date"><?= $tbody?>
     <?= $tbody4?>
-    <?= $tbody3?>
-    <?= $tbody5?>
+    <?= $tbody3?></div>
+    <div class="stat" id="pay"><?= $tbody5?>
     <?= $tbody6?>
-    <?= $tbody7?>
-
+    <?= $tbody7?></div>
+</div>
+<a href="./index_admin.php" class="d-flex m-auto mt-5"><button type="button" class="btn btn-primary m-auto">Index</button></a>
 
 
 </body>

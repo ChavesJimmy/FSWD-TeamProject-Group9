@@ -103,6 +103,10 @@ if ($result_products->num_rows > 0) {
     <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
     <title>Welcome - <?= $rowadmin['user_name'] ?></title>
     <style type="text/css">
+        body{
+            padding:2rem;
+            text-align: center;
+        }
         .img-thumbnail {
             width: 70px !important;
             height: 70px !important;
@@ -122,7 +126,7 @@ if ($result_products->num_rows > 0) {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            gap: 5rem;
+            justify-content: space-between;
             padding: 2rem;
             border: solid 2px;
             margin: 1rem;
