@@ -4,21 +4,15 @@ require_once '../components/db_connect.php';
 require_once '../components/file_upload.php';
 
 
-if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
-     header("Location: ../index.php");
-     exit;
- }
+if (isset($_SESSION['USER'])) {
+    header("Location: ../user_panel/index_user.php");
+    exit;
+} 
 
-
- if (isset($_SESSION["ADMIN"])) {
-    $backBtn = "admin_panel/index_admin.php";
- 
- }
-
- if (isset($_SESSION["USER"])) {
-    $backBtn = "user_panel/user.php";
- }
-
+if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../login.php");
+    exit;
+}
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

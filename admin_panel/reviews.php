@@ -1,8 +1,7 @@
 <?php
 session_start();
 require_once '../components/db_connect.php';
-
-if (isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+if (isset($_SESSION['USER'])) {
     header("Location: ../user_panel/index_user.php");
     exit;
 } 
@@ -11,7 +10,6 @@ if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
     header("Location: ../login.php");
     exit;
 }
-
 //print products
 $id=$_GET['id'];
 $sql_reviews = "SELECT * FROM products_reviews WHERE fk_product = $id";

@@ -14,7 +14,7 @@ if($info['user_allowed']=='banned'){
      header('Location: ../admin_panel/index_admin.php');
     exit;
  }
- if (isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
+ if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
   header('Location: ../login.php');
  exit;
 }
