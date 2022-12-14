@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  margin: 0px;
   padding: 0;
   outline: none;
 }
@@ -9,18 +9,19 @@
   height: 520px;
   margin: 30px auto;
   font-family: 'Roboto', sans-serif;
+  margin: 50px !important;
 }
 
 .card-product {
   border-radius: 25px;
   box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
   height: 520px;
-  width: 280px;
+  width: 350px !important;
 }
 
 .card-head-product {
   position: relative;
-  height: 252px;
+  height: 300px;
   background:#837f79;
   ;
   /* Old browsers */
@@ -43,10 +44,10 @@
 .product-img-product {
   position: absolute;
   left: 50;
-  margin-top: 70px;
-  margin-left: 50px;
+  margin-top: 95px;
+  margin-left: 70px;
   height: 200px;
-  width: 100px;
+  width: 200px;
 }
 
 .product-detail-product {

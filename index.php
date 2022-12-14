@@ -18,36 +18,36 @@ if (mysqli_num_rows($result)  > 0) {
       </div>
       <span class='back-text-product'>
               ATOM
-            </span>
+      </span>
     </div>
+
     <div class='card-body-product'>
       <div class='product-desc-product'>
         <span class='product-title-product'>
-                <b>" . $row['name'] . "</b>
-                
+          <b>" . $row['name'] . "</b>
         </span>
         <span class='product-caption-product'>
-        <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
-              </span>
+          <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
+        </span>
         <span class='product-rating-product'>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star grey'></i>
-              </span>
+         </span>
       </div>
       <div class='product-properties-product'>
         <span class='product-size-product'>
-                <h4>Availability</h4>
-                <span class='ul-size-product'>
-                  <p>" . $row['availability'] . "</p>
-        </span>   
-              </span>
-             <span class='product-color-product'>
-                <h4>Prize</h4>
-               <p>" . $row['price'] . "</p>
-              </span>
+            <h4>Availability</h4>
+            <span class='ul-size-product'>
+              <p>" . $row['availability'] . "</p>
+            </span>   
+        </span>
+        <span class='product-color-product'>
+             <h4>Prize</h4>
+             <p>" . $row['price'] . "</p>
+        </span>
               <span class='product-price-product'>
                 EUR<b>" . $row['price'] - ($row['price'] * $row['Discount'] / 100) . "</b>
               </span>
@@ -76,34 +76,36 @@ if (mysqli_num_rows($result)  > 0) {
                 <b>" . $row['name'] . "</b>
                 
         </span>
+
         <span class='product-caption-product'>
         <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
-              </span>
+        </span>
+
         <span class='product-rating-product'>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star grey'></i>
-              </span>
+        </span>
       </div>
       <div class='product-properties-product'>
         <span class='product-size-product'>
                 <h4>Availability</h4>
                 <span class='ul-size-product'>
                   <p>" . $row['availability'] . "</p>
-</span>
-              </span>
+                </span>
+        </span>
         <span class='product-color-product'>
-                <h4>Prize</h4>
-               <p> </p>
-              </span>
+          <h4>Prize</h4>
+          <p> </p>
+        </span>
         <span class='product-price-product'>
-                EUR<b>" . $row['price'] . "</b>
-              </span>
-              <span class='details-product'>
-        <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
-</span>
+           EUR<b>" . $row['price'] . "</b>
+        </span>
+        <span class='details-product'>
+          <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
+        </span>
       </div>
     </div>
 </div>";
@@ -152,7 +154,7 @@ mysqli_close($connect);
         <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
       </div>
       <div class="row w-100">
-        <div class="container-product d-flex flex-wrap w-75 m-auto">
+        <div class="container-product d-flex flex-wrap justify-content-between mb-5 w-75 m-auto">
           <?= $tbody; ?>
         </div>
       </div>
