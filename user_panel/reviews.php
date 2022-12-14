@@ -46,7 +46,17 @@ mysqli_close($connect);
   <meta  charset="UTF-8">
   <meta name="viewport"  content="width=device-width, initial-scale=1.0">
   <title>Reviews <?= $row2['name']?></title>
-   <?php  require_once '../components/boot.php' ?>
+    <link rel="stylesheet" href="../css/style.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<?php require_once("../components/boot.php");
+ require_once("../components/navbar_user.php");
+?>
+   
+
   <style>
     #review{
         border: solid 2px;
@@ -78,5 +88,7 @@ mysqli_close($connect);
     <input type="hidden" name="user" value="">
     <button class='btn btn-success' type="submit">Send review</button>
   </form>
+  <?php require_once("../components/footer.php"); ?>
+
 </body>
 </html> 
