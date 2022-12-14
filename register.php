@@ -103,7 +103,7 @@ if (isset($_POST['btn-signup'])) {
         } else {
             $errTyp = "danger";
             $errMSG = "Something went wrong, try again later...";
-            $uploadError = ($picture->error != 0) ? $photo->ErrorMessage : '';
+            $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
         }
     }
 }
