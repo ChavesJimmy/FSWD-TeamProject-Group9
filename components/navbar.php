@@ -22,9 +22,7 @@
                     </form>
                     
 
-                    <li class="nav-item">
-                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </li> 
+             
                     <li class="nav-item">
                         <a class="nav-link"  href="./user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
