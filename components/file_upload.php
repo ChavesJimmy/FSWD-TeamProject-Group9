@@ -4,7 +4,7 @@ function file_upload($photo, $source = "USER")
     $result = new stdClass(); 
     
     if (isset($_SESSION['ADMIN'])) {
-        $result->fileName = 'noimage.png';
+        $result->fileName = 'admavatar.png';
     } else {
         $result->fileName = 'avatar.png';
     }

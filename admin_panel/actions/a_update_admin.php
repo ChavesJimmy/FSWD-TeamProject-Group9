@@ -18,9 +18,9 @@ if ($_POST) {
 
 
     $uploadError = ''; 
-     $photo = file_upload($_FILES['photo'], "avatar"); 
+     $photo = file_upload($_FILES['photo'], "admavatar"); 
     if ($photo->error === 0) {
-        ($_POST["photo"] == "avatar.png") ?: unlink("../pictures/$_POST[photo]");
+        ($_POST["photo"] == "admavatar.png") ?: unlink("../pictures/$_POST[photo]");
         $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address', photo = '$photo->fileName' WHERE id = '$id'";
     } else {
         $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address' WHERE id = '$id'";
