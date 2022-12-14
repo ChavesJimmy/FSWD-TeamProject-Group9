@@ -4,10 +4,10 @@ require_once 'components/boot.php';
 
 session_start();
 
-if (isset($_SESSION['USER'])) {
+/*if (isset($_SESSION['USER'])) {
   header('Location: ../user_panel/index_user.php');
  exit;
-}
+}*/
 
 
 $sql = "SELECT * FROM products WHERE displ=1";
@@ -59,9 +59,9 @@ if (mysqli_num_rows($result)  > 0) {
               <span class='product-price-product'>
                 EUR<b>" . $row['price'] - ($row['price'] * $row['Discount'] / 100) . "</b>
               </span>
-              <span class='details-button'>
-                   <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
-              </span>
+              <span class='details-product'>
+          <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
+        </span>
       </div>
     </div>
 </div>";
