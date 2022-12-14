@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
     
         <input class="form-control mb-2 btn btn-dark p-3"  type="submit" name="submit" value="Submit" />
        </form>
-       <?php require_once "../components/contact_footer.php" ?>
+       <?php require_once "../components/footer.php" ?>
 
    </body>
 </html>

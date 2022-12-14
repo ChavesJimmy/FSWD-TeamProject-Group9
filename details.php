@@ -90,7 +90,7 @@ if ($_GET['id']) {
       </div>
     </div>
   </div>
-  <?php require_once 'components/footer.php' ?>
+  <?php require_once 'components/contact_footer.php' ?>
 
 
 
