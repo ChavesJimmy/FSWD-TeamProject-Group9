@@ -55,7 +55,7 @@ if (mysqli_num_rows($result)  > 0) {
         <h5 class='card-title'>".$row['name']."</h5>
       </div>
       <ul class='list-group list-group-flush'>
-        <li class='list-group-item'><a href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
+        <li class=' btn btn-outline-primary'><a href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
         <li class='list-group-item'>".$row['price']." EUR</li>
         <li class='list-group-item'>A third item</li>
       </ul>
@@ -97,8 +97,8 @@ mysqli_close($connect);
 
 
 <!--START HTML FOR THE RESEARCH PRODUCTS-->
-  <h5>Search products:</h5>
-  <input type="text" name="search" placeholder="product name" id="searchProd">
+  <h5 class="fs-4 p-2">Search products:</h5>
+  <input class="form-control w-25 mb-4 p-2" type="text" name="search" placeholder="product name" id="searchProd" style="margin-left:1%;">
   <h6 style="background-color: yellow;">Search results</h6>
   <div id="container" style="background-color: yellow;" class="row"></div>
 <!--END RESEARCH-->
