@@ -11,6 +11,12 @@ if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
     header("Location: ../login.php");
     exit;
 }
+$sqladmin = "SELECT * FROM users WHERE status != {$_SESSION['ADMIN']}";
+$resultadmin = mysqli_query($connect, $sqladmin);
+if ($resultadmin->num_rows > 0) {
+    $rowadmin = $resultadmin->fetch_array(MYSQLI_ASSOC);
+
+} 
 // take infos from all users except the admin
 // $id = $_SESSION['ADMIN'];
 $status = 'ADMIN';
@@ -44,7 +50,7 @@ if ($result_products->num_rows > 0) {
             
                 if($row['Discount'] > 0){
                     //need to work on the discount formula to get the value of discount
-                $tbody .= "<tr>
+                $tbody .= "<tr class='text-center'>
                     <td><img class='img-thumbnail rounded-circle' src='../pictures/" . $row['picture'] . "'></td>
                     <td>" . $row['name'] . "</td>
                     <td>" . $row['price'] . "</td>
@@ -53,10 +59,10 @@ if ($result_products->num_rows > 0) {
                     <td>".$row['displ']."</td>
                     <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
                     <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
-                    <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
+                    <a href='sale_statistic.php?id=". $row['id']."'><button class='btn btn-warning btn-sm' type='button'>Sales</button></a>
                     </td>
                     <td>
-                    <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Reviews</button></a>
+                    <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-success btn-sm' type='button'>Reviews</button></a>
                     </td>
                  </tr>";} 
                  
@@ -70,10 +76,10 @@ if ($result_products->num_rows > 0) {
                     <td>".$row['displ']."</td>
                     <td><a href='update_products.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
                     <a href='delete_product.php?id=" . $row['id'] . "'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
-                    <a href='sale_statistic.php?id=". $row['id']."'>Sales</a>
+                    <a href='sale_statistic.php?id=". $row['id']."'><button class='btn btn-warning btn-sm' type='button'>Sales</button></a>
                     </td>
                     <td>
-                    <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Reviews</button></a>
+                    <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-success btn-sm' type='button'>Reviews</button></a>
                     </td>
                  </tr>";
                  }
@@ -95,40 +101,56 @@ if ($result_products->num_rows > 0) {
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
-    <title>Welcome - <?php /* echo $row['first_name']; */ ?></title>
+    <title>Welcome - <?= $rowadmin['user_name'] ?></title>
     <style type="text/css">
         .img-thumbnail {
             width: 70px !important;
             height: 70px !important;
         }
-
         td {
-            text-align: left;
+            text-align: center;
             vertical-align: middle;
         }
-
         tr {
             text-align: center;
         }
-
         .userImage {
             width: 100px;
             height: auto;
+        }
+        #buttons{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 5rem;
+            padding: 2rem;
+            border: solid 2px;
+            margin: 1rem;
+        }
+        button{
+            height: 3rem;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+
         }
     </style>
 </head>
 
 <body>
     <?php require_once "../components/navbar_admin.php" ?>
-    <div>
-        <h3>Sort by type:</h3>
-        <a href="type.php?type='Others'">Others</a>
-        <a href="type.php?type='Food%20Supplements'">Food supplements</a>
-        <a href="type.php?type='Materials'">Material</a>
+    Welcome - <?= $rowadmin['user_name'] ?>  
+ <br><br>
+    <h1>Products list</h1>
+    <div id="buttons">
+        <span>Sort by type:</span>
+        <button class="btn btn-info p-3"><a href="type.php?type='Others'" >Others</a></button>
+        <button class="btn btn-info p-3"><a href="type.php?type='Food%20Supplements'">Food supplements</a></button>
+        <button class="btn btn-info p-3"><a href="type.php?type='Materials'">Material</a></button>
 
     </div>
- 
-    <h1>Products list</h1>
     <table class='table table-striped'>
                     <thead class='table-success'>
                         <tr>
@@ -151,7 +173,7 @@ if ($result_products->num_rows > 0) {
                     <thead class='table-success'>
                         <tr>
                             <th>Picture</th>
-                            <th>Name</th>
+                            <th>User Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>
