@@ -27,13 +27,42 @@ if ($_GET['id']) {
         $status = $data ['status'];
         $user_allowed = $data ['user_allowed'];
 
-    } else {
-        header("location: error.php");
+          
     }
-    mysqli_close($connect);
- } else {
-    header("location: error.php");
- }
+}
+
+//update
+$class = 'd-none';
+if (isset($_POST["submit"])) {
+    $f_name = $_POST['first_name'];
+    $l_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $date_of_birth = $_POST['date_of_birth'];
+    $id = $_POST['id'];
+    //variable for upload pictures errors is initialized
+    $uploadError = '';
+    $photoArray = file_upload($_FILES['photo']); //file_upload() called
+    $photo = $photoArray->fileName;
+    if ($photoArray->error === 0) {
+        ($_POST["photo"] == "avatar.png") ?: unlink("pictures/{$_POST["photo"]}");
+        $sql = "UPDATE users SET first_name = '$f_name', last_name = '$l_name', email = '$email', date_of_birth = '$date_of_birth', picture = '$photoArray->fileName' WHERE user_id = {$id}";
+    } else {
+        $sql = "UPDATE users SET first_name = '$f_name', last_name = '$l_name', email = '$email', date_of_birth = '$date_of_birth' WHERE user_id = {$id}";
+    }
+    if (mysqli_query($connect, $sql) === true) {
+        $class = "alert alert-success";
+        $message = "The record was successfully updated";
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
+        header("refresh:3;url=update.php?id={$id}");
+    } else {
+        $class = "alert alert-danger";
+        $message = "Error while updating record : <br>" . $connect->error;
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
+        header("refresh:3;url=update.php?id={$id}");
+    }
+}
+
+mysqli_close($connect);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +85,7 @@ if ($_GET['id']) {
                 </tr>
                 <tr>
                     <th>Photo</th>
-                    <td><input class='form-control' type="text" name="photo" value="<?= $photo ?>" /></td>
+                    <td><input class='form-control' type="file" name="photo" value="<?= $photo ?>" /></td>
                 </tr>
                 <tr>
                     <th>Status</th>

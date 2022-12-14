@@ -3,19 +3,27 @@ require_once '../../components/db_connect.php';
 require_once '../../components/file_upload.php';
 if ($_POST) {
     $user_name = $_POST['user_name'];
-    $photo = $_POST['photo'];
+    
     $status = $_POST['status'];
     $user_allowed = $_POST['user_allowed'];
     $id = $_POST['id'];
 
 
+    $photo = file_upload($_FILES['photo']); //file_upload() called  
+    if ($photo->error === 0) {
+        ($_POST["photo"] = "avatar.png") ?: unlink("../pictures/$_POST[photo]");
+        $sql = "UPDATE users SET user_name = '$user_name', photo = '$photo->fileName' WHERE id = {$id}";
+    } else {
        $sql = "UPDATE users SET user_name = '$user_name', photo = '$photo', status = '$status', user_allowed = '$user_allowed' WHERE id = {$id}";  
-   if (mysqli_query($connect, $sql) === TRUE) {
+    }
+       if (mysqli_query($connect, $sql) === TRUE) {
        $class = "success";
        $message = "The record was successfully updated";
+       $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
    } else {
        $class = "danger";
        $message = "Error while updating record : <br>" . mysqli_connect_error();
+       $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
    }
    mysqli_close($connect);  
 } else {

@@ -3,8 +3,10 @@ session_start();
 
 require_once '../components/db_connect.php';
 require_once '../components/file_upload.php';
+
+
 if (isset($_SESSION['USER'])) {
-    header("Location: ../user_panel/index_user.php");
+    header("Location: ../user_panel/user.php");
     exit;
 } 
 
@@ -67,7 +69,7 @@ mysqli_close($connect);
             <div class="col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body text-center rounded-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
-                        <img src="../pictures/<?= $photo ?>" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;">
+                        <img src="../pictures/<?= $photo ?>" alt="admavatar"  class="rounded-circle img-fluid" style="width: 150px;">
                         <h5 class="my-4">Hello, <?= $user_name ?>!</h5>
                         <div class="d-flex justify-content-center mb-2">
                             <a class=" btn btn-primary ms-1" href="update_admin.php?id=<?= $_SESSION['ADMIN'] ?>">Update your account</a>
