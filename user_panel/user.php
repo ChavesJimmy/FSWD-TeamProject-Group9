@@ -92,7 +92,7 @@ mysqli_close($connect);
                 </div>
             </div>
             <div class="col-lg-8 p-4">
-                <div class="card-body rounded-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
+                <div class="card-body rounded-3 p-4" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
                 <div class="row">
                         <div class="col-sm-3">
                             <p class="mb-0">User name</p>

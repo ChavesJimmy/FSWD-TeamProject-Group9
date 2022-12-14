@@ -87,7 +87,7 @@ mysqli_close($connect);
     </button>
     <a class="btn btn-outline-primary mb-3" href="register.php">Not registered yet? Click here</a>
   </form>
-  <?php require_once "components/footer.php" ?>
+  <?php require_once "./components/footer.php" ?>
 
 </body>
 

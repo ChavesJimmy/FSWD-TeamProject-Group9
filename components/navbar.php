@@ -3,9 +3,9 @@
 
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand w-25" href="../index.php">
+            <a class="navbar-brand w-25" href="#">
                 <div class="logo d-flex flex-column align-items-start">
-                    <img class="logo-img flex-fill w-75 " src="../img/logo.png">
+                    <img class="logo-img flex-fill w-75 " src="./img/logo.png">
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +23,9 @@
                     
 
                     <li class="nav-item">
+                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </li> 
+                    <li class="nav-item">
                         <a class="nav-link"  href="./user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
                     <li class="nav-item">
@@ -32,10 +35,9 @@
         </div>
         <div id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a aria-current="page" href="#">Home</a>
-  <a href="./login.php">About</a>
-  <a href="#">Lorem</a>
-  <a href="../contact/contact.php">Contact</a>
+  <a aria-current="page" href="./index.php">Home</a>
+  <a href="./login.php">Login</a>
+  <a href="contact/contact.php">Contact</a>
   <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>

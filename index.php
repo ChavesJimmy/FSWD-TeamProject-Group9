@@ -4,10 +4,10 @@ require_once 'components/boot.php';
 
 session_start();
 
-if (isset($_SESSION['USER'])) {
+/*if (isset($_SESSION['USER'])) {
   header('Location: ../user_panel/index_user.php');
  exit;
-}
+}*/
 
 
 $sql = "SELECT * FROM products WHERE displ=1";
@@ -59,9 +59,9 @@ if (mysqli_num_rows($result)  > 0) {
               <span class='product-price-product'>
                 EUR<b>" . $row['price'] - ($row['price'] * $row['Discount'] / 100) . "</b>
               </span>
-              <span class='details-button'>
-                   <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
-              </span>
+              <span class='details-product'>
+          <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
+        </span>
       </div>
     </div>
 </div>";
@@ -143,14 +143,24 @@ mysqli_close($connect);
 <body>
   <?php require_once "components/navbar.php" ?>
 
+<<<<<<< HEAD
 
 
+=======
+  <!--START HTML FOR THE RESEARCH PRODUCTS-->
+  <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-3"></h5>
+  <div class="d-flex flex-column align-items-center">
+          <h1 class=" fs-1 fw-bold text-center mb-3" style="color:rgba(127, 123, 116, 0.8431372549);">Welcome to our shop</h1>
+          <input class="form-control w-25 mb-4" type="text" name="search" placeholder="Search Product" id="searchProd" style="margin-left:1%;">
+
+        </div>
+  <p class="fs-5 p-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);"></p>
+  <div id="container" style="background-color: yellow;" class="row"></div>
+  <!--END RESEARCH-->
+>>>>>>> 6ba52f7883bf791da9e93734af9469fc768cd86a
   <!-- Start Main Section -->
   <main>
     <div class="manageProduct w-100 mt-3">
-      <div class="d-flex flex-column align-items-center">
-        <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
-      </div>
       <div class="row w-100">
         <div class="container-product d-flex flex-wrap justify-content-between mb-5 w-75 m-auto">
           <?= $tbody; ?>

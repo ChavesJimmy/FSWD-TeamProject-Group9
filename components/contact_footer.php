@@ -6,6 +6,6 @@
             <a class="social-icon"  href="https://www.github.com/"><i class="fa-brands fa-github"></i></a>
             <a class="social-icon"  href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
         </div>
-        <span><?php require_once "./googleMaps/location.html" ?></span>
+        <span><?php require_once "../googleMaps/location.html" ?></span>
         <div class="footer-text mb-3 text-dark" style="text-align:center; background-color: #837f79;">&copy; 2022 Group 9</div>
     </div>

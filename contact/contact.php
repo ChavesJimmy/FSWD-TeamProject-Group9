@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
     <title>Contact Us</title>
    </head>
    <body>
-   <?php require_once "../components/navbar.php" ?>
+   <?php require_once "../components/contact_navbar.php" ?>
 
         <h1 style="text-align:center; margin-top:2%; margin-bottom:2%;">Contact Us</h1>
     <form class="container border rounded rounded-3 p-4 w-50 mb-5" style="background-color: rgba(127, 123, 116, 0.8431372549)" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
     
         <input class="form-control mb-2 btn btn-dark p-3"  type="submit" name="submit" value="Submit" />
        </form>
-       <?php require_once "../components/footer.php" ?>
+       <?php require_once "../components/contact_footer.php" ?>
 
    </body>
 </html>
