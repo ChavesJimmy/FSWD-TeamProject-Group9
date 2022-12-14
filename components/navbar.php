@@ -1,5 +1,4 @@
 <?php
-require_once 'components/boot.php';
 ?>
 
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
