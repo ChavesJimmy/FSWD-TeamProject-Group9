@@ -84,13 +84,17 @@ mysqli_close($connect);
   <meta name="viewport"  content="width=device-width, initial-scale=1.0">
   <title>Product Page</title>
   <link rel="stylesheet" href="../css/style.css">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+<?php require_once("../components/navbar_user.php");
+?>
 
-<div> Welcome :<?= $user['user_name']?></div> <br>
-<a href="../logout.php?logout">Logout</a>
-<a href="shopping_cart.php">cart</a>
+
+<div><h2 class="text-center"> Welcome :<?= $user['user_name']?></h2></div> <br>
+
 
 <!--START HTML FOR THE RESEARCH PRODUCTS-->
   <h5>Search products:</h5>

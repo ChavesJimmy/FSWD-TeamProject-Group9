@@ -54,7 +54,7 @@ if ($result_reviews->num_rows > 0) {
         }
 
         td {
-            text-align: left;
+            text-align: center;
             vertical-align: middle;
         }
 
@@ -71,7 +71,7 @@ if ($result_reviews->num_rows > 0) {
 
 <body>
     <?php require_once "../components/navbar_admin.php" ?>
- 
+ <a href="./index_admin.php"><button type="button" class="btn btn-primary">Index</button></a>
     <h1>reviews list</h1>
     <table class='table table-striped'>
                     <thead class='table-success'>

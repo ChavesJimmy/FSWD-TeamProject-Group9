@@ -125,7 +125,7 @@ mysqli_close($connect);
 
 <body class=" bg-light">
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5">
         <form class="cont1 container border rounded-3 p-4 w-50" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" enctype="multipart/form-data" style="  background-color: rgba(127, 123, 116, 0.8431372549);
 ">
             <h1 class="mb-4" style="text-align:center;">Register</h1>
@@ -167,7 +167,7 @@ mysqli_close($connect);
             <hr />
 
             <div>
-          <input type="file" name="photo" />
+          <input class="form-control mb-2 w-75" type="file" name="photo" />
           <span><?php echo $photoError; ?> </span>
             </div>
 

@@ -1,5 +1,3 @@
-<?php
-?>
 
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
         <div class="container-fluid">
@@ -20,10 +18,13 @@
                         <a class="nav-link"  href="crud/login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link"  href="./user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a class="nav-link"  href="../user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
                     <li class="nav-item">
-                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-user"></i></a>
+                        <a class="nav-link"  href="user.php"><i class="fa-solid fa-user"></i></a>
+                    </li> 
+                    <li class="nav-item">
+                    <a class="nav-link"  href="../logout.php?logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                     </li> 
                 </ul>
         </div>

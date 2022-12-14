@@ -59,14 +59,17 @@ mysqli_close($connect);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
 </head>
 
+
 <body class=" bg-light">
-  <form class="cont1 container border rounded rounded-3 p-4 w-50" style="margin-top:10%; background-color: rgba(127, 123, 116, 0.8431372549);" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
+<?php require_once "components/navbar.php" ?>
+
+  <form class="cont1 container border rounded rounded-3 p-4 w-50 mb-5" style="margin-top:5%; background-color: rgba(127, 123, 116, 0.8431372549);" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
     <h1 class="mb-5" style="margin-left:35%;">Login</h1>
     <?php
     if (isset($errMSG)) {
