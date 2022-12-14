@@ -7,6 +7,8 @@ if (isset($_SESSION['ADMIN']) != "") {
   header("Location: admin_panel/index_admin.php"); 
 } 
 require_once 'components/db_connect.php';
+require_once 'components/file_upload.php';
+
 $error = false;
 $user_name = $first_name = $last_name = $address = $email = $birth_date = $password = $photo = '';
 $user_nameError =  $nameError = $addressError = $emailError = $birth_dateError = $passwordError = $photoError = '';
@@ -41,7 +43,8 @@ if (isset($_POST['btn-signup'])) {
     $password = htmlspecialchars($password);
 
 
-
+    $uploadError = '';
+    $photo = file_upload($_FILES['photo']);
 
 
 
@@ -89,18 +92,18 @@ if (isset($_POST['btn-signup'])) {
     $password = hash('sha256', $password);
     if (!$error) {
 
-        $query = "INSERT INTO users(user_name, first_name, last_name, password, email, address, birth_date)
-              VALUES('$user_name', '$first_name', '$last_name', '$password', '$email', '$address', '$birth_date')";
+        $query = "INSERT INTO users(user_name, first_name, last_name, password, email, address, birth_date, photo)
+              VALUES('$user_name', '$first_name', '$last_name', '$password', '$email', '$address', '$birth_date', '$photo->fileName')";
         $res = mysqli_query($connect, $query);
 
         if ($res) {
             $errTyp = "success";
             $errMSG = "Successfully registered, you may login now";
-            //    $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
+            $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
         } else {
             $errTyp = "danger";
             $errMSG = "Something went wrong, try again later...";
-            //   $uploadError = ($picture->error != 0) ? $picture->ErrorMessage : '';
+            $uploadError = ($picture->error != 0) ? $photo->ErrorMessage : '';
         }
     }
 }
@@ -121,7 +124,6 @@ mysqli_close($connect);
 </head>
 
 <body class=" bg-light">
-<?php require_once "components/navbar.php" ?>
 
     <div class="container mt-4">
         <form class="cont1 container border rounded-3 p-4 w-50" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" enctype="multipart/form-data" style="  background-color: rgba(127, 123, 116, 0.8431372549);
@@ -163,6 +165,12 @@ mysqli_close($connect);
             <input type="password" name="password" class="form-control" placeholder="Enter Password" maxlength="15" />
             <span class="text-danger"> <?php echo $passwordError; ?> </span>
             <hr />
+
+            <div>
+          <input type="file" name="photo" />
+          <span><?php echo $photoError; ?> </span>
+            </div>
+
             <button type="submit" class="btn btn-block btn-primary" name="btn-signup">Sign Up</button>
             <hr />
             <a href="login.php" class="btn btn-outline-primary">Sign in here</a>

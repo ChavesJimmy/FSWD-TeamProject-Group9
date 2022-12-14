@@ -13,7 +13,7 @@ if ($_POST) {
     $email = $_POST['email'];
     $address = $_POST['address'];
     $birth_date = $_POST['birth_date'];
-    $photo = $_POST['photo'];  
+    $photo = file_upload($_FILES['photo']);
     $id = $_POST['id'];
 
 

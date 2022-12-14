@@ -87,7 +87,6 @@ mysqli_close($connect);
 </head>
 
 <body>
-<?php require_once "../components/navbar.php" ?>
 
 <div> Welcome :<?= $user['user_name']?></div> <br>
 <a href="../logout.php?logout">Logout</a>
