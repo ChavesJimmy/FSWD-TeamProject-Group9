@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand w-25" href="#">
+            <a class="navbar-brand w-25" href="index.php">
                 <div class="logo d-flex flex-column align-items-start">
                     <img class="logo-img flex-fill w-75 " src="./img/logo.png">
                 </div>
@@ -16,9 +16,11 @@
             </div>
         
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 d-flex justify-content-end" id="items">
-                    <li class="nav-item">
-                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </li> 
+                    <form method="get" action="../searchlist.php">
+                        <input type="text" name="search" placeholder="Search for products" id="searchProd">
+                        <button type="submit" class="search-btn" ><i class="fa-solid fa-magnifying-glass search-btn"></i></button>
+                    </form>
+                    
                     <li class="nav-item">
                         <a class="nav-link"  href="./user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
@@ -34,7 +36,7 @@
   <a href="contact/contact.php">Contact</a>
   <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+    <a class="nav-link dropdown-toggle" href="index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="./products/supplements.php">Supplements</a></li>
       <li><a class="dropdown-item" href="./products/equipment.php">Equipment</a></li>

@@ -1,5 +1,14 @@
 <?php
 require_once 'components/db_connect.php';
+session_start();
+
+if (isset($_SESSION['USER'])) {
+  if ($_GET['id']) {
+    $id = $_GET['id'];
+  header('Location: ../user_panel/details.php?id=' . $id);
+ exit;
+}
+}
 
 if ($_GET['id']) {
   $id = $_GET['id'];
@@ -42,10 +51,10 @@ if ($_GET['id']) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Details - Products</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
   <?php require_once 'components/boot.php' ?>
 </head>
 
@@ -81,7 +90,7 @@ if ($_GET['id']) {
       </div>
     </div>
   </div>
-
+  <?php require_once 'components/footer.php' ?>
 
 
 
