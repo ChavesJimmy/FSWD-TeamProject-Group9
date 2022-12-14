@@ -1,17 +1,18 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
-    header("Location: ../../index_admin.php");
-    exit;
-}
-if (isset($_SESSION['user'])) {
-    header("Location: ../../user.php");
-    exit;
-}
-
 require_once '../../components/db_connect.php';
 require_once '../../components/file_upload.php';
+if (isset($_SESSION['USER'])) {
+    header("Location: ../user_panel/user.php");
+    exit;
+} 
+
+if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+
 
 if ($_POST) {
 

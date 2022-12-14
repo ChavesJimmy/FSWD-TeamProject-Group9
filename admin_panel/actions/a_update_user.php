@@ -1,6 +1,17 @@
 <?php
 require_once '../../components/db_connect.php';
 require_once '../../components/file_upload.php';
+session_start();
+if (isset($_SESSION['USER'])) {
+    header("Location: ../user_panel/user.php");
+    exit;
+} 
+
+if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
 if ($_POST) {
     $user_name = $_POST['user_name'];
     

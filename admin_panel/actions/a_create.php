@@ -1,17 +1,17 @@
 <?php
 session_start();
+require_once '../../components/db_connect.php';
 
-/* if (isset($_SESSION['USER']) != "") {
-    header("Location: ../../home.php");
+if (isset($_SESSION['USER'])) {
+    header("Location: ../user_panel/user.php");
+    exit;
+} 
+
+if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
+    header("Location: ../login.php");
     exit;
 }
 
-if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
-    header("Location: ../../index.php");
-    exit;
-} */
-
-require_once '../../components/db_connect.php';
 
 if ($_POST) {
     $name = $_POST['name'];

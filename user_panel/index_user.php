@@ -174,7 +174,7 @@ mysqli_close($connect);
 
 <div class="fs-2 mt-5 fw-bold"><p class="text-center"> Welcome, <?= $user['user_name']?> !</p></div> <br>
 <p class='h2 text-center'> Products </p>
-
+<div id="container"></div>
 <div class="manageProduct w-100 mt-3">
       <div class="row w-100">
         <div class="container-product d-flex flex-wrap justify-content-between mb-5 w-75 m-auto">
@@ -184,6 +184,21 @@ mysqli_close($connect);
     </div>
 
       <?php require_once "../components/footer.php" ?>
-
+<!--SCRIPT THAT GET WITH PRODUCTLISTS:PHP FOR THE RESEARCH FUNCTION-->
+<script>
+    function SearchProducts() {
+      let xhttp = new XMLHttpRequest();
+      let productVal = document.getElementById("searchProd").value;
+      console.log(productVal);
+      xhttp.open("GET", "searchlist.php?search=" + productVal);
+      xhttp.onload = function() {
+        if (this.status == 200) {
+          document.getElementById('container').innerHTML = this.responseText;
+        }
+      }
+      xhttp.send();
+    }
+    document.getElementById('searchProd').addEventListener("input", SearchProducts);
+  </script>
 </body>
 </html> 

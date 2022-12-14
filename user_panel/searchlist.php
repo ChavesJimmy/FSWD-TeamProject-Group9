@@ -1,7 +1,7 @@
 <?php
 //PHP FILE FOR THE RESEARCH PRODUCTS
-require_once 'components/db_connect.php';
-
+require_once '../components/db_connect.php';
+session_start();
 
 $search =$_GET['search'];
 $qlProducts ="SELECT * FROM products WHERE name LIKE '%$search%'";
@@ -19,8 +19,8 @@ if(mysqli_num_rows($result)==0) {
         echo  $tbody .= "
         <div class='card-product'>
           <div class='card-head-product'>
-            <img src='img/logo.png' alt='logo' class='card-logo-product'>
-            <img src='pictures/" . $rows['picture'] . "' class='product-img-product' alt='" . $rows['name'] . "'>
+            <img src='../img/logo.png' alt='logo' class='card-logo-product'>
+            <img src='../pictures/" . $rows['picture'] . "' class='product-img-product' alt='" . $rows['name'] . "'>
             <div class='product-detail-product'>
               <h2>" . $rows['name'] . "</h2> 
             </div>
@@ -69,8 +69,8 @@ if(mysqli_num_rows($result)==0) {
             $tbody .= "
         <div class='card-product'>
           <div class='card-head-product'>
-            <img src='img/logo.png' alt='logo' class='card-logo-product'>
-            <img src='pictures/" . $rows['picture'] . "' class='product-img-product' alt='" . $rows['name'] . "'>
+            <img src='../img/logo.png' alt='logo' class='card-logo-product'>
+            <img src='../pictures/" . $rows['picture'] . "' class='product-img-product' alt='" . $rows['name'] . "'>
             <div class='product-detail-product'>
               <h2>" . $rows['name'] . "</h2> 
             </div>

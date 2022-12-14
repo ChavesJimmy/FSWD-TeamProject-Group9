@@ -94,7 +94,7 @@ if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
                 </tr>
                 <tr>
                     <td><button class='btn btn-success' type="submit">Insert Product</button></td>
-                    <td><a href="index_admin.php"><button class='btn btn-dark' type="button">Home</button></a></td>
+                    <td><a href="index_admin.php"><button class='btn btn-primary' type="button">BACK</button></a></td>
                 </tr>
             </table>
         </form>

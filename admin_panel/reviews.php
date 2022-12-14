@@ -66,13 +66,17 @@ if ($result_reviews->num_rows > 0) {
             width: 100px;
             height: auto;
         }
+        #back{
+            display: block;
+            margin: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
 
 <body>
-    <?php require_once "../components/navbar_admin.php" ?>
- <a href="./index_admin.php"><button type="button" class="btn btn-primary">Index</button></a>
-    <h1>reviews list</h1>
+    <h1 class="text-center">reviews list</h1>
     <table class='table table-striped'>
                     <thead class='table-success'>
                         <tr>
@@ -87,7 +91,8 @@ if ($result_reviews->num_rows > 0) {
                         <?= $tbody ?>
                     </tbody>
                 </table>
-    
+     <a href="./index_admin.php"><button type="button" class="btn btn-primary" id="back">Index</button></a>
+
                 <?php require_once "../components/footer.php" ?>
 </body>
 </html>
