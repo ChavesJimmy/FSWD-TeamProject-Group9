@@ -36,7 +36,7 @@
   <a href="contact/contact.php">Contact</a>
   <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+    <a class="nav-link dropdown-toggle" href="index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="./products/supplements.php">Supplements</a></li>
       <li><a class="dropdown-item" href="./products/equipment.php">Equipment</a></li>
