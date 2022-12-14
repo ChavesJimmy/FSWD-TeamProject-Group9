@@ -146,7 +146,7 @@ if ($result_products->num_rows > 0) {
                         <?= $tbody ?>
                     </tbody>
                 </table>
-    <h1>users list</h1>
+    <h1>Users list</h1>
     <table class='table table-striped'>
                     <thead class='table-success'>
                         <tr>
