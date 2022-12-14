@@ -51,8 +51,16 @@ mysqli_close($connect);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Page</title>
-  <?php require_once '../components/boot.php' ?>
+  <title><?= $type . " | Atom Body"?></title>
+  <link rel="stylesheet" href="../css/style.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<?php require_once("../components/boot.php");
+ require_once("../components/navbar_user.php");
+?>
 
 </head>
 
@@ -65,6 +73,10 @@ mysqli_close($connect);
     </tbody>
   </div>
   </div>
+
+  <?php require_once("../components/footer.php");
+?>
+
 </body>
 
 </html>
