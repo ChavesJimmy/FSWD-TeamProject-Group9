@@ -17,7 +17,7 @@
         
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 d-flex justify-content-end" id="items">
                     <li class="nav-item">
-                        <a class="nav-link"  href="crud/login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <a class="nav-link"  href="./login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link"  href="./user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -29,10 +29,9 @@
         </div>
         <div id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a aria-current="page" href="#">Home</a>
-  <a href="./login.php">About</a>
-  <a href="#">Lorem</a>
-  <a href="../contact/contact.php">Contact</a>
+  <a aria-current="page" href="./index.php">Home</a>
+  <a href="./login.php">Login</a>
+  <a href="contact/contact.php">Contact</a>
   <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>

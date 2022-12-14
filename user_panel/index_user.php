@@ -60,7 +60,7 @@ if (mysqli_num_rows($result)  > 0) {
         <li class='list-group-item'>A third item</li>
       </ul>
       <div class='card-body'>
-        <a href='details.php?id=".$row['id']."' class='card-link'>Details</a>
+        <a class=' btn btn-outline-dark' href='details.php?id=".$row['id']."' class='card-link'>Details</a>
       </div>
       <form action='./actions/a_addToCart.php' method='post'>
           <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
@@ -93,7 +93,7 @@ mysqli_close($connect);
 ?>
 
 
-<div class="fs-2 mt-5 fw-bold"><p class="text-center"> Welcome :<?= $user['user_name']?></p></div> <br>
+<div class="fs-2 mt-5 fw-bold"><p class="text-center"> Welcome, <?= $user['user_name']?> !</p></div> <br>
 
 
 <!--START HTML FOR THE RESEARCH PRODUCTS-->
