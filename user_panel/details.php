@@ -106,6 +106,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
 </head>
 
 <body>
+  <?php require_once '../components/details.navbar.php' ?>
   <section>
     <div>
       <p class="fs-1 fw-bold mt-4" style="text-align:center;">Details</p>
