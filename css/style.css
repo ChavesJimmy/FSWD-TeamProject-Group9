@@ -69,6 +69,11 @@ body {
   height: 30px;
   color: black;
 }
+.main-footer .footer-text {
+  margin-top: 25px;
+  margin-bottom: -150px;
+  padding: 5px !important;
+}
 
 * {
   margin: 0;
@@ -76,20 +81,21 @@ body {
   outline: none;
 }
 
-.container {
+.container-product-product {
   width: 280px;
   height: 520px;
   margin: 30px auto;
   font-family: "Roboto", sans-serif;
 }
 
-.card {
+.card-product {
   border-radius: 25px;
   box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
   height: 520px;
+  width: 280px;
 }
 
-.card-head {
+.card-head-product {
   position: relative;
   height: 252px;
   background: #837f79;
@@ -103,12 +109,12 @@ body {
   border-radius: 25px 25px 0 0;
 }
 
-.card-logo {
+.card-logo-product {
   width: 55px;
   margin: 20px;
 }
 
-.product-img {
+.product-img-product {
   position: absolute;
   left: 50;
   margin-top: 70px;
@@ -117,13 +123,13 @@ body {
   width: 100px;
 }
 
-.product-detail {
+.product-detail-product {
   padding: 0 20px;
   font-size: 11px;
   color: #fff;
 }
 
-.product-detail h2 {
+.product-detail-product h2 {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -131,7 +137,7 @@ body {
   text-transform: uppercase;
 }
 
-.back-text {
+.back-text-product {
   display: inline-block;
   font-size: 55px;
   font-weight: 700;
@@ -141,13 +147,13 @@ body {
   transform: rotate(-90deg);
 }
 
-.card-body {
+.card-body-product {
   height: 275px;
   background: #fff;
   border-radius: 0 0 25px 25px;
 }
 
-.product-title {
+.product-title-product {
   padding: 20px 20px 5px 20px;
   display: block;
   font-size: 17px;
@@ -156,12 +162,12 @@ body {
   text-transform: uppercase;
 }
 
-.product-title b {
+.product-title-product b {
   font-weight: 900;
   letter-spacing: 0px;
 }
 
-.product-caption {
+.product-caption-product {
   display: block;
   padding: 0 20px;
   font-size: 10px;
@@ -169,16 +175,16 @@ body {
   text-transform: uppercase;
 }
 
-.product-rating {
+.product-rating-product {
   padding: 0 20px;
   font-size: 11px;
 }
 
-.product-rating i.grey {
+.product-rating-product i.grey {
   color: #acacab;
 }
 
-.product-size h4 {
+.product-size-product h4 {
   font-size: 11px;
   padding: 0 21px;
   margin-top: 15px;
@@ -186,11 +192,11 @@ body {
   text-transform: uppercase;
 }
 
-.ul-size {
+.ul-size-product {
   margin-left: 15px;
 }
 
-.ul-size {
+.ul-size-product {
   list-style: none;
   margin-left: 20px;
   display: inline-block;
@@ -204,7 +210,7 @@ body {
   color: rgb(80, 70, 70);
 }
 
-.product-color h4 {
+.product-color-product h4 {
   font-size: 11px;
   padding: 0 21px;
   margin-top: 20px;
@@ -212,7 +218,7 @@ body {
   text-transform: uppercase;
 }
 
-.product-color p {
+.product-color-product p {
   font-size: 15px;
   padding: 0 21px;
   margin-top: 10px;
@@ -221,7 +227,7 @@ body {
   text-decoration: line-through;
 }
 
-.product-price {
+.product-price-product {
   position: absolute;
   background: #11e95b;
   padding: 7px 20px;
@@ -236,11 +242,11 @@ body {
   box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
 }
 
-.product-price b {
+.product-price-product b {
   margin-left: 5px;
 }
 
-.details {
+.details-product {
   background-color: rgba(131, 127, 121, 0.5647058824);
   position: absolute;
   padding: 5px 113px;
@@ -255,7 +261,7 @@ body {
   border-bottom-right-radius: 25px;
 }
 
-.details a {
+.details-product a {
   text-decoration: none;
   color: #fff;
 }/*# sourceMappingURL=style.css.map */

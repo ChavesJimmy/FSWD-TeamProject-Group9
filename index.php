@@ -6,30 +6,30 @@ $sql = "SELECT * FROM products WHERE displ=1";
 $result = mysqli_query($connect, $sql);
 $tbody = '';
 if (mysqli_num_rows($result)  > 0) {
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        if ($row['Discount'] > 0) {
-            $tbody .= "<div class='container'>
-  <div class='card'>
-    <div class='card-head'>
-      <img src='img/logo.png' alt='logo' class='card-logo'>
-      <img src='pictures/" . $row['picture'] . "' class='product-img' alt='" . $row['name'] . "'>
-      <div class='product-detail'>
+  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    if ($row['Discount'] > 0) {
+      $tbody .= "
+  <div class='card-product'>
+    <div class='card-head-product'>
+      <img src='img/logo.png' alt='logo' class='card-logo-product'>
+      <img src='pictures/" . $row['picture'] . "' class='product-img-product' alt='" . $row['name'] . "'>
+      <div class='product-detail-product'>
         <h2>" . $row['name'] . "</h2> 
       </div>
-      <span class='back-text'>
+      <span class='back-text-product'>
               ATOM
             </span>
     </div>
-    <div class='card-body'>
-      <div class='product-desc'>
-        <span class='product-title'>
+    <div class='card-body-product'>
+      <div class='product-desc-product'>
+        <span class='product-title-product'>
                 <b>" . $row['name'] . "</b>
                 
         </span>
-        <span class='product-caption'>
+        <span class='product-caption-product'>
         <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
               </span>
-        <span class='product-rating'>
+        <span class='product-rating-product'>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
@@ -37,51 +37,49 @@ if (mysqli_num_rows($result)  > 0) {
                 <i class='fa fa-star grey'></i>
               </span>
       </div>
-      <div class='product-properties'>
-        <span class='product-size'>
+      <div class='product-properties-product'>
+        <span class='product-size-product'>
                 <h4>Availability</h4>
-                <span class='ul-size'>
+                <span class='ul-size-product'>
                   <p>" . $row['availability'] . "</p>
-</span>
+        </span>   
               </span>
-        <span class='product-color'>
+             <span class='product-color-product'>
                 <h4>Prize</h4>
                <p>" . $row['price'] . "</p>
               </span>
-        <span class='product-price'>
+              <span class='product-price-product'>
                 EUR<b>" . $row['price'] - ($row['price'] * $row['Discount'] / 100) . "</b>
               </span>
-              <span class='details'>
-        <a href='details.php?id=" . $row['id'] . "' class='card-link'>Details</a>
-</span>
+              <span class='details-button'>
+                   <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
+              </span>
       </div>
     </div>
-  </div>
 </div>";
-
-} else {
-  $tbody .= "<div class='container'>
-  <div class='card'>
-    <div class='card-head'>
-      <img src='img/logo.png' alt='logo' class='card-logo'>
-      <img src='pictures/" . $row['picture'] . "' class='product-img' alt='" . $row['name'] . "'>
-      <div class='product-detail'>
+    } else {
+      $tbody .= "
+  <div class='card-product'>
+    <div class='card-head-product'>
+      <img src='img/logo.png' alt='logo' class='card-logo-product'>
+      <img src='pictures/" . $row['picture'] . "' class='product-img-product' alt='" . $row['name'] . "'>
+      <div class='product-detail-product'>
         <h2>" . $row['name'] . "</h2> 
       </div>
-      <span class='back-text'>
+      <span class='back-text-product'>
               ATOM
             </span>
     </div>
-    <div class='card-body'>
-      <div class='product-desc'>
-        <span class='product-title'>
+    <div class='card-body-product'>
+      <div class='product-desc-product'>
+        <span class='product-title-product'>
                 <b>" . $row['name'] . "</b>
                 
         </span>
-        <span class='product-caption'>
+        <span class='product-caption-product'>
         <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
               </span>
-        <span class='product-rating'>
+        <span class='product-rating-product'>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
@@ -89,31 +87,30 @@ if (mysqli_num_rows($result)  > 0) {
                 <i class='fa fa-star grey'></i>
               </span>
       </div>
-      <div class='product-properties'>
-        <span class='product-size'>
+      <div class='product-properties-product'>
+        <span class='product-size-product'>
                 <h4>Availability</h4>
-                <span class='ul-size'>
+                <span class='ul-size-product'>
                   <p>" . $row['availability'] . "</p>
 </span>
               </span>
-        <span class='product-color'>
+        <span class='product-color-product'>
                 <h4>Prize</h4>
                <p> </p>
               </span>
-        <span class='product-price'>
+        <span class='product-price-product'>
                 EUR<b>" . $row['price'] . "</b>
               </span>
-              <span class='details'>
-        <a href='details.php?id=" . $row['id'] . "' class='card-link'>Details</a>
+              <span class='details-product'>
+        <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
 </span>
       </div>
     </div>
-  </div>
 </div>";
     };
   };
 } else {
-$tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
+  $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
 }
 
 mysqli_close($connect);
@@ -121,6 +118,7 @@ mysqli_close($connect);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -131,66 +129,69 @@ mysqli_close($connect);
   <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
   <title>Atom Body</title>
 </head>
-<body>
-<?php require_once "components/navbar.php" ?>
-    <!-- Hero -->
-    <div class="hero">
-        <div class="hero-img-container">
-            <img class="hero-img" src=".">
-        </div>
-    </div>
 
-    <!--START HTML FOR THE RESEARCH PRODUCTS-->
-    <h5>Search products:</h5>
-    <input type="text" name="search" placeholder="product name" id="searchProd">
-    <h6 style="background-color: yellow;">Search results</h6>
-    <div id="container" style="background-color: yellow;" class="row"></div>
-    <!--END RESEARCH-->
-    <!-- Start Main Section -->
-<main>
-<div class= "manageProduct w-75 mt-3">
-<div class="d-flex flex-column align-items-center">
-            <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
-        </div>
-      <div class="row m-auto justify-content-center mb-5 gap-5">
-              <?=$tbody;?>
-       </div>
+<body>
+  <?php require_once "components/navbar.php" ?>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-img-container">
+      <img class="hero-img" src=".">
+    </div>
   </div>
-<!--<div class="container admin-container">
+
+  <!--START HTML FOR THE RESEARCH PRODUCTS-->
+  <h5>Search products:</h5>
+  <input type="text" name="search" placeholder="product name" id="searchProd">
+  <h6 style="background-color: yellow;">Search results</h6>
+  <div id="container" style="background-color: yellow;" class="row"></div>
+  <!--END RESEARCH-->
+  <!-- Start Main Section -->
+  <main>
+    <div class="manageProduct w-100 mt-3">
+      <div class="d-flex flex-column align-items-center">
+        <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
+      </div>
+      <div class="row w-100">
+        <div class="container-product d-flex flex-wrap w-75 m-auto">
+          <?= $tbody; ?>
+        </div>
+      </div>
+    </div>
+    <!--<div class="container admin-container">
         <div class="d-flex flex-column align-items-center">
             <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 justify-content-center m-auto mb-5 gap-5">
           <?= $tbody; ?> 
         </div>   -->
-        
-  
-</div>
-</main>
 
-<!-- Start Footer -->
-<?php require_once "components/footer.php" ?>
-    <?php require_once "googleMaps/location.html" ?>
-    <!-- Scripts -->
-    <!-- Swiper Script -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> <!-- General Script -->
-    <script src="scripts/script.js"></script>
-    <!--SCRIPT THAT GET WITH PRODUCTLISTS:PHP FOR THE RESEARCH FUNCTION-->
+
+    </div>
+  </main>
+
+  <!-- Start Footer -->
+  <?php require_once "components/footer.php" ?>
+  <!-- Scripts -->
+  <!-- Swiper Script -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> <!-- General Script -->
+  <script src="scripts/script.js"></script>
+  <!--SCRIPT THAT GET WITH PRODUCTLISTS:PHP FOR THE RESEARCH FUNCTION-->
   <script>
-    function SearchProducts(){
-            let xhttp = new XMLHttpRequest();
-            let productVal = document.getElementById("searchProd").value;
-            console.log(productVal);
-            xhttp.open("GET", "searchlist.php?search=" + productVal);
-            xhttp.onload = function(){
-            if(this.status == 200){
-                document.getElementById('container').innerHTML=this.responseText;
-            }}
-            xhttp.send();
+    function SearchProducts() {
+      let xhttp = new XMLHttpRequest();
+      let productVal = document.getElementById("searchProd").value;
+      console.log(productVal);
+      xhttp.open("GET", "searchlist.php?search=" + productVal);
+      xhttp.onload = function() {
+        if (this.status == 200) {
+          document.getElementById('container').innerHTML = this.responseText;
         }
-        document.getElementById('searchProd').addEventListener("input", SearchProducts);
+      }
+      xhttp.send();
+    }
+    document.getElementById('searchProd').addEventListener("input", SearchProducts);
   </script>
 </body>
 
