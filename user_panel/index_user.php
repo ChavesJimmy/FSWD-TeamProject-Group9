@@ -55,7 +55,7 @@ if (mysqli_num_rows($result)  > 0) {
         <h5 class='card-title'>".$row['name']."</h5>
       </div>
       <ul class='list-group list-group-flush'>
-        <li class=' btn btn-outline-primary'><a href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
+        <li class=' btn btn-outline-dark'><a style='text-decoration:none;' href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
         <li class='list-group-item'>".$row['price']." EUR</li>
         <li class='list-group-item'>A third item</li>
       </ul>
@@ -65,7 +65,7 @@ if (mysqli_num_rows($result)  > 0) {
       <form action='./actions/a_addToCart.php' method='post'>
           <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
           <input type='hidden' name='fk_user' value=". $_SESSION['USER'] .">
-          <button type='submit'>Add to cart</button></form>
+          <button class=' btn btn-outline-dark' type='submit'>Add to cart</button></form>
     </div>" ;
     };
   };
@@ -88,18 +88,18 @@ mysqli_close($connect);
   <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bg-light">
 <?php require_once("../components/navbar_user.php");
 ?>
 
 
-<div><h2 class="text-center"> Welcome :<?= $user['user_name']?></h2></div> <br>
+<div class="fs-2 mt-5 fw-bold"><p class="text-center"> Welcome :<?= $user['user_name']?></p></div> <br>
 
 
 <!--START HTML FOR THE RESEARCH PRODUCTS-->
-  <h5 class="fs-4 p-2">Search products:</h5>
-  <input class="form-control w-25 mb-4 p-2" type="text" name="search" placeholder="product name" id="searchProd" style="margin-left:1%;">
-  <h6 style="background-color: yellow;">Search results</h6>
+  <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-2">Search products:</h5>
+  <input class="form-control w-25 mt-4 mb-4 p-2" type="text" name="search" placeholder="product name" id="searchProd" style="margin-left:1%;">
+  <p class="fs-5 p-2" style="  background-color: rgba(127, 123, 116, 0.8431372549);">Search results</p>
   <div id="container" style="background-color: yellow;" class="row"></div>
 <!--END RESEARCH-->
 
