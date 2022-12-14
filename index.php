@@ -7,7 +7,7 @@ require_once 'components/boot.php';
 if (isset($_SESSION['USER'])) {
   header('Location: ../user_panel/index_user.php');
  exit;
-}
+}*/
 
 
 $sql = "SELECT * FROM products WHERE displ=1";
