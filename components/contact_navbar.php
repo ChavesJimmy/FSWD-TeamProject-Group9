@@ -1,3 +1,6 @@
+<?php
+?>
+
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand w-25" href="../index.php">
@@ -14,37 +17,20 @@
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 d-flex justify-content-end" id="items">
             <li class="nav-item">
-                <a class="nav-link" href="../user_panel/index_user.php"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a class="nav-link" href="crud/login.php"><i class="fa-solid fa-magnifying-glass"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="user.php"><i class="fa-solid fa-user"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../logout.php?logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                <a class="nav-link" href="../login.php"><i class="fa-solid fa-user"></i></a>
             </li>
         </ul>
     </div>
     <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="../user_panel/index_user.php" href="#">Home</a>
-        <a href="../user_panel/user.php">User Profile</a>
-        <a href="update.php?id=<?= $_SESSION['USER'] ?>">Update Profile</a>
-        <a href="../logout.php?logout">Log Out</a>
-        <a href="../contact/contact.php">Contact</a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./products/supplements.php">Supplements</a></li>
-                    <li><a class="dropdown-item" href="./products/equipment.php">Equipment</a></li>
-                </ul>
-            </li>
-        </ul>
-
-
+        <a aria-current="page" href="../index.php">Shop</a>
+        <a href="../login.php">Login</a>
     </div>
 
     <button class="openbtn" onclick="openNav()">&#9776;</button>

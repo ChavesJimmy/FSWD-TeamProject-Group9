@@ -150,9 +150,9 @@ mysqli_close($connect);
   </div>
 
   <!--START HTML FOR THE RESEARCH PRODUCTS-->
-  <h5>Search products:</h5>
-  <input type="text" name="search" placeholder="product name" id="searchProd">
-  <h6 style="background-color: yellow;">Search results</h6>
+  <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-2">Search products:</h5>
+  <input class="form-control w-25 mt-4 mb-4 p-2" type="text" name="search" placeholder="product name" id="searchProd" style="margin-left:1%;">
+  <p class="fs-5 p-2" style="  background-color: rgba(127, 123, 116, 0.8431372549);">Search results</p>
   <div id="container" style="background-color: yellow;" class="row"></div>
   <!--END RESEARCH-->
   <!-- Start Main Section -->

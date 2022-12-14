@@ -109,7 +109,7 @@ $backBtn = '';
 </head>
 
 <body>
-    <div class="container">
+    <div class="container border rounded-3 p-4 w-50 mt-4 mb-5" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
         <h2>Update your account</h2>
         <img class='img-thumbnail rounded-circle' src='../pictures/<?= $data['photo'] ?>' alt="<?= $first_name ?>">
         <form method="post" enctype="multipart/form-data" action="actions/a_update.php">
@@ -147,7 +147,7 @@ $backBtn = '';
                     <input type="hidden" name="id" value="<?= $data['id'] ?>" />
                     <input type="hidden" name="photo" value="<?= $photo ?>" />
                     <td><button name="submit" class="btn btn-success" type="submit">Save Changes</button></td>
-                    <td><a href="user.php<?php $backBtn ?>"><button class="btn btn-warning" type="button">Back</button></a></td>
+                    <td><a href="user.php<?php $backBtn ?>"><button class="btn btn-dark" type="button">Back</button></a></td>
                 </tr>
             </table>
         </form>
