@@ -1,16 +1,20 @@
 <?php
-//session_start();
 require_once '../components/db_connect.php' ;
+$userinfo =mysqli_query($connect, "SELECT * FROM users WHERE id={$_SESSION['USER']}");
+$info= mysqli_fetch_array($userinfo, MYSQLI_ASSOC);
 
- if (isset($_SESSION['user']) != "" ) {
-  header("Location: ../home.php");
+if($info['user_allowed']=='banned'){
+  header('Location: ../ban.php');
   exit;
 }
-
-if (! isset($_SESSION['adm']) && !isset($_SESSION['user' ])) {
-  header("Location: ../index.php");
-  exit;
-} 
+ if (isset($_SESSION['ADMIN'])) {
+     header('Location: ../admin_panel/index_admin.php');
+    exit;
+ }
+ if (isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
+  header('Location: ../login.php');
+ exit;
+}
 //$id=$_GET['id'];
 //mmmust change 3 by get id
 $sql = "SELECT * FROM products_reviews WHERE fk_product=3";

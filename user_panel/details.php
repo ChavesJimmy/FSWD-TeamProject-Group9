@@ -2,12 +2,21 @@
 require_once '../components/db_connect.php';
 require_once '../components/boot.php';
 session_start();
+$userinfo =mysqli_query($connect, "SELECT * FROM users WHERE id={$_SESSION['USER']}");
+$info= mysqli_fetch_array($userinfo, MYSQLI_ASSOC);
 
-
-if (isset($_SESSION['ADMIN'])) {
+if($info['user_allowed']=='banned'){
+  header('Location: ../ban.php');
+  exit;
+}
+ if (isset($_SESSION['ADMIN'])) {
      header('Location: ../admin_panel/index_admin.php');
-     exit;
+    exit;
  }
+ if (isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
+  header('Location: ../login.php');
+ exit;
+}
  
 
 if ($_GET['id']) {

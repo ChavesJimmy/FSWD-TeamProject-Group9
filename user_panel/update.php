@@ -4,21 +4,21 @@ require_once '../components/db_connect.php';
 require_once '../components/file_upload.php';
 
 
-if (!isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
-     header("Location: index.php");
-     exit;
+$userinfo =mysqli_query($connect, "SELECT * FROM users WHERE id={$_SESSION['USER']}");
+$info= mysqli_fetch_array($userinfo, MYSQLI_ASSOC);
+
+if($info['user_allowed']=='banned'){
+  header('Location: ../ban.php');
+  exit;
+}
+ if (isset($_SESSION['ADMIN'])) {
+     header('Location: ../admin_panel/index_admin.php');
+    exit;
  }
-
-
-
- if (isset($_SESSION["USER"])) {
-     $backBtn = "user_panel/user.php";
- }
-
- if (isset($_SESSION["ADMIN"])) {
-     $backBtn = "admin_panel/index_admin.php";
- }
-
+ if (isset($_SESSION['ADMIN']) && !isset($_SESSION['USER'])) {
+  header('Location: ../login.php');
+ exit;
+}
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
