@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../components/db_connect.php' ;
 $userinfo =mysqli_query($connect, "SELECT * FROM users WHERE id={$_SESSION['USER']}");
 $info= mysqli_fetch_array($userinfo, MYSQLI_ASSOC);
