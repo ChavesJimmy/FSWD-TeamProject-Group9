@@ -13,9 +13,10 @@
         </div>
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 d-flex justify-content-end" id="items">
-            <li class="nav-item">
-                <a class="nav-link" href="../user_panel/index_user.php"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </li>
+        <form method="get" action="../searchlist.php">
+                        <input type="text" name="search" placeholder="Search for products" id="searchProd">
+                        <button type="submit" class="search-btn" ><i class="fa-solid fa-magnifying-glass search-btn"></i></button>
+                    </form>
             <li class="nav-item">
                 <a class="nav-link" href="../user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
             </li>

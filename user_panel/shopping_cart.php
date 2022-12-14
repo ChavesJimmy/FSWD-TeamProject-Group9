@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
 
@@ -29,8 +32,8 @@ if (mysqli_num_rows($result)  > 0) {
             $totalprice += $row['price'];
         }
         $tbody .= $row['name'] . " " . $price . "EUR 
-        <form action='actions/a_deleteItem.php?id=" . $row['id'] . "' method='post'>
-        <button type='submit'>delete</button></form> <br>
+        <form class='mt-3 p-3' action='actions/a_deleteItem.php?id=" . $row['id'] . "' method='post'>
+        <button class='btn btn-danger' type='submit'>Delete</button></form> <br>
         ";
         $tbodySum = $totalprice;
     };
@@ -44,10 +47,14 @@ $tbodyUser = '';
 if (mysqli_num_rows($resultUser)  > 0) {
     $rowUser = mysqli_fetch_array($resultUser, MYSQLI_ASSOC);
     $tbodyUser = "
-    My first name : " . $rowUser['first_name'] . "<br>
-    My last name : " . $rowUser['last_name'] . "<br>
-    My address : " . $rowUser['address'] . "<br>
-    My email : " . $rowUser['email'] . "";
+
+
+
+    
+    First name : " . $rowUser['first_name'] . "<br>
+    Last name : " . $rowUser['last_name'] . "<br>
+    Address : " . $rowUser['address'] . "<br>
+    E-mail : " . $rowUser['email'] . "";
 }
 ?>
 <!DOCTYPE html>
@@ -57,36 +64,30 @@ if (mysqli_num_rows($resultUser)  > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | Atom Body</title>
-    <link rel="stylesheet" href="../css/style.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
-</head>
+    <?php require_once "../components/boot.php" ?>
 
-<body>
-<?php require_once("../components/boot.php");
- require_once("../components/navbar_user.php");
-?>
+    <title>Document</title>
+</head>
 
 <body class="bg-light">
 
     <div class="card container border rounded rounded-3 p-5 w-50" style="margin-top:2%; background-color: rgba(127, 123, 116, 0.8431372549);" style="width: 18rem;" action="actions/pay.php" method="post">
         <div class="border rounded mb-3">
-            <h1 class="fs-1" style="text-align:center;">My shopping cart</h1>
+            <h1 class="fs-1 mb-5" style="text-align:center;">My shopping cart</h1>
             <?= $tbody ?>
 
-            <h3 style="text-align:center; margin-top:5%; margin-bottom:5%;">Total : <?= $tbodySum ?></h3>
+            <h3 style="text-align:center; margin-top:5%; margin-bottom:5%;">Total : <?= $tbodySum ?> €</h3>
         </div>
         <div class="border rounded">
             <h1 class="mt-2" style="text-align:center;">My infos</h1>
 
-            <h3 style="text-align:center; margin-top:5%; margin-bottom:5%;"><?= $tbodyUser ?></h3>
+            <p class="fs-5" style="text-align:center; margin-top:5%; margin-bottom:5%;"><?= $tbodyUser ?></p>
         </div>
-        <div class="container border rounded rounded-3 p-5 w-50 mt-3">
-            <h1 style="text-align:center;">Payment Method</h1>
+        <div class="container  p-5 w-50 mt-3">
+            <h1 style="text-align:center;"></h1>
 
-            <form class="form-control" style="margin-top:2%;" action="actions/pay.php" method="post">
-                <select style="text-align:center;" name="payment_method">
+            <form class="" style="margin-top:2%;" action="actions/pay.php" method="post">
+                <select class="form-control dropdown;" style="text-align:center;"  name="payment_method">
                     <option value="Paypal">Paypal</option>
                     <option value="Click and collect">Click and Collect</option>
                     <option value="Credit Card">Credit Card</option>
@@ -95,20 +96,15 @@ if (mysqli_num_rows($resultUser)  > 0) {
 
 
                 </select><br>
-                <button class="btn btn-primary" type="submit">Pay</button>
+                <button class="btn btn-primary w-100" type="submit">Pay</button>
             </form>
 
         </div>
 
     </div>
-
-    <?php require_once "../components/footer.php" ?>
-
     <script>
 
     </script>
-
-
 </body>
 
 </html>

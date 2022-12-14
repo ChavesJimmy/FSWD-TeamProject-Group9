@@ -8,6 +8,6 @@
 
     </div>
 
-    <a class="btn btn-outline-dark" href="../user_panel/index_user.php">BACK</a>
+    <a class="btn btn-outline-dark" href="../index.php">BACK</a>
 
 </nav>
