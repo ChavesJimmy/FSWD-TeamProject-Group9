@@ -76,7 +76,7 @@ if ($result_products->num_rows > 0) {
                     <a href='reviews.php?id=" . $row['id'] . "'><button class='btn btn-primary btn-sm' type='button'>Reviews</button></a>
                     </td>
                  </tr>";
-                 }echo $row['fk_discount'];
+                 }
             }
         } else {
             $tbody = "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
