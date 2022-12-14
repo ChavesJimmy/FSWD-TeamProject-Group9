@@ -15,7 +15,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
       </div>" ;
   };
 } else {
-  $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>" ;
+  $tbody =  "<tr><td colspan='5'><center>No reviews </center></td></tr>" ;
 }
 
   $sql = "SELECT * FROM products WHERE id = $id";
