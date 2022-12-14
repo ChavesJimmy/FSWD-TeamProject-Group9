@@ -1,4 +1,4 @@
-<nav class="navbar navbar-admin p-5 navbar-expand-lg navbar-dark bg-light mb-5">
+<nav class="navbar navbar-admin p-5 navbar-expand-lg navbar-dark bg-light mb-5"style="background-color: #837f79 !important;">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="home.php">
             <img class="adm-picture img-thumbnail rounded-circle" src="../img/<?php echo $row_adm['picture']; ?>" alt="" class="d-inline-block align-text-top w-50">

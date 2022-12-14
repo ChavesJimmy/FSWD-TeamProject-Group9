@@ -2,12 +2,12 @@
 require_once 'components/db_connect.php';
 require_once 'components/boot.php';
 
-session_start();
+/*session_start();
 
 if (isset($_SESSION['USER'])) {
   header('Location: ../user_panel/index_user.php');
  exit;
-}
+}*/
 
 
 $sql = "SELECT * FROM products WHERE displ=1";
@@ -142,6 +142,14 @@ mysqli_close($connect);
 
 <body>
   <?php require_once "components/navbar.php" ?>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-img-container">
+      <img class="hero-img" src="img/heroimg.jpg">
+      <div class="centered"><img class="text-img" src="img/logo.png"></div>
+      </div>
+    </div>
+  </div>
 
   <!--START HTML FOR THE RESEARCH PRODUCTS-->
   <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-3"></h5>
