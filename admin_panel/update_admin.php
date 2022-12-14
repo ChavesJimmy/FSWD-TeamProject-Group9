@@ -62,12 +62,12 @@ if (isset($_POST["submit"])) {
         $class = "alert alert-success";
         $message = "Successfully updated";
         $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
-        header("refresh:3;url=update_admin.php?id={$id}");
+        header("refresh:3;url=../a_update_admin.php?id={$id}");
     } else {
         $class = "alert alert-danger";
         $message = "Error while updating : <br>" . $connect->error;
         $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
-        header("refresh:3;url=update_admin.php?id={$id}");
+        header("refresh:3;url=../a_update_admin.php?id={$id}");
     }
 }
 $backBtn = '';
@@ -101,7 +101,7 @@ $backBtn = '';
     <div class="container">
         <h2>Update your account</h2>
         <img class='img-thumbnail rounded-circle' src='../pictures/<?= $data['photo'] ?>' alt="<?= $first_name ?>">
-        <form method="post" enctype="multipart/form-data" action="../a_update_admin.php">
+        <form method="post" enctype="multipart/form-data" action="actions/a_update_admin.php">
             <table class="table">
                 <tr>
                     <th>User Name</th>
@@ -132,14 +132,7 @@ $backBtn = '';
                     <td><input class="form-control" type="file" name="photo" /></td>
                 </tr>
                 <tr>
-                    <th>Status</th>
-                    <td><input class="form-control" type="text" name="status" placeholder="Status" value="<?= $status ?>" /></td>
-                </tr>
-                <tr> 
-                    <th>User Allowed</th>
-                    <td><input class="form-control" type="text" name="user_allowed" placeholder="User Allowed" value="<?= $user_allowed ?>" /></td>
-                </tr>
-                <tr>
+                
                     <input type="hidden" name="id" value="<?= $data['id'] ?>" />
                     <input type="hidden" name="photo" value="<?= $data['photo'] ?>" />
                     <td><button name="submit" class="btn btn-success" type="submit">Save Changes</button></td>

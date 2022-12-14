@@ -1,7 +1,7 @@
 <?php 
+
 require_once '../../components/db_connect.php';
 require_once '../../components/file_upload.php';
-require_once '../../components/boot.php';
 
 
 if ($_POST) {
@@ -11,28 +11,26 @@ if ($_POST) {
     $email = $_POST['email'];
     $address = $_POST['address'];
     $birth_date = $_POST['birth_date'];
-    $photo = $_POST['photo'];  
-    $status = $data['status'];
-    $user_allowed = $data['user_allowed'];
     $id = $_POST['id'];
 
 
+    
     $uploadError = ''; 
-     $photo = file_upload($_FILES['photo'], "admavatar"); 
-    if ($photo->error === 0) {
-        ($_POST["photo"] == "admavatar.png") ?: unlink("../pictures/$_POST[photo]");
-        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address', photo = '$photo->fileName' WHERE id = '$id'";
+     $photoArray = file_upload($_FILES['photo'], "admavatar"); 
+    if ($photoArray->error === 0) {
+        ($_POST["photo"] == "admavatar.png") ?: unlink("../../pictures/$_POST[photo]");
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address', photo = '$photoArray->fileName' WHERE id = {$id}";
     } else {
-        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address' WHERE id = '$id'";
+        $sql = "UPDATE users SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', email = '$email', birth_date = '$birth_date', address = '$address' WHERE id = {$id}";
     } 
     if (mysqli_query($connect, $sql)) {
         $class = "success";
         $message = "The record was successfully updated";
-        $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
     } else {
         $class = "danger";
         $message = "Error while updating record : <br>" . mysqli_connect_error();
-        $uploadError = ($photo->error != 0) ? $photo->ErrorMessage : '';
+        $uploadError = ($photoArray->error != 0) ? $photoArray->ErrorMessage : '';
     }
 
 
@@ -50,6 +48,7 @@ $backBtn = '';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update</title>
+    <?php require_once '../../components/boot.php'; ?>
 </head>
 
 <body>
@@ -61,6 +60,7 @@ $backBtn = '';
             <p><?php echo ($message) ?? ''; ?></p>
             <p><?php echo ($uploadError) ?? ''; ?></p>
             <a href='../update_admin.php?id=<?= $id ?>'><button class="btn btn-warning" type='button'>Back</button></a>
+            <a href='../admin.php'><button class="btn btn-primary" type='button'>Admin Page</button></a>
             <a href='../index_admin.php'><button class="btn btn-success" type='button'>Home</button></a>
         </div>
     </div>
