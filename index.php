@@ -8,60 +8,131 @@ $tbody = '';
 if (mysqli_num_rows($result)  > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         if ($row['Discount'] > 0) {
-            $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
-      <img src='pictures/" . $row['picture'] . "' class='card-img-top' alt='" . $row['name'] . "'>
-      <div class='card-body'>
-        <h5 class='card-title'>" . $row['name'] . "</h5>
+            $tbody .= "<div class='container'>
+  <div class='card'>
+    <div class='card-head'>
+      <img src='img/logo.png' alt='logo' class='card-logo'>
+      <img src='pictures/" . $row['picture'] . "' class='product-img' alt='" . $row['name'] . "'>
+      <div class='product-detail'>
+        <h2>" . $row['name'] . "</h2> 
       </div>
-      <ul class='list-group list-group-flush'>
-        <li class='list-group-item'><a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a></li>
-        <li class='list-group-item'>" . $row['price'] - ($row['price'] * $row['Discount'] / 100) . " EUR
-        <br>(" . $row['price'] . " EUR - discount " . $row['Discount'] . "%)</li>
-        <li class='list-group-item'>A third item</li>
-      </ul>
-      <div class='card-body'>
+      <span class='back-text'>
+              ATOM
+            </span>
+    </div>
+    <div class='card-body'>
+      <div class='product-desc'>
+        <span class='product-title'>
+                <b>" . $row['name'] . "</b>
+                
+        </span>
+        <span class='product-caption'>
+        <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
+              </span>
+        <span class='product-rating'>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star grey'></i>
+              </span>
+      </div>
+      <div class='product-properties'>
+        <span class='product-size'>
+                <h4>Availability</h4>
+                <span class='ul-size'>
+                  <p>" . $row['availability'] . "</p>
+</span>
+              </span>
+        <span class='product-color'>
+                <h4>Prize</h4>
+               <p>" . $row['price'] . "</p>
+              </span>
+        <span class='product-price'>
+                EUR<b>" . $row['price'] - ($row['price'] * $row['Discount'] / 100) . "</b>
+              </span>
+              <span class='details'>
         <a href='details.php?id=" . $row['id'] . "' class='card-link'>Details</a>
+</span>
       </div>
-    </div>";
-        } else {
-            $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
-      <img src='pictures/" . $row['picture'] . "' class='card-img-top' alt='" . $row['name'] . "'>
-      <div class='card-body'>
-        <h5 class='card-title'>" . $row['name'] . "</h5>
-      </div>
-      <ul class='list-group list-group-flush'>
-        <li class='list-group-item'><a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a></li>
-        <li class='list-group-item'>" . $row['price'] . " EUR</li>
-        <li class='list-group-item'>A third item</li>
-      </ul>
-      <div class='card-body'>
-        <a href='details.php?id=" . $row['id'] . "' class='card-link'>Details</a>
-      </div>
-    </div>";
-        };
-    };
+    </div>
+  </div>
+</div>";
+
 } else {
-    $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
+  $tbody .= "<div class='container'>
+  <div class='card'>
+    <div class='card-head'>
+      <img src='img/logo.png' alt='logo' class='card-logo'>
+      <img src='pictures/" . $row['picture'] . "' class='product-img' alt='" . $row['name'] . "'>
+      <div class='product-detail'>
+        <h2>" . $row['name'] . "</h2> 
+      </div>
+      <span class='back-text'>
+              ATOM
+            </span>
+    </div>
+    <div class='card-body'>
+      <div class='product-desc'>
+        <span class='product-title'>
+                <b>" . $row['name'] . "</b>
+                
+        </span>
+        <span class='product-caption'>
+        <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
+              </span>
+        <span class='product-rating'>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star'></i>
+                <i class='fa fa-star grey'></i>
+              </span>
+      </div>
+      <div class='product-properties'>
+        <span class='product-size'>
+                <h4>Availability</h4>
+                <span class='ul-size'>
+                  <p>" . $row['availability'] . "</p>
+</span>
+              </span>
+        <span class='product-color'>
+                <h4>Prize</h4>
+               <p> </p>
+              </span>
+        <span class='product-price'>
+                EUR<b>" . $row['price'] . "</b>
+              </span>
+              <span class='details'>
+        <a href='details.php?id=" . $row['id'] . "' class='card-link'>Details</a>
+</span>
+      </div>
+    </div>
+  </div>
+</div>";
+    };
+  };
+} else {
+$tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
 }
 
 mysqli_close($connect);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
-    <title>Atom Body</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
+  <title>Atom Body</title>
 </head>
-
 <body>
-    <?php require_once "components/navbar.php" ?>
+<?php require_once "components/navbar.php" ?>
     <!-- Hero -->
     <div class="hero">
         <div class="hero-img-container">
@@ -76,23 +147,29 @@ mysqli_close($connect);
     <div id="container" style="background-color: yellow;" class="row"></div>
     <!--END RESEARCH-->
     <!-- Start Main Section -->
-    <main>
-        <div class="d-flex flex-column align-items-center w-100">
+<main>
+<div class= "manageProduct w-75 mt-3">
+<div class="d-flex flex-column align-items-center">
             <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
         </div>
-        <div class="container">
-            <!-- Cards Area printed from Classes -->
-            <div id="result" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 justify-content-center m-auto mb-5 gap-5">
-                <?= $tbody; ?>
-
-            </div>
+      <div class="row m-auto justify-content-center mb-5 gap-5">
+              <?=$tbody;?>
+       </div>
+  </div>
+<!--<div class="container admin-container">
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="p-3 text-light text-center mt-5 mb-5">Welcome to our shop</h1>
         </div>
-    </main>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 justify-content-center m-auto mb-5 gap-5">
+          <?= $tbody; ?> 
+        </div>   -->
+        
+  
+</div>
+</main>
 
-
-
-    <!-- Start Footer -->
-    <?php require_once "components/footer.php" ?>
+<!-- Start Footer -->
+<?php require_once "components/footer.php" ?>
     <?php require_once "googleMaps/location.html" ?>
     <!-- Scripts -->
     <!-- Swiper Script -->
