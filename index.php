@@ -142,19 +142,9 @@ mysqli_close($connect);
 
 <body>
   <?php require_once "components/navbar.php" ?>
-  <!-- Hero -->
-  <div class="hero">
-    <div class="hero-img-container">
-      <img class="hero-img" src=".">
-    </div>
-  </div>
 
-  <!--START HTML FOR THE RESEARCH PRODUCTS-->
-  <h5>Search products:</h5>
-  <input type="text" name="search" placeholder="product name" id="searchProd">
-  <h6 style="background-color: yellow;">Search results</h6>
-  <div id="container" style="background-color: yellow;" class="row"></div>
-  <!--END RESEARCH-->
+
+
   <!-- Start Main Section -->
   <main>
     <div class="manageProduct w-100 mt-3">

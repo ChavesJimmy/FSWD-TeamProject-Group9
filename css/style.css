@@ -52,6 +52,15 @@
   color: black;
 }
 
+.search-btn {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: white;
+  margin-top: 4px;
+}
+
 body {
   font-family: "Jost", sans-serif;
 }
