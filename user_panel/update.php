@@ -87,8 +87,13 @@ $backBtn = '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Account</title>
-    <?php require_once '../components/boot.php' ?>
+    <title>Update Account</title>
+    <link rel="stylesheet" href="../css/style.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/49748d0fd6.js" crossorigin="anonymous"></script>
+    <?php require_once '../components/boot.php';
+    require_once '../components/navbar_user.php'?>
+    
     <style type="text/css">
         fieldset {
             margin: auto;
@@ -147,5 +152,7 @@ $backBtn = '';
             </table>
         </form>
     </div>
+
+    <?php require_once('../components/footer.php');?>
 </body>
 </html>
