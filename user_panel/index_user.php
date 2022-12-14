@@ -31,43 +31,116 @@ $tbody = '';
 if (mysqli_num_rows($result)  > 0) {
   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     if($row['Discount']>0){
-      $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
-      <img src='../pictures/".$row['picture'] ."' class='card-img-top' alt='".$row['name']."'>
-      <div class='card-body'>
-        <h5 class='card-title'>".$row['name']."</h5>
+      $tbody .= "  <div class='card-product'>
+      <div class='card-head-product'>
+        <img src='../img/logo.png' alt='logo' class='card-logo-product'>
+        <img src='../pictures/" . $row['picture'] . "' class='product-img-product' alt='" . $row['name'] . "'>
+        <div class='product-detail-product'>
+          <h2>" . $row['name'] . "</h2> 
+        </div>
+        <span class='back-text-product'>
+                ATOM
+        </span>
       </div>
-      <ul class='list-group list-group-flush'>
-        <li class='list-group-item'><a href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
-        <li class='list-group-item'>". $row['price']-($row['price']*$row['Discount']/100)." EUR
-        <br>(".$row['price']." EUR - discount ".$row['Discount']."%)</li>
-        <li class='list-group-item'>A third item</li>
-      </ul>
-      <div class='card-body'>
-        <a href='details.php?id=".$row['id']."' class='card-link'>Details</a>
-      </div>
-      <form action='./actions/a_addToCart.php' method='post'>
+  
+      <div class='card-body-product'>
+        <div class='product-desc-product'>
+          <span class='product-title-product'>
+            <b>" . $row['name'] . "</b>
+          </span>
+          <span class='product-caption-product'>
+            <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
+          </span>
+          <span class='product-rating-product'>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star grey'></i>
+           </span>
+        </div>
+        <div class='product-properties-product'>
+          <span class='product-size-product'>
+              <h4>Availability</h4>
+              <span class='ul-size-product'>
+                <p>" . $row['availability'] . "</p>
+              </span>   
+          </span>
+          <span class='product-color-product'>
+               <h4>Prize</h4>
+               <p>" . $row['price'] . "</p>
+          </span>
+                <span class='product-price-product'>
+                  EUR<b>" . $row['price'] - ($row['price'] * $row['Discount'] / 100) . "</b>
+                </span>
+                <span class='details-product'>
+            <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
+            <form action='./actions/a_addToCart.php' method='post'>
           <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
           <input type='hidden' name='fk_user' value=3>
           <button type='submit'>Add to cart</button></form>
+          </span>
+        </div>
+      </div>
+  </div>
+      
     </div>" ;}
     else{
-      $tbody .= "<div class='card col-4 m-auto' style='width: 18rem;'>
-      <img src='../pictures/".$row['picture'] ."' class='card-img-top' alt='".$row['name']."'>
-      <div class='card-body'>
-        <h5 class='card-title'>".$row['name']."</h5>
+      $tbody .=  "<div class='card-product'>
+      <div class='card-head-product'>
+        <img src='../img/logo.png' alt='logo' class='card-logo-product'>
+        <img src='../pictures/" . $row['picture'] . "' class='product-img-product' alt='" . $row['name'] . "'>
+        <div class='product-detail-product'>
+          <h2>" . $row['name'] . "</h2> 
+        </div>
+        <span class='back-text-product'>
+                ATOM
+              </span>
       </div>
-      <ul class='list-group list-group-flush'>
-        <li class=' btn btn-outline-dark'><a style='text-decoration:none;' href='type.php?type=".$row['type']."'>".$row['type']."</a></li>
-        <li class='list-group-item'>".$row['price']." EUR</li>
-        <li class='list-group-item'>A third item</li>
-      </ul>
-      <div class='card-body'>
-        <a class=' btn btn-outline-dark' href='details.php?id=".$row['id']."' class='card-link'>Details</a>
-      </div>
-      <form action='./actions/a_addToCart.php' method='post'>
+      <div class='card-body-product'>
+        <div class='product-desc-product'>
+          <span class='product-title-product'>
+                  <b>" . $row['name'] . "</b>
+                  
+          </span>
+  
+          <span class='product-caption-product'>
+          <a href='type.php?type=" . $row['type'] . "'>" . $row['type'] . "</a>
+          </span>
+  
+          <span class='product-rating-product'>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star'></i>
+                  <i class='fa fa-star grey'></i>
+          </span>
+        </div>
+        <div class='product-properties-product'>
+          <span class='product-size-product'>
+                  <h4>Availability</h4>
+                  <span class='ul-size-product'>
+                    <p>" . $row['availability'] . "</p>
+                  </span>
+          </span>
+          <span class='product-color-product'>
+            <h4>Prize</h4>
+            <p> </p>
+          </span>
+          <span class='product-price-product'>
+             EUR<b>" . $row['price'] . "</b>
+          </span>
+          <span class='details-product'>
+            <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
+            <form action='./actions/a_addToCart.php' method='post'>
           <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
           <input type='hidden' name='fk_user' value=". $_SESSION['USER'] .">
           <button class=' btn btn-outline-dark' type='submit'>Add to cart</button></form>
+          </span>
+        </div>
+      </div>
+  </div>
+      
     </div>" ;
     };
   };
@@ -96,36 +169,16 @@ mysqli_close($connect);
 
 
 <div class="fs-2 mt-5 fw-bold"><p class="text-center"> Welcome, <?= $user['user_name']?> !</p></div> <br>
+<p class='h2 text-center'> Products </p>
 
+<div class="manageProduct w-100 mt-3">
+      <div class="row w-100">
+        <div class="container-product d-flex flex-wrap justify-content-between mb-5 w-75 m-auto">
+          <?= $tbody; ?>
+        </div>
+      </div>
+    </div>
 
-<!--START HTML FOR THE RESEARCH PRODUCTS-->
-  <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-2">Search products:</h5>
-  <input class="form-control w-25 mt-4 mb-4 p-2" type="text" name="search" placeholder="product name" id="searchProd" style="margin-left:1%;">
-  <p class="fs-5 p-2" style="  background-color: rgba(127, 123, 116, 0.8431372549);">Search results</p>
-  <div id="container" style="background-color: yellow;" class="row"></div>
-<!--END RESEARCH-->
-
-  <div class= "manageProduct w-75 mt-3">
-      <p class='h2'> Products </p>
-      <div class="row m-auto">
-              <?=$tbody;?>
-       </div>
-  </div>
-   <!--SCRIPT THAT GET WITH PRODUCTLISTS:PHP FOR THE RESEARCH FUNCTION-->
-  <script>
-    function SearchProducts(){
-            let xhttp = new XMLHttpRequest();
-            let productVal = document.getElementById("searchProd").value;
-            console.log(productVal);
-            xhttp.open("GET", "productslist.php?search=" + productVal);
-            xhttp.onload = function(){
-            if(this.status == 200){
-                document.getElementById('container').innerHTML=this.responseText;
-            }}
-            xhttp.send();
-        }
-        document.getElementById('searchProd').addEventListener("input", SearchProducts);
-  </script>
       <?php require_once "../components/footer.php" ?>
 
 </body>
