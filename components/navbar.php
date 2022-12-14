@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg bg-light text-dark p-4 sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand w-25" href="#">
+            <a class="navbar-brand w-25" href="index.php">
                 <div class="logo d-flex flex-column align-items-start">
                     <img class="logo-img flex-fill w-75 " src="./img/logo.png">
                 </div>
@@ -21,8 +21,6 @@
                         <button type="submit" class="search-btn" ><i class="fa-solid fa-magnifying-glass search-btn"></i></button>
                     </form>
                     
-
-             
                     <li class="nav-item">
                         <a class="nav-link"  href="./user_panel/shopping_cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
                     </li>  
