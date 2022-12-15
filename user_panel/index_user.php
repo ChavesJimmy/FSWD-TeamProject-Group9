@@ -168,11 +168,11 @@ mysqli_close($connect);
 <body class="bg-light">
 <?php require_once("../components/navbar_user.php");
 ?>
-
+  <div id="container" class="row w-100">
+</div>
 
 <div class="fs-2 mt-5 fw-bold"><p class="text-center"> Welcome, <?= $user['user_name']?> !</p></div> <br>
 <p class='h2 text-center'> Select your Products </p>
-<div id="container"></div>
 <div class="manageProduct w-100 mt-3">
       <div class="row w-100">
         <div class="container-product d-flex flex-wrap justify-content-between mb-5 w-75 m-auto">

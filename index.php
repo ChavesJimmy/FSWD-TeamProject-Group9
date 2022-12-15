@@ -8,7 +8,10 @@ if (isset($_SESSION['USER'])) {
   header('Location: ../user_panel/index_user.php');
  exit;
 }
-
+if (isset($_SESSION['ADMIN'])) {
+  header('Location: admin_panel/index_admin.php');
+  exit;
+}
 
 $sql = "SELECT * FROM products WHERE displ=1";
 $result = mysqli_query($connect, $sql);

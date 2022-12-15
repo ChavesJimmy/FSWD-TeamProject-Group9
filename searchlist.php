@@ -67,7 +67,7 @@ if(mysqli_num_rows($result)==0) {
      float: right;
      position: absolute;
      z-index: 20;
-     background-color: #837f79;
+     background-color: whitesmoke;
      right: 0;
    }
    </style>
@@ -76,7 +76,7 @@ if(mysqli_num_rows($result)==0) {
 <body>
 <!-- Start Main Section -->
 <main>
-<div class="manageProduct w-50 d-block" id="right">
+<div class="manageProduct w-25 d-block" id="right">
  <div class="row w-100">
    <h6>Search result:</h6>
    <div class="container-productmb-5 w-100 m-auto border border-4">
