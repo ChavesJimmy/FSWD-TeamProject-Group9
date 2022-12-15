@@ -35,7 +35,8 @@ $tbody = '';
 if (mysqli_num_rows($result)  > 0) {
   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     if($row['Discount']>0){
-      $tbody .= "  <div class='card-product'>
+      $tbody .= "  
+      <div class='card-product' style='height:655px;'>
       <div class='card-head-product'>
         <img src='../img/logo.png' alt='logo' class='card-logo-product'>
         <img src='../pictures/" . $row['picture'] . "' class='product-img-product' alt='" . $row['name'] . "'>
@@ -80,17 +81,16 @@ if (mysqli_num_rows($result)  > 0) {
                 <span class='details-product'>
             <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
             <form action='./actions/a_addToCart.php' method='post'>
-          <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
-          <input type='hidden' name='fk_user' value=3>
-          <button type='submit'>Add to cart</button></form>
+          <input type='hidden' name='fk_produkt' value='" . $row['id'] . "'>  
+          <input type='hidden' name='fk_user' value=" . $_SESSION['USER'] . ">
+          <button class=' btn btn-outline-dark' type='submit'>Add to cart</button></form>
           </span>
         </div>
       </div>
-  </div>
-      
-    </div>" ;}
-    else{
-      $tbody .=  "<div class='card-product'>
+  </div>";
+      } else {
+        $tbody .= "
+   <div class='card-product' style='height:655px;'>
       <div class='card-head-product'>
         <img src='../img/logo.png' alt='logo' class='card-logo-product'>
         <img src='../pictures/" . $row['picture'] . "' class='product-img-product' alt='" . $row['name'] . "'>
@@ -137,20 +137,18 @@ if (mysqli_num_rows($result)  > 0) {
           <span class='details-product'>
             <a href='details.php?id=" . $row['id'] . "' class='card-link-product'>Details</a>
             <form action='./actions/a_addToCart.php' method='post'>
-          <input type='hidden' name='fk_produkt' value='". $row['id']."'>  
-          <input type='hidden' name='fk_user' value=". $_SESSION['USER'] .">
+          <input type='hidden' name='fk_produkt' value='" . $row['id'] . "'>  
+          <input type='hidden' name='fk_user' value=" . $_SESSION['USER'] . ">
           <button class=' btn btn-outline-dark' type='submit'>Add to cart</button></form>
           </span>
         </div>
       </div>
-  </div>
-      
-    </div>" ;
+  </div>";
+      };
     };
-  };
-} else {
-  $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>" ;
-}
+  } else {
+    $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
+  }
 
 mysqli_close($connect);
 ?>
@@ -173,7 +171,7 @@ mysqli_close($connect);
 
 
 <div class="fs-2 mt-5 fw-bold"><p class="text-center"> Welcome, <?= $user['user_name']?> !</p></div> <br>
-<p class='h2 text-center'> Products </p>
+<p class='h2 text-center'> Select your Products </p>
 <div id="container"></div>
 <div class="manageProduct w-100 mt-3">
       <div class="row w-100">

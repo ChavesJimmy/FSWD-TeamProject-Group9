@@ -152,7 +152,7 @@ mysqli_close($connect);
   </div>
 
   <!--START HTML FOR THE RESEARCH PRODUCTS-->
-  <h5 style="  background-color: rgba(127, 123, 116, 0.8431372549);" class="fs-4 p-3"></h5>
+  <h5 class="fs-4 p-3"></h5>
   <div class="d-flex flex-column align-items-center">
           <h1 class=" fs-1 fw-bold text-center mb-3" style="color:rgba(127, 123, 116, 0.8431372549);">Welcome to our shop</h1>
           <div id="container"></div>

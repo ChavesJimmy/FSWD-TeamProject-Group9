@@ -60,6 +60,14 @@ mysqli_close($connect);
             margin: middle;
         }
 
+        .card-user {
+            padding-top: 125px;
+        }
+
+        .card-body-user {
+            height: 200px;
+        }
+
         .img-thumbnail {
             width: 170px !important;
             height: 150px !important;
@@ -79,9 +87,9 @@ mysqli_close($connect);
     <div class="container py-4 h100">
         <div class="row">
             <div class="col-lg-4">
-                <div class="card mb-4">
-                    <div class="card-body text-center rounded-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
-                        <img src="../pictures/<?= $photo ?>" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;">
+                <div class="card-user mb-4">
+                    <div class="card-body-user text-center rounded-3" style="  background-color: rgba(127, 123, 116, 0.8431372549);">
+                        <img src="../pictures/<?= $photo ?>" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;margin-top:20px;">
                         <h5 class="my-4">Hello, <?= $user_name ?>!</h5>
                         <div class="d-flex justify-content-center mb-2">
                             <a class=" btn btn-primary ms-1" href="update.php?id=<?= $_SESSION['USER'] ?>">Update your account</a>
