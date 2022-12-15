@@ -40,21 +40,21 @@ WHERE purchase_date >= '2022-12-31' and fk_product={$id}";
 $result4 = mysqli_query($connect, $sql4);
 $row4 = $result4->fetch_array(MYSQLI_ASSOC);
 $tbody4="";
-//select number product sold with nethos Paypal
+//select number product sold with method Paypal
 $sql5="SELECT COUNT(*) as count FROM purchase 
 JOIN products ON products.id=purchase.fk_product 
 WHERE payment_method = 'Paypal' and fk_product={$id}";
 $result5 = mysqli_query($connect, $sql5);
 $row5 = $result5->fetch_array(MYSQLI_ASSOC);
 $tbody5="";
-//select number product sold with nethos Paypal
+//select number product sold with method Paypal
 $sql6="SELECT COUNT(*) as count FROM purchase 
 JOIN products ON products.id=purchase.fk_product 
 WHERE payment_method = 'Click and collect' and fk_product={$id}";
 $result6 = mysqli_query($connect, $sql6);
 $row6 = $result6->fetch_array(MYSQLI_ASSOC);
 $tbody6="";
-//select number product sold with nethos Paypal
+//select number product sold with method Paypal
 $sql7="SELECT COUNT(*) as count FROM purchase 
 JOIN products ON products.id=purchase.fk_product 
 WHERE payment_method = 'Credit card' and fk_product={$id}";
