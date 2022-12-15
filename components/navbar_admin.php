@@ -14,7 +14,7 @@
         
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 d-flex justify-content-end" id="items">
                     <li class="nav-item">
-                        <a class="nav-link"  href="../logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                        <a class="nav-link"  href="../logout.php?logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                     </li> 
                 </ul>
         </div>
