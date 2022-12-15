@@ -16,10 +16,6 @@ if (isset($_SESSION['USER'])) {
   exit;
 } 
 
-if (!isset($_SESSION['USER']) && !isset($_SESSION['ADMIN'])) {
-  header("Location: login.php");
-  exit;
-}
 $error = false;
 $user_name = $password = $user_nameError = $passwordError = '';
 

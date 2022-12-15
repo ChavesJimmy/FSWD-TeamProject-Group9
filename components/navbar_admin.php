@@ -34,7 +34,7 @@
     <a href="../admin_panel/create_products.php">Create Products</a>
     <a href="../admin_panel/sale_statistic.php">Sale Statistic</a>
     <a href="../admin_panel/update_user.php">User Control Surface</a>
-    <a href="../logout.php">Logout</a>
+    <a href="../logout.php?logout">Logout</a>
   
  
 </div>
