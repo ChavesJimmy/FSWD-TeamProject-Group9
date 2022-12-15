@@ -144,7 +144,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
 
       <div style="margin-left:20%;">
       <form class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549);" action="actions/a_review.php" method="post">
-        <h1 style="text-align:center;">Add review for product</h1>
+        <h1 style="text-align:center;">Add review for <?=$name?></h1>
         <textarea class="form-select mt-3" name="message" id="" cols="30" rows="10"></textarea>
         <label for="rating">Rating</label>
         <select class="form-select" name="star" id="">

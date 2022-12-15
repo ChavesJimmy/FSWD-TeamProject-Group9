@@ -84,13 +84,12 @@ if ($_GET['id']) {
       <p class='fs-1'> Reviews </p>
     <p class="mt-3"><?= $tbody; ?></p>
     </div>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <?php require_once 'components/contact_footer.php' ?>
+  <?php require_once 'components/footer.php' ?>
 
 
 
