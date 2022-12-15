@@ -2,12 +2,12 @@
 require_once 'components/db_connect.php';
 require_once 'components/boot.php';
 
-/*session_start();
+session_start();
 
 if (isset($_SESSION['USER'])) {
   header('Location: ../user_panel/index_user.php');
  exit;
-}*/
+}
 
 
 $sql = "SELECT * FROM products WHERE displ=1";
