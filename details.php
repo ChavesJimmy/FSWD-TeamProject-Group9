@@ -61,10 +61,10 @@ if ($_GET['id']) {
 <body>
   <?php require_once './components/details.navbar.php' ?>
   <div class="mt-5" style="margin-left:20%;">
-    <div class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549);">
+    <div class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549); margin-bottom: 50px;">
       <div class="row g-0">
         <div class="col-md-4 rounded mt-3">
-          <img class="mb-3 rounded" src="./pictures/<?= $picture ?>" class="card-img-top" alt="..." style="width: 200px;">
+          <img class="mb-3 rounded" src="./pictures/<?= $picture ?>" class="card-img-top" alt="..." style="width: 500px;margin-left:-25px;">
         </div>
         <div class="col-md-8">
           <div class="card-body" style="margin-left:15%;">

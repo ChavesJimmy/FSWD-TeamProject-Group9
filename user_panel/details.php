@@ -106,7 +106,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
 </head>
 
 <body>
-  <?php require_once '../components/details.navbar.php' ?>
+  <?php require_once '../components/user.details.navbar.php' ?>
   <section>
     <div>
       <p class="fs-1 fw-bold mt-4" style="text-align:center;">Details</p>
@@ -114,7 +114,7 @@ if (mysqli_num_rows($resultreview)  > 0) {
           <div class="card p-4 w-75" style="background-color: rgba(127, 123, 116, 0.8431372549);">
             <div class="row g-0">
               <div class="col-md-4 rounded mt-3">
-                <img class="mb-3 rounded" src="../pictures/<?= $picture ?>" class="card-img-top" alt="..." style="width: 200px;">
+                <img class="mb-3 rounded" src="../pictures/<?= $picture ?>" class="card-img-top" alt="..." style="width: 300px; margin-left: 50px;">
               </div>
               <div class="col-md-8">
                 <div class="card-body" style="margin-left:15%;">
